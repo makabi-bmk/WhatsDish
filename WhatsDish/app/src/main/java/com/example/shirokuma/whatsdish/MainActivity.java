@@ -45,11 +45,9 @@ import com.google.api.services.vision.v1.model.ImageContext;
 import org.apache.lucene.search.spell.LevensteinDistance;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -113,17 +111,9 @@ public class MainActivity extends AppCompatActivity
         ocrImageView = findViewById(R.id.ocr_image);
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        adapter.clear();
         listView = findViewById(R.id.list_view);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String msg = listView.getItemAtPosition(position) + "が押されました";
-                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(MainActivity.this, ShowFoodInfo.class);
-                intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
-                startActivity(intent);
-            }
-        });
     }
 
     //ギャラリーが選択されたときの処理
@@ -348,6 +338,13 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     ocrTextView.setText("料理名をタップすると\n詳細が表示されます");
                     listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(MainActivity.this, ShowFoodInfo.class);
+                            intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
+                            startActivity(intent);
+                        }
+                    });
 
                 }
             }
@@ -368,7 +365,7 @@ public class MainActivity extends AppCompatActivity
         } else if (orgWidth > orgHeight) {
             resWidth = maxDim;
             resHeight = (int) (resWidth * (float) orgHeight / (float) orgWidth);
-        } else if (orgHeight == orgWidth) {
+        } else  {
             resHeight = maxDim;
             resWidth = maxDim;
         }
