@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp"
+            android:text="@string/setAllergies"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--1行目(えび、かに、そば)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/shrimp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/crub"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/shrimp_b" />
+        <TextView
+            android:id="@+id/ebi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="えび"
+            app:layout_constraintTop_toBottomOf="@+id/shrimp"
+            app:layout_constraintLeft_toLeftOf="@+id/shrimp"
+            app:layout_constraintRight_toRightOf="@+id/shrimp"/>
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/crub"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/buckwheat"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/shrimp"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:srcCompat="@drawable/crub_b" />
+        <TextView
+            android:id="@+id/kani"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="かに"
+            app:layout_constraintTop_toBottomOf="@+id/crub"
+            app:layout_constraintLeft_toLeftOf="@id/crub"
+            app:layout_constraintRight_toRightOf="@id/crub"/>
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/buckwheat"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/crub"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/buckwheat_b" />
+        <TextView
+            android:id="@+id/soba"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="そば"
+            app:layout_constraintTop_toBottomOf="@+id/buckwheat"
+            app:layout_constraintLeft_toLeftOf="@id/buckwheat"
+            app:layout_constraintRight_toRightOf="@id/buckwheat"/>
+
+        <!--2行目(小麦,卵,乳)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/wheat"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/egg"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ebi"
+            app:srcCompat="@drawable/wheat_b" />
+        <TextView
+            android:id="@+id/komugi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小麦"
+            app:layout_constraintTop_toBottomOf="@+id/wheat"
+            app:layout_constraintLeft_toLeftOf="@id/wheat"
+            app:layout_constraintRight_toRightOf="@id/wheat"/>
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/egg"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/milk"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/wheat"
+            app:layout_constraintTop_toBottomOf="@id/ebi"
+            app:srcCompat="@drawable/egg_b" />
+        <TextView
+            android:id="@+id/tamago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="卵"
+            app:layout_constraintTop_toBottomOf="@+id/egg"
+            app:layout_constraintLeft_toLeftOf="@id/egg"
+            app:layout_constraintRight_toRightOf="@id/egg"/>
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/milk"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/egg"
+            app:layout_constraintTop_toBottomOf="@+id/ebi"
+            app:srcCompat="@drawable/milk_b" />
+        <TextView
+            android:id="@+id/nyu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="牛乳"
+            app:layout_constraintLeft_toLeftOf="@id/milk"
+            app:layout_constraintRight_toRightOf="@id/milk"
+            app:layout_constraintTop_toBottomOf="@+id/milk" />
+
+        <!--3行目(落花生,いか,いくら)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/peanuts"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/squid"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/komugi"
+            app:srcCompat="@drawable/peanuts_b" />
+        <TextView
+            android:id="@+id/pnuts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="落花生"
+            app:layout_constraintLeft_toLeftOf="@id/peanuts"
+            app:layout_constraintRight_toRightOf="@id/peanuts"
+            app:layout_constraintTop_toBottomOf="@+id/peanuts" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/squid"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/salmon_roe"
+            app:layout_constraintStart_toEndOf="@id/peanuts"
+            app:layout_constraintTop_toBottomOf="@+id/komugi"
+            app:srcCompat="@drawable/squid_b" />
+        <TextView
+            android:id="@+id/ika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="イカ"
+            app:layout_constraintLeft_toLeftOf="@id/squid"
+            app:layout_constraintRight_toRightOf="@id/squid"
+            app:layout_constraintTop_toBottomOf="@+id/squid" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/salmon_roe"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/squid"
+            app:layout_constraintTop_toBottomOf="@+id/komugi"
+            app:srcCompat="@drawable/salmon_roe_b" />
+        <TextView
+            android:id="@+id/ikura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="いくら"
+            app:layout_constraintLeft_toLeftOf="@id/salmon_roe"
+            app:layout_constraintRight_toRightOf="@id/salmon_roe"
+            app:layout_constraintTop_toBottomOf="@+id/salmon_roe" />
+
+        <!--4行目(オレンジ,カシューナッツ,キウイ)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/orange"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/cashewnuts"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pnuts"
+            app:srcCompat="@drawable/orange_b" />
+        <TextView
+            android:id="@+id/mikan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="オレンジ"
+            app:layout_constraintLeft_toLeftOf="@id/orange"
+            app:layout_constraintRight_toRightOf="@id/orange"
+            app:layout_constraintTop_toBottomOf="@+id/orange" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/cashewnuts"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/kiwi"
+            app:layout_constraintStart_toEndOf="@id/orange"
+            app:layout_constraintTop_toBottomOf="@+id/pnuts"
+            app:srcCompat="@drawable/cashewnuts_b" />
+        <TextView
+            android:id="@+id/cashew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="カシューナッツ"
+            app:layout_constraintLeft_toLeftOf="@id/cashewnuts"
+            app:layout_constraintRight_toRightOf="@id/cashewnuts"
+            app:layout_constraintTop_toBottomOf="@+id/cashewnuts" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/kiwi"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/cashewnuts"
+            app:layout_constraintTop_toBottomOf="@+id/pnuts"
+            app:srcCompat="@drawable/kiwi_b" />
+        <TextView
+            android:id="@+id/kiui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="キウイ"
+            app:layout_constraintLeft_toLeftOf="@id/kiwi"
+            app:layout_constraintRight_toRightOf="@id/kiwi"
+            app:layout_constraintTop_toBottomOf="@+id/kiwi" />
+
+        <!--5行目(牛肉,くるみ,ごま)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/cow"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/walnut"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mikan"
+            app:srcCompat="@drawable/cow_b" />
+        <TextView
+            android:id="@+id/usi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="牛肉"
+            app:layout_constraintLeft_toLeftOf="@id/cow"
+            app:layout_constraintRight_toRightOf="@id/cow"
+            app:layout_constraintTop_toBottomOf="@+id/cow" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/walnut"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/sesame"
+            app:layout_constraintStart_toEndOf="@id/cow"
+            app:layout_constraintTop_toBottomOf="@+id/mikan"
+            app:srcCompat="@drawable/walnut_b" />
+        <TextView
+            android:id="@+id/kurumi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="くるみ"
+            app:layout_constraintLeft_toLeftOf="@id/walnut"
+            app:layout_constraintRight_toRightOf="@id/walnut"
+            app:layout_constraintTop_toBottomOf="@+id/walnut" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/sesame"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/walnut"
+            app:layout_constraintTop_toBottomOf="@+id/mikan"
+            app:srcCompat="@drawable/sesame_b" />
+        <TextView
+            android:id="@+id/goma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ごま"
+            app:layout_constraintLeft_toLeftOf="@id/sesame"
+            app:layout_constraintRight_toRightOf="@id/sesame"
+            app:layout_constraintTop_toBottomOf="@+id/sesame" />
+
+        <!--6行目(魚,大豆,鶏肉)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/fish"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/soy"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/usi"
+            app:srcCompat="@drawable/fish_b" />
+        <TextView
+            android:id="@+id/sakana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="魚"
+            app:layout_constraintLeft_toLeftOf="@id/fish"
+            app:layout_constraintRight_toRightOf="@id/fish"
+            app:layout_constraintTop_toBottomOf="@+id/fish" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/soy"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/chicken"
+            app:layout_constraintStart_toEndOf="@id/fish"
+            app:layout_constraintTop_toBottomOf="@+id/usi"
+            app:srcCompat="@drawable/soy_b" />
+
+        <TextView
+            android:id="@+id/daizu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="大豆"
+            app:layout_constraintLeft_toLeftOf="@id/soy"
+            app:layout_constraintRight_toRightOf="@id/soy"
+            app:layout_constraintTop_toBottomOf="@+id/soy" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/chicken"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/soy"
+            app:layout_constraintTop_toBottomOf="@+id/usi"
+            app:srcCompat="@drawable/chicken_b" />
+        <TextView
+            android:id="@+id/tori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="鶏肉"
+            app:layout_constraintLeft_toLeftOf="@id/chicken"
+            app:layout_constraintRight_toRightOf="@id/chicken"
+            app:layout_constraintTop_toBottomOf="@+id/chicken" />
+
+
+        <!--7行目(バナナ,豚肉,きのこ)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/banana"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/pig"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sakana"
+            app:srcCompat="@drawable/banana_b" />
+        <TextView
+            android:id="@+id/banana_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="バナナ"
+            app:layout_constraintLeft_toLeftOf="@id/banana"
+            app:layout_constraintRight_toRightOf="@id/banana"
+            app:layout_constraintTop_toBottomOf="@+id/banana" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/mushroom"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/pig"
+            app:layout_constraintTop_toBottomOf="@+id/sakana"
+            app:srcCompat="@drawable/mushroom_b" />
+        <TextView
+            android:id="@+id/kinoko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="きのこ"
+            app:layout_constraintLeft_toLeftOf="@id/mushroom"
+            app:layout_constraintRight_toRightOf="@id/mushroom"
+            app:layout_constraintTop_toBottomOf="@+id/mushroom" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/pig"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/mushroom"
+            app:layout_constraintStart_toEndOf="@id/banana"
+            app:layout_constraintTop_toBottomOf="@+id/sakana"
+            app:srcCompat="@drawable/pig_b" />
+        <TextView
+            android:id="@+id/buta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="豚肉"
+            app:layout_constraintLeft_toLeftOf="@id/pig"
+            app:layout_constraintRight_toRightOf="@id/pig"
+            app:layout_constraintTop_toBottomOf="@+id/pig" />
+
+
+        <!--8行目(もも,やまいも,りんご)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/peach"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/yam"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banana_t"
+            app:srcCompat="@drawable/peach_b" />
+
+        <TextView
+            android:id="@+id/momo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="もも"
+            app:layout_constraintLeft_toLeftOf="@id/peach"
+            app:layout_constraintRight_toRightOf="@id/peach"
+            app:layout_constraintTop_toBottomOf="@+id/peach" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/yam"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@id/apple"
+            app:layout_constraintStart_toEndOf="@id/peach"
+            app:layout_constraintTop_toBottomOf="@+id/banana_t"
+            app:srcCompat="@drawable/yam_b" />
+
+        <TextView
+            android:id="@+id/yamaimo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="やまいも"
+            app:layout_constraintLeft_toLeftOf="@id/yam"
+            app:layout_constraintRight_toRightOf="@id/yam"
+            app:layout_constraintTop_toBottomOf="@+id/yam" />
+
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/apple"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/button_shape"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@id/yam"
+            app:layout_constraintTop_toBottomOf="@+id/banana_t"
+            app:srcCompat="@drawable/apple_b" />
+
+        <TextView
+            android:id="@+id/ringo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="りんご"
+            app:layout_constraintLeft_toLeftOf="@id/apple"
+            app:layout_constraintRight_toRightOf="@id/apple"
+            app:layout_constraintTop_toBottomOf="@+id/apple" />
+
+
+        <!--9行目(ゼラチン)-->
+        <com.example.shirokuma.whatsdish.CustomButton
+            android:id="@+id/gelatin"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_shape"
+            android:scaleType="centerCrop"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="@id/peach"
+            app:layout_constraintTop_toBottomOf="@id/momo"
+            app:srcCompat="@drawable/gelatin_b" />
+
+        <TextView
+            android:id="@+id/zeratin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ゼラチン"
+            app:layout_constraintLeft_toLeftOf="@id/gelatin"
+            app:layout_constraintRight_toRightOf="@id/gelatin"
+            app:layout_constraintTop_toBottomOf="@+id/gelatin" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</ScrollView>
