@@ -18,8 +18,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +66,8 @@ public class MainActivity extends AppCompatActivity
     // 結果表示
     private TextView ocrTextView;
     private ImageView ocrImageView;
+    private ListView listView;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +111,9 @@ public class MainActivity extends AppCompatActivity
 
         ocrTextView = findViewById(R.id.ocr_text);
         ocrImageView = findViewById(R.id.ocr_image);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listView = findViewById(R.id.list_view);
     }
 
     //ギャラリーが選択されたときの処理
@@ -213,6 +221,9 @@ public class MainActivity extends AppCompatActivity
         // 処理中メッセージの表示
         ocrTextView.setText(R.string.loading_message);
 
+        //リストの初期化
+        adapter.clear();
+
         // API呼び出しを行うための非同期処理
         new AsyncTask<Object, Void, String>() {
             @Override
@@ -303,18 +314,36 @@ public class MainActivity extends AppCompatActivity
 
             // 解析結果を表示
             protected void onPostExecute(String result) {
-                //ocrTextView.setText("料理名をタップすると説明画面に飛びます");
                 String[] receivedFoodName = result.split("\n", 0);
                 FoodData foodData = new FoodData();
                 LevensteinDistance levensteinDistance = new LevensteinDistance();
+                ArrayList<String> storeFoodname = new ArrayList<>();
+                boolean existsSimilarString = false;
 
                 for(String foodName : (foodData.foodInfo).keySet()) {
                     for(String receivedName : receivedFoodName) {
                         Float distance = levensteinDistance.getDistance(foodName, receivedName);
                         if (distance > 0.3) {
-                            ocrTextView.append(distance + " " + foodName + " " + receivedName +  "\n");
+                            if (storeFoodname.indexOf(foodName) == -1) {
+                                adapter.add(foodName);
+                                storeFoodname.add(foodName);
+                            }
+                            //ocrTextView.append(distance + " " + foodName + " " + receivedName +  "\n");
+                            existsSimilarString = true;
                         }
                     }
+                }
+                if (!existsSimilarString) {
+                    ocrTextView.setText("料理データが見つかりませんでした");
+                } else {
+                    ocrTextView.setText("料理名をタップすると説明画面に飛びます");
+                    listView.setAdapter(adapter);
+                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String msg = listView.getItemAtPosition(position) + "が押されました";
+                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
         }.execute();

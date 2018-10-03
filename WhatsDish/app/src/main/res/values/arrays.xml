@@ -3,4 +3,11 @@
     <string-array name="lang_items">
         <item>ja</item>
     </string-array>
+
+    <array name="list_view_items">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </array>
 </resources>

@@ -9,36 +9,38 @@
     tools:showIn="@layout/app_bar_main">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <Button
-                    android:text="写真を認識"
-                    android:layout_margin="10px"
+                    android:id="@+id/select_photo"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
                     android:background="@color/colorAccent"
-                    android:id="@+id/select_photo" />
+                    android:text="写真を認識" />
 
                 <Spinner
                     android:id="@+id/lang"
-                    android:layout_margin="10px"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:entries="@array/lang_items"
-                    />
+                    android:layout_margin="10px"
+                    android:layout_weight="1"
+                    android:entries="@array/lang_items" />
 
 
             </LinearLayout>
@@ -46,15 +48,25 @@
             <ImageView
                 android:id="@+id/ocr_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitCenter"/>
+                android:layout_height="200dp"
+                android:minHeight="200dp"
+                android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/ocr_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:textSize="10pt"/>
+                android:textSize="10pt" />
+
+            <ListView
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="212dp"
+                android:entries="@array/list_view_items"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+            </ListView>
 
         </LinearLayout>
     </ScrollView>
