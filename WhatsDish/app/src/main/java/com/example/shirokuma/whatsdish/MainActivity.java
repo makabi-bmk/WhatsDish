@@ -114,6 +114,16 @@ public class MainActivity extends AppCompatActivity
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listView = findViewById(R.id.list_view);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String msg = listView.getItemAtPosition(position) + "が押されました";
+                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(MainActivity.this, ShowFoodInfo.class);
+                intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
+                startActivity(intent);
+            }
+        });
     }
 
     //ギャラリーが選択されたときの処理
@@ -336,14 +346,9 @@ public class MainActivity extends AppCompatActivity
                 if (!existsSimilarString) {
                     ocrTextView.setText("料理データが見つかりませんでした");
                 } else {
-                    ocrTextView.setText("料理名をタップすると説明画面に飛びます");
+                    ocrTextView.setText("料理名をタップすると\n詳細が表示されます");
                     listView.setAdapter(adapter);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            String msg = listView.getItemAtPosition(position) + "が押されました";
-                            Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
-                        }
-                    });
+
                 }
             }
         }.execute();

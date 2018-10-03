@@ -62,7 +62,7 @@
             <ListView
                 android:id="@+id/list_view"
                 android:layout_width="match_parent"
-                android:layout_height="212dp"
+                android:layout_height="200dp"
                 android:entries="@array/list_view_items"
                 app:layout_constraintBottom_toBottomOf="parent">
 
