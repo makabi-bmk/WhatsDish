@@ -2,14 +2,14 @@ package com.example.shirokuma.whatsdish;
 
 import java.util.HashMap;
 
-public class Food_data {
+public class FoodData {
 
     public HashMap foodInfo;
     public HashMap foodMat;
 
-    public void onCreate(){
-        HashMap<String, String> foodInfo = new HashMap<String, String>();
-        HashMap<String, String> foodMat = new HashMap<String, String>();
+    FoodData() {
+        foodInfo = new HashMap<String, String>();
+        foodMat = new HashMap<String, String>();
 
         foodInfo.put("沖縄そば",
                 "蕎麦といっても蕎麦粉は全く使われておらず、小麦粉のみで作られている。" +
@@ -60,7 +60,5 @@ public class Food_data {
 
         foodInfo.put("フーチャンプルー", "麩と野菜を混ぜて炒めた料理。「チャンプルー」とは沖縄の方言で「ごちゃ混ぜ」という意味");
         foodMat.put("フーチャンプルー", "・麩(小麦)\n・ツナ\n・卵\n・醤油(大豆,小麦,塩,麹,アルコール)\n・キャベツ\n・もやし\n・にんじん\n・ニラ\n・カツオ節\n・塩\n・胡椒\n・サラダ油\n");
-
-
     }
 }
