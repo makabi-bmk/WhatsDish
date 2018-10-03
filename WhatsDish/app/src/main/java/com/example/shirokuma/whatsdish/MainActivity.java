@@ -39,11 +39,14 @@ import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
 import com.google.api.services.vision.v1.model.ImageContext;
 
+import org.apache.lucene.search.spell.LevensteinDistance;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -300,8 +303,19 @@ public class MainActivity extends AppCompatActivity
 
             // 解析結果を表示
             protected void onPostExecute(String result) {
-                ocrTextView.setText("料理名をタップすると説明画面に飛びます");
-                ocrTextView.setText(result);
+                //ocrTextView.setText("料理名をタップすると説明画面に飛びます");
+                String[] receivedFoodName = result.split("\n", 0);
+                FoodData foodData = new FoodData();
+                LevensteinDistance levensteinDistance = new LevensteinDistance();
+
+                for(String foodName : (foodData.foodInfo).keySet()) {
+                    for(String receivedName : receivedFoodName) {
+                        Float distance = levensteinDistance.getDistance(foodName, receivedName);
+                        if (distance > 0.3) {
+                            ocrTextView.append(distance + " " + foodName + " " + receivedName +  "\n");
+                        }
+                    }
+                }
             }
         }.execute();
     }

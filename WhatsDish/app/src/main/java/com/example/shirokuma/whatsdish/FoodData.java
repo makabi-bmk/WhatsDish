@@ -4,12 +4,12 @@ import java.util.HashMap;
 
 public class FoodData {
 
-    public HashMap foodInfo;
-    public HashMap foodMat;
+    public HashMap<String, String> foodInfo;
+    public HashMap<String, String> foodMat;
 
     FoodData() {
-        foodInfo = new HashMap<String, String>();
-        foodMat = new HashMap<String, String>();
+        foodInfo = new HashMap<>();
+        foodMat = new HashMap<>();
 
         foodInfo.put("沖縄そば",
                 "蕎麦といっても蕎麦粉は全く使われておらず、小麦粉のみで作られている。" +
