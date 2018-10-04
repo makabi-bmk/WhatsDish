@@ -5,23 +5,18 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:title="Import" />
+            android:id="@+id/nav_allergy"
+            android:title="アレルギー設定" />
         <item
-            android:id="@+id/nav_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_cannotEat"
+            android:title="食べられないもの設定" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_religion"
+            android:title="宗教設定" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="Tools" />
-        <item
-            android:id="@+id/nav_share"
-            android:title="Share" />
-        <item
-            android:id="@+id/nav_send"
-            android:title="Send" />
+            android:id="@+id/nav_language"
+            android:title="言語設定" />
+
     </group>
 
 </menu>
