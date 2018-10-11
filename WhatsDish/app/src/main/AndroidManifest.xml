@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name="Allergies"/>
+        <activity android:name="Religion"/>
     </application>
 
 </manifest>

@@ -82,12 +82,12 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button_shape"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/islam"
+        app:layout_constraintEnd_toStartOf="@id/judaism"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintTop_toBottomOf="@id/bukkyou"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/judaism"/>
+        app:layout_constraintTop_toBottomOf="@id/bukkyou"
+        app:srcCompat="@drawable/islam" />
     <TextView
         android:id="@+id/isuramu"
         android:layout_width="wrap_content"
