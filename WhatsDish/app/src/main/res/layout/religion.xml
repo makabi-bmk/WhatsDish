@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--仏教-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/buddhism"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/christ"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/buddhism" />
+
+    <TextView
+        android:id="@+id/bukkyou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="仏教"
+        app:layout_constraintLeft_toLeftOf="@+id/buddhism"
+        app:layout_constraintRight_toRightOf="@+id/buddhism"
+        app:layout_constraintTop_toBottomOf="@+id/buddhism" />
+
+    <!--キリスト教-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/christ"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toStartOf="@+id/hinduism"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buddhism"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/christ" />
+
+    <TextView
+        android:id="@+id/kirisuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="キリスト教"
+        app:layout_constraintLeft_toLeftOf="@id/christ"
+        app:layout_constraintRight_toRightOf="@+id/christ"
+        app:layout_constraintTop_toBottomOf="@+id/christ" />
+
+    <!--ヒンドゥー教-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/hinduism"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/christ"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hinduism" />
+
+    <TextView
+        android:id="@+id/hindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ヒンドゥー教"
+        app:layout_constraintLeft_toLeftOf="@id/hinduism"
+        app:layout_constraintRight_toRightOf="@id/hinduism"
+        app:layout_constraintTop_toBottomOf="@+id/hinduism" />
+
+    <!--イスラム教-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/islam"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/islam"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintTop_toBottomOf="@id/bukkyou"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/judaism"/>
+    <TextView
+        android:id="@+id/isuramu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="イスラム教"
+        app:layout_constraintTop_toBottomOf="@id/islam"
+        app:layout_constraintRight_toRightOf="@id/islam"
+        app:layout_constraintLeft_toLeftOf="@id/islam"/>
+
+
+    <!--ユダヤ教-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/judaism"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/judaism"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/kirisuto"
+        app:layout_constraintStart_toEndOf="@id/islam"
+        app:layout_constraintEnd_toStartOf="@id/sinto"/>
+    <TextView
+        android:id="@+id/yudaya"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ユダヤ教"
+        app:layout_constraintTop_toBottomOf="@+id/judaism"
+        app:layout_constraintRight_toRightOf="@id/judaism"
+        app:layout_constraintLeft_toLeftOf="@id/judaism"/>
+
+
+    <!--神道-->
+    <com.example.shirokuma.whatsdish.CustomButton
+        android:id="@+id/sinto"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/shinto"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@id/hindo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/judaism"
+        />
+    <TextView
+        android:id="@+id/sindou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="神道"
+        app:layout_constraintTop_toBottomOf="@id/sinto"
+        app:layout_constraintRight_toRightOf="@id/sinto"
+        app:layout_constraintLeft_toLeftOf="@id/sinto"/>
+
+
+</android.support.constraint.ConstraintLayout>
