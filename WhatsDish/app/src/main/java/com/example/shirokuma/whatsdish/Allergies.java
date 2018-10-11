@@ -19,7 +19,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (shrimp_flag == 0) {
-                    allergiesList.put("shrimp", "えび");
+                    allergiesList.put("shrimp", "shrimp");
                     shrimp_flag = 1;
                     shrimp.setImageResource(R.drawable.shrimp_a);
                 } else {
@@ -37,7 +37,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (crub_flag == 0) {
-                    allergiesList.put("crub", "かに");
+                    allergiesList.put("crub", "crub");
                     crub_flag = 1;
                     crub.setImageResource(R.drawable.crub_a);
                 } else {
@@ -55,7 +55,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (buckwheat_flag == 0) {
-                    allergiesList.put("buckwheat", "そば");
+                    allergiesList.put("buckwheat", "buckwheat");
                     buckwheat_flag = 1;
                     buckwheat.setImageResource(R.drawable.buckwheat_a);
                 } else {
@@ -73,7 +73,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (wheat_flag == 0) {
-                    allergiesList.put("wheat", "小麦");
+                    allergiesList.put("wheat", "wheat");
                     wheat_flag = 1;
                     wheat.setImageResource(R.drawable.wheat_a);
                 } else {
@@ -90,7 +90,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (egg_flag == 0) {
-                    allergiesList.put("egg", "卵");
+                    allergiesList.put("egg", "egg");
                     egg_flag = 1;
                     egg.setImageResource(R.drawable.egg_a);
                 } else {
@@ -108,7 +108,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (milk_flag == 0) {
-                    allergiesList.put("milk", "牛乳");
+                    allergiesList.put("milk", "milk");
                     milk_flag = 1;
                     milk.setImageResource(R.drawable.milk_a);
                 } else {
@@ -125,7 +125,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (peanuts_flag == 0) {
-                    allergiesList.put("peanuts", "落花生");
+                    allergiesList.put("peanuts", "peanuts");
                     peanuts_flag = 1;
                     peanuts.setImageResource(R.drawable.peanuts_a);
                 } else {
@@ -142,7 +142,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (squid_flag == 0) {
-                    allergiesList.put("squid", "イカ");
+                    allergiesList.put("squid", "squid");
                     squid_flag = 1;
                     squid.setImageResource(R.drawable.squid_a);
                 } else {
@@ -159,7 +159,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (salmon_roe_flag == 0) {
-                    allergiesList.put("salmon_roe", "いくら");
+                    allergiesList.put("salmon_roe", "salmon_roe");
                     salmon_roe_flag = 1;
                     salmon_roe.setImageResource(R.drawable.salmon_roe_a);
                 } else {
@@ -176,7 +176,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (orange_flag == 0) {
-                    allergiesList.put("orange", "オレンジ");
+                    allergiesList.put("orange", "orange");
                     orange_flag = 1;
                     orange.setImageResource(R.drawable.orange_a);
                 } else {
@@ -193,7 +193,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (cashewnuts_flag == 0) {
-                    allergiesList.put("cashewnuts", "カシューナッツ");
+                    allergiesList.put("cashewnuts", "cashewnuts");
                     cashewnuts_flag = 1;
                     cashewnuts.setImageResource(R.drawable.cashewnuts_a);
                 } else {
@@ -210,7 +210,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (kiwi_flag == 0) {
-                    allergiesList.put("kiwi", "キウイ");
+                    allergiesList.put("kiwi", "kiwi");
                     kiwi_flag = 1;
                     kiwi.setImageResource(R.drawable.kiwi_a);
                 } else {
@@ -227,7 +227,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (cow_flag == 0) {
-                    allergiesList.put("cow", "牛肉");
+                    allergiesList.put("cow", "cow");
                     cow_flag = 1;
                     cow.setImageResource(R.drawable.cow_a);
                 } else {
@@ -244,7 +244,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (walnut_flag == 0) {
-                    allergiesList.put("walnut", "くるみ");
+                    allergiesList.put("walnut", "walnut");
                     walnut_flag = 1;
                     walnut.setImageResource(R.drawable.walnut_a);
                 } else {
@@ -261,7 +261,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (sesame_flag == 0) {
-                    allergiesList.put("sesame", "ごま");
+                    allergiesList.put("sesame", "sesame");
                     sesame_flag = 1;
                     sesame.setImageResource(R.drawable.sesame_a);
                 } else {
@@ -278,7 +278,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (fish_flag == 0) {
-                    allergiesList.put("fish", "魚");
+                    allergiesList.put("fish", "fish");
                     fish_flag = 1;
                     fish.setImageResource(R.drawable.fish_a);
                 } else {
@@ -295,7 +295,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (soy_flag == 0) {
-                    allergiesList.put("soy ", "大豆");
+                    allergiesList.put("soy ", "soy");
                     soy_flag = 1;
                     soy.setImageResource(R.drawable.soy_a);
                 } else {
@@ -312,7 +312,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (chicken_flag == 0) {
-                    allergiesList.put("chicken", "鶏肉");
+                    allergiesList.put("chicken", "chicken");
                     chicken_flag = 1;
                     chicken.setImageResource(R.drawable.chicken_a);
                 } else {
@@ -329,7 +329,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (banana_flag == 0) {
-                    allergiesList.put("banana", "バナナ");
+                    allergiesList.put("banana", "banana");
                     banana_flag = 1;
                     banana.setImageResource(R.drawable.banana_a);
                 } else {
@@ -346,7 +346,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (pig_flag == 0) {
-                    allergiesList.put("pig", "豚肉");
+                    allergiesList.put("pig", "pig");
                     pig_flag = 1;
                     pig.setImageResource(R.drawable.pig_a);
                 } else {
@@ -363,7 +363,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mushroom_flag == 0) {
-                    allergiesList.put("mushroom", "きのこ");
+                    allergiesList.put("mushroom", "mushroom");
                     mushroom_flag = 1;
                     mushroom.setImageResource(R.drawable.mushroom_a);
                 } else {
@@ -380,7 +380,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (peach_flag == 0) {
-                    allergiesList.put("peach", "もも");
+                    allergiesList.put("peach", "peach");
                     peach_flag = 1;
                     peach.setImageResource(R.drawable.peach_a);
                 } else {
@@ -397,7 +397,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (yam_flag == 0) {
-                    allergiesList.put("yam", "やまいも");
+                    allergiesList.put("yam", "yam");
                     yam_flag = 1;
                     yam.setImageResource(R.drawable.yam_a);
                 } else {
@@ -414,7 +414,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (apple_flag == 0) {
-                    allergiesList.put("apple", "りんご");
+                    allergiesList.put("apple", "apple");
                     apple_flag = 1;
                     apple.setImageResource(R.drawable.apple_a);
                 } else {
@@ -431,7 +431,7 @@ public class Allergies  extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (gelatin_flag == 0) {
-                    allergiesList.put("gelatin", "ゼラチン");
+                    allergiesList.put("gelatin", "gelatin");
                     gelatin_flag = 1;
                     gelatin.setImageResource(R.drawable.gelatin_a);
                 } else {
