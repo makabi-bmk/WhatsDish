@@ -56,14 +56,11 @@ public class MainActivity extends AppCompatActivity
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
     // GALLARYへのアクセスのための定数
-    private static final int GALLERY_PERMISSIONS_REQUEST = 0;
     private static final int GALLERY_IMAGE_REQUEST = 1;
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
     // 結果表示
-    private TextView ocrTextView;
-    private ImageView ocrImageView;
     private ListView listView;
     ArrayAdapter<String> adapter;
 
@@ -90,43 +87,14 @@ public class MainActivity extends AppCompatActivity
         selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder
-                        .setMessage(R.string.dialog_select_prompt)
-                        .setPositiveButton(R.string.dialog_select_gallery, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startGalleryChooser();
-                            }
-                        })
-                        .setNegativeButton(R.string.dialog_select_camera, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startCamera();
-                            }
-                        });
-                builder.create().show();
+                startCamera();
             }
         });
-
-        ocrTextView = findViewById(R.id.ocr_text);
-        ocrImageView = findViewById(R.id.ocr_image);
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         adapter.clear();
         listView = findViewById(R.id.list_view);
 
-    }
-
-    //ギャラリーが選択されたときの処理
-    public void startGalleryChooser() {
-        if (PermissionUtils.requestPermission(this, GALLERY_PERMISSIONS_REQUEST, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "写真を選択してください"),
-                    GALLERY_IMAGE_REQUEST);
-        }
     }
 
     //カメラが選択されたときの処理
@@ -164,17 +132,10 @@ public class MainActivity extends AppCompatActivity
     public void onRequestPermissionsResult(
             int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case CAMERA_PERMISSIONS_REQUEST:
-                if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
-                    startCamera();
-                }
-                break;
-            case GALLERY_PERMISSIONS_REQUEST:
-                if (PermissionUtils.permissionGranted(requestCode, GALLERY_PERMISSIONS_REQUEST, grantResults)) {
-                    startGalleryChooser();
-                }
-                break;
+        if (requestCode == CAMERA_IMAGE_REQUEST) {
+            if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
+                startCamera();
+            }
         }
     }
 
@@ -190,7 +151,6 @@ public class MainActivity extends AppCompatActivity
 
                 // Google Cloud Vision APIの呼び出し
                 callCloudVision(ocrBitmap);
-                ocrImageView.setImageBitmap(ocrBitmap);
 
             } catch (IOException e) {
                 Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
@@ -205,7 +165,6 @@ public class MainActivity extends AppCompatActivity
         try {
             // Google Cloud Vision APIの呼び出し
             callCloudVision(ocrBitmap);
-            ocrImageView.setImageBitmap(ocrBitmap);
 
         } catch (IOException e) {
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
@@ -220,8 +179,8 @@ public class MainActivity extends AppCompatActivity
      **/
     private void callCloudVision(final Bitmap bitmap) throws IOException {
 
-        // 処理中メッセージの表示
-        ocrTextView.setText(R.string.loading_message);
+        // TODO: 処理中メッセージを表示させる
+
 
         //リストの初期化
         adapter.clear();
@@ -334,9 +293,11 @@ public class MainActivity extends AppCompatActivity
                     }
                 }
                 if (!existsSimilarString) {
-                    ocrTextView.setText("料理データが見つかりませんでした");
+                    //TODO: 料理データが見つからなかった時の処理をかく
+
                 } else {
-                    ocrTextView.setText("料理名をタップすると\n詳細が表示されます");
+                    //TODO: 料理データが見つかったときのダイアログを表示する
+
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
