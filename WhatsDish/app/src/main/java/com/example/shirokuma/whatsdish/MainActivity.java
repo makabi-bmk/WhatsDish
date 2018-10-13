@@ -1,14 +1,16 @@
 package com.example.shirokuma.whatsdish;
 
-import android.Manifest;
-import android.content.DialogInterface;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,15 +18,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //ギャラリーかカメラかを選択するボタン
-        Button selectImg = (Button) findViewById(R.id.select_photo);
+        Button selectImg = findViewById(R.id.select_photo);
         selectImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,8 +180,10 @@ public class MainActivity extends AppCompatActivity
      **/
     private void callCloudVision(final Bitmap bitmap) throws IOException {
 
-        // TODO: 処理中メッセージを表示させる
-
+        //ローディング画面のダイアログを表示させる
+        final DialogFragment loadingDialog = new LoadingDialogFragment();
+        loadingDialog.setCancelable(false);
+        loadingDialog.show(getSupportFragmentManager(), "");
 
         //リストの初期化
         adapter.clear();
@@ -273,6 +276,10 @@ public class MainActivity extends AppCompatActivity
 
             // 解析結果を表示
             protected void onPostExecute(String result) {
+
+                //Loadingのダイアログを閉じる
+                loadingDialog.dismiss();
+
                 String[] receivedFoodName = result.split("\n", 0);
                 FoodData foodData = new FoodData();
                 LevensteinDistance levensteinDistance = new LevensteinDistance();
@@ -294,10 +301,11 @@ public class MainActivity extends AppCompatActivity
                 }
                 if (!existsSimilarString) {
                     //TODO: 料理データが見つからなかった時の処理をかく
-
+                    //TODO: 料理データが見つからなかった時の処理をかく
+                    Log.d("weiwei", "見つからなかったYO");
                 } else {
                     //TODO: 料理データが見つかったときのダイアログを表示する
-
+                    Log.d("weiwei", "見つかったYO");
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
