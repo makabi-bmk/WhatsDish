@@ -1,6 +1,8 @@
 package com.example.shirokuma.whatsdish;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -9,7 +11,8 @@ import java.util.HashMap;
 public class Religion extends AppCompatActivity {
     public HashMap<String, String> religion = new HashMap<>();
 
-    protected void onCreate(){
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.religion);
 
         final ImageButton buddhism = (ImageButton)findViewById(R.id.buddhism);
@@ -99,5 +102,14 @@ public class Religion extends AppCompatActivity {
         });
         ImageButton sinto = (ImageButton)findViewById(R.id.sinto);
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == android.view.KeyEvent.KEYCODE_BACK) {
+            finish();
+            return true;
+        }
+        return false;
     }
 }
