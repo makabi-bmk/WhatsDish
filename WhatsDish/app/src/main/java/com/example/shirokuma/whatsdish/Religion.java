@@ -1,6 +1,8 @@
 package com.example.shirokuma.whatsdish;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -9,7 +11,8 @@ import java.util.HashMap;
 public class Religion extends AppCompatActivity {
     public HashMap<String, String> religion = new HashMap<>();
 
-    protected void onCreate(){
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.religion);
 
         final ImageButton buddhism = (ImageButton)findViewById(R.id.buddhism);
@@ -97,7 +100,31 @@ public class Religion extends AppCompatActivity {
                 }
             }
         });
-        ImageButton sinto = (ImageButton)findViewById(R.id.sinto);
+        final ImageButton shinto = (ImageButton)findViewById(R.id.shinto);
+        shinto.setOnClickListener(new View.OnClickListener() {
+            int shinto_flag = 0;
+            @Override
+            public void onClick(View view) {
+                if (shinto_flag == 0) {
+                    //食品リストを追加
+                    shinto_flag = 1;
+                    shinto.setImageResource(R.drawable.shinto_check);
+                } else {
+                    //食品リストを削除
+                    shinto_flag = 0;
+                    shinto.setImageResource(R.drawable.shinto);
+                }
+            }
+        });
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == android.view.KeyEvent.KEYCODE_BACK) {
+            finish();
+            return true;
+        }
+        return false;
     }
 }
