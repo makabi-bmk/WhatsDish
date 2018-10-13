@@ -34,14 +34,6 @@
                     android:background="@color/colorAccent"
                     android:text="写真を認識" />
 
-                <Spinner
-                    android:id="@+id/lang"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10px"
-                    android:layout_weight="1"
-                    android:entries="@array/lang_items" />
-
 
             </LinearLayout>
 

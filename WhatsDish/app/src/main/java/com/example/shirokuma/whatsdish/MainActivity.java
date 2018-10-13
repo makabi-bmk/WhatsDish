@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity
     private ListView listView;
     ArrayAdapter<String> adapter;
 
+    String selectLang = "ja";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -281,12 +283,10 @@ public class MainActivity extends AppCompatActivity
 
                         }});
 
-                        // 言語のヒントを設定
-                        final Spinner selectLang = (Spinner) findViewById(R.id.lang);
 
                         // UIで選択された言語を取得する
                         List<String> langHint = new ArrayList<String>();
-                        langHint.add(selectLang.getSelectedItem().toString());
+                        langHint.add(selectLang);
 
                         ImageContext ic = new ImageContext();
                         ic.setLanguageHints(langHint);
