@@ -423,14 +423,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_cannotEat) {
 
         } else if (id == R.id.nav_religion) {
-<<<<<<< HEAD
             Intent intent = new Intent(MainActivity.this, Religion.class);
             startActivity(intent);
-
-=======
-            Intent intent = new Intent(MainActivity.this, Allergies.class);
-            startActivity(intent);
->>>>>>> b34958dc7620dd874bdd5c261a9fb26287686216
         } else if (id == R.id.nav_language) {
 
         }
