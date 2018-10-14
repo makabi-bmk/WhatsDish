@@ -1,23 +1,45 @@
 package com.example.shirokuma.whatsdish;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
-
 import java.util.Objects;
 
-public  class LoadingDialogFragment extends DialogFragment {
+public class ButtonDialogFragment extends DialogFragment {
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+        String dialogMessage;
+
+        switch (getArguments().getInt("message")){
+            case 0:
+                dialogMessage = "一致する料理データが\n見つかりませんでした";
+                break;
+            case 1:
+                dialogMessage = "解析完了";
+                break;
+             default:
+                 dialogMessage = "予期せぬメッセージです";
+                 break;
+        }
+
+        builder.setMessage(dialogMessage)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dismiss();
+                    }
+                });
+        return builder.create();
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -34,17 +56,5 @@ public  class LoadingDialogFragment extends DialogFragment {
         layoutParams.height = (int)dialogheight;
 
         dialog.getWindow().setAttributes(layoutParams);
-
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //Dialogのlayoutを指定
-        View v = inflater.inflate(R.layout.fragment_dialog_loading, container, false);
-        ImageView imageView = v.findViewById(R.id.viewGIF);
-        GlideDrawableImageViewTarget target = new GlideDrawableImageViewTarget(imageView);
-        Glide.with(this).load(R.drawable.loading).into(target);
-        return v;
     }
 }

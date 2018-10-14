@@ -1,6 +1,6 @@
 package com.example.shirokuma.whatsdish;
 
-import android.app.Dialog;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,20 +8,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -118,7 +114,6 @@ public class MainActivity extends AppCompatActivity
             // cancelしたケースも含む
             if (data.getExtras() == null) {
                 Log.d("debug", "cancel ?");
-                return;
             } else {
                 bitmap = (Bitmap) data.getExtras().get("data");
                 if (bitmap != null) {
@@ -131,7 +126,7 @@ public class MainActivity extends AppCompatActivity
     // 画像アクセスのための権限設定
     @Override
     public void onRequestPermissionsResult(
-            int requestCode, String[] permissions, int[] grantResults) {
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == CAMERA_IMAGE_REQUEST) {
             if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
@@ -172,12 +167,8 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    /**
-     * Google Cloud Vision APIの呼び出し
-     *
-     * @param bitmap 送信する画像ファイル
-     * @throws IOException
-     **/
+    //GoogleAPIの呼び出し
+    @SuppressLint("StaticFieldLeak")
     private void callCloudVision(final Bitmap bitmap) throws IOException {
 
         //ローディング画面のダイアログを表示させる
@@ -247,7 +238,7 @@ public class MainActivity extends AppCompatActivity
 
 
                         // UIで選択された言語を取得する
-                        List<String> langHint = new ArrayList<String>();
+                        List<String> langHint = new ArrayList<>();
                         langHint.add(selectLang);
 
                         ImageContext ic = new ImageContext();
@@ -299,13 +290,24 @@ public class MainActivity extends AppCompatActivity
                         }
                     }
                 }
+                //解析失敗時
                 if (!existsSimilarString) {
-                    //TODO: 料理データが見つからなかった時の処理をかく
-                    //TODO: 料理データが見つからなかった時の処理をかく
-                    Log.d("weiwei", "見つからなかったYO");
+                    //失敗のダイアログを表示
+                    DialogFragment missingDialog = new ButtonDialogFragment();
+                    missingDialog.setCancelable(false);
+                    Bundle args = new Bundle();
+                    args.putInt("message", 0);
+                    missingDialog.setArguments(args);
+                    missingDialog.show(getSupportFragmentManager(), "dialog");
                 } else {
-                    //TODO: 料理データが見つかったときのダイアログを表示する
-                    Log.d("weiwei", "見つかったYO");
+                    //成功のダイアログを表示
+                    DialogFragment completeDialog = new ButtonDialogFragment();
+                    completeDialog.setCancelable(false);
+                    Bundle args = new Bundle();
+                    args.putInt("message", 1);
+                    completeDialog.setArguments(args);
+                    completeDialog.show(getSupportFragmentManager(), "dialog");
+
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -325,8 +327,8 @@ public class MainActivity extends AppCompatActivity
 
         int orgWidth = bitmap.getWidth();
         int orgHeight = bitmap.getHeight();
-        int resWidth = maxDim;
-        int resHeight = maxDim;
+        int resWidth;
+        int resHeight;
 
         if (orgHeight > orgWidth) {
             resHeight = maxDim;
@@ -357,7 +359,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -382,7 +384,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
