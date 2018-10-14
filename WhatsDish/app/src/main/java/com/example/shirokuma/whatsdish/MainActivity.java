@@ -17,10 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -55,10 +52,6 @@ public class MainActivity extends AppCompatActivity
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
-    // 結果表示
-    private ListView listView;
-    ArrayAdapter<String> adapter;
-
     String selectLang = "ja";
 
     @Override
@@ -85,11 +78,6 @@ public class MainActivity extends AppCompatActivity
                 startCamera();
             }
         });
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        adapter.clear();
-        listView = findViewById(R.id.list_view);
-
     }
 
     //カメラが選択されたときの処理
@@ -150,9 +138,6 @@ public class MainActivity extends AppCompatActivity
         final DialogFragment loadingDialog = new LoadingDialogFragment();
         loadingDialog.setCancelable(false);
         loadingDialog.show(getSupportFragmentManager(), "");
-
-        //リストの初期化
-        adapter.clear();
 
         // API呼び出しを行うための非同期処理
         new AsyncTask<Object, Void, String>() {
@@ -260,7 +245,6 @@ public class MainActivity extends AppCompatActivity
                         if (storeFoodname.indexOf(foodName) == -1) {
                             if(levensteinDistance.getDistance(foodName, receivedName) > 0.3) {
                                 showFoodname.append(foodName + ",");
-                                adapter.add(foodName);
                                 storeFoodname.add(foodName);
                                 existsSimilarString = true;
                             }
@@ -286,16 +270,6 @@ public class MainActivity extends AppCompatActivity
                     args.putString("showFoodName", showFoodname.toString());
                     completeDialog.setArguments(args);
                     completeDialog.show(getSupportFragmentManager(), "dialog");
-
-                    listView.setAdapter(adapter);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(MainActivity.this, ShowFoodInfo.class);
-                            intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
-                            startActivity(intent);
-                        }
-                    });
-
                 }
             }
         }.execute();
