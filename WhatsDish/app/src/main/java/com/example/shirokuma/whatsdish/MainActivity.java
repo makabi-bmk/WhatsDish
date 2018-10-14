@@ -3,7 +3,6 @@ package com.example.shirokuma.whatsdish;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
     // GALLARYへのアクセスのための定数
-    private static final int GALLERY_IMAGE_REQUEST = 1;
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
@@ -107,9 +105,7 @@ public class MainActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
 
         // もしカメラ画像が取得できたらアップロード
-        if (requestCode == GALLERY_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            uploadImage(data.getData());
-        } else if (requestCode == CAMERA_IMAGE_REQUEST && resultCode == RESULT_OK) {
+        if (requestCode == CAMERA_IMAGE_REQUEST && resultCode == RESULT_OK) {
             Bitmap bitmap;
             // cancelしたケースも含む
             if (data.getExtras() == null) {
@@ -132,27 +128,6 @@ public class MainActivity extends AppCompatActivity
             if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
                 startCamera();
             }
-        }
-    }
-
-    // 画像のOCR処理
-    public void uploadImage(Uri uri) {
-        if (uri != null) {
-            try {
-                // scale the image to save on bandwidth
-                Bitmap ocrBitmap =
-                        scaleBitmapDown(
-                                MediaStore.Images.Media.getBitmap(getContentResolver(), uri),
-                                1200);
-
-                // Google Cloud Vision APIの呼び出し
-                callCloudVision(ocrBitmap);
-
-            } catch (IOException e) {
-                Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
-            }
-        } else {
-            Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -320,27 +295,6 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }.execute();
-    }
-
-    // 画像のサイズ変更処理
-    public Bitmap scaleBitmapDown(Bitmap bitmap, int maxDim) {
-
-        int orgWidth = bitmap.getWidth();
-        int orgHeight = bitmap.getHeight();
-        int resWidth;
-        int resHeight;
-
-        if (orgHeight > orgWidth) {
-            resHeight = maxDim;
-            resWidth = (int) (resHeight * (float) orgWidth / (float) orgHeight);
-        } else if (orgWidth > orgHeight) {
-            resWidth = maxDim;
-            resHeight = (int) (resWidth * (float) orgHeight / (float) orgWidth);
-        } else  {
-            resHeight = maxDim;
-            resWidth = maxDim;
-        }
-        return Bitmap.createScaledBitmap(bitmap, resWidth, resHeight, false);
     }
 
     // レスポンスからの文字列検出
