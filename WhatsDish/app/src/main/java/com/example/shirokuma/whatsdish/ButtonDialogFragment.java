@@ -2,6 +2,7 @@ package com.example.shirokuma.whatsdish;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,23 +19,17 @@ public class ButtonDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
-        String dialogMessage;
-
-        switch (getArguments().getInt("message")){
-            case 0:
-                dialogMessage = "一致する料理データが\n見つかりませんでした";
-                break;
-            case 1:
-                dialogMessage = "解析完了";
-                break;
-             default:
-                 dialogMessage = "予期せぬメッセージです";
-                 break;
-        }
+        final String dialogMessage = getArguments().getString("message");
+        final String showFoodname = getArguments().getString("showFoodName");
 
         builder.setMessage(dialogMessage)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        if (dialogMessage.equals(getResources().getString(R.string.compete_parse))) {
+                            Intent intent = new Intent(ButtonDialogFragment.this.getActivity(), ShowParsingResult.class);
+                            intent.putExtra("foodName", showFoodname.toString());
+                            startActivity(intent);
+                        }
                         dismiss();
                     }
                 });

@@ -247,31 +247,34 @@ public class MainActivity extends AppCompatActivity
                 loadingDialog.dismiss();
 
                 String[] receivedFoodName = result.split("\n", 0);
+                //食事データの呼び出し
                 FoodData foodData = new FoodData();
+
                 LevensteinDistance levensteinDistance = new LevensteinDistance();
                 ArrayList<String> storeFoodname = new ArrayList<>();
+                StringBuilder showFoodname = new StringBuilder();
                 boolean existsSimilarString = false;
 
                 for(String foodName : (foodData.foodInfo).keySet()) {
                     for(String receivedName : receivedFoodName) {
-                        Float distance = levensteinDistance.getDistance(foodName, receivedName);
-                        if (distance > 0.3) {
-                            if (storeFoodname.indexOf(foodName) == -1) {
+                        if (storeFoodname.indexOf(foodName) == -1) {
+                            if(levensteinDistance.getDistance(foodName, receivedName) > 0.3) {
+                                showFoodname.append(foodName + ",");
                                 adapter.add(foodName);
                                 storeFoodname.add(foodName);
+                                existsSimilarString = true;
                             }
-                            //ocrTextView.append(distance + " " + foodName + " " + receivedName +  "\n");
-                            existsSimilarString = true;
                         }
                     }
                 }
-                //解析失敗時
+
+                //一致する食事データが見つからなかった場合
                 if (!existsSimilarString) {
                     //失敗のダイアログを表示
                     DialogFragment missingDialog = new ButtonDialogFragment();
                     missingDialog.setCancelable(false);
                     Bundle args = new Bundle();
-                    args.putInt("message", 0);
+                    args.putString("message", getResources().getString(R.string.missing_parse));
                     missingDialog.setArguments(args);
                     missingDialog.show(getSupportFragmentManager(), "dialog");
                 } else {
@@ -279,7 +282,8 @@ public class MainActivity extends AppCompatActivity
                     DialogFragment completeDialog = new ButtonDialogFragment();
                     completeDialog.setCancelable(false);
                     Bundle args = new Bundle();
-                    args.putInt("message", 1);
+                    args.putString("message", getResources().getString(R.string.compete_parse));
+                    args.putString("showFoodName", showFoodname.toString());
                     completeDialog.setArguments(args);
                     completeDialog.show(getSupportFragmentManager(), "dialog");
 
