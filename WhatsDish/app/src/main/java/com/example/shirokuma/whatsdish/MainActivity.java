@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -113,6 +114,9 @@ public class MainActivity extends AppCompatActivity
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         adapter.clear();
         listView = findViewById(R.id.list_view);
+
+        //説明からの画面遷移
+        finish();
 
     }
 
@@ -432,4 +436,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

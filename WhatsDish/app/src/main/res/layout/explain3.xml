@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/explain_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explain3"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/instead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="//ここに画像を置く"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/explain_3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/buttonBefore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_before"
+        android:background="@drawable/next_button"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/colortext1"
+        android:padding="5dp"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toStartOf="@id/start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="始める"
+        android:background="@drawable/next_button"
+        android:textColor="@color/colortext1"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@id/buttonBefore2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
