@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Allergies"/>
+        <activity android:name=".Allergies"/>
     </application>
 
 </manifest>
