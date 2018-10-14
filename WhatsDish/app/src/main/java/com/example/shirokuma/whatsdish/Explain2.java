@@ -23,6 +23,7 @@ public class Explain2 extends AppCompatActivity {
         beforeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent intent = new Intent(Explain2.this, Explain1.class);
                 startActivity(intent);
             }
@@ -31,11 +32,11 @@ public class Explain2 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Intent intent = new Intent(Explain2.this, Explain3.class);
                 startActivity(intent);
             }
         });
 
-        finish();
     }
 }
