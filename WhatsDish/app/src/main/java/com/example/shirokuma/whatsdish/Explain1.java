@@ -26,6 +26,7 @@ public class Explain1 extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Explain1.this, Explain2.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
@@ -34,6 +35,7 @@ public class Explain1 extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Explain1.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
