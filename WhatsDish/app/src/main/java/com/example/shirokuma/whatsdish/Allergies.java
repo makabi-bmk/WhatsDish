@@ -1,6 +1,8 @@
 package com.example.shirokuma.whatsdish;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -9,8 +11,12 @@ import java.util.HashMap;
 public class Allergies  extends AppCompatActivity {
     public HashMap<String, String> allergiesList = new HashMap<String, String>();
 
-    protected void onCreate(){
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.allergies);
+
+        android.support.v7.widget.Toolbar toolbar = (Toolbar)findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
 
         final ImageButton shrimp = (ImageButton)findViewById(R.id.shrimp);
         shrimp.setOnClickListener(new View.OnClickListener() {
@@ -444,4 +450,5 @@ public class Allergies  extends AppCompatActivity {
 
 
     }
+
 }
