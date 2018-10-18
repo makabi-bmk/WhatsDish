@@ -118,6 +118,10 @@ public class Religion extends AppCompatActivity {
         });
 
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> first_screen
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == android.view.KeyEvent.KEYCODE_BACK) {
@@ -126,4 +130,9 @@ public class Religion extends AppCompatActivity {
         }
         return false;
     }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> first_screen
 }

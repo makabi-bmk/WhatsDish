@@ -12,6 +12,10 @@
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
+    <string name="button_next">次へ</string>
+    <string name="button_before">前へ</string>
+    <string name="pageSkip">スキップ</string>
+
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
     <string name="dialog_select_prompt">画像を選択してください</string>
@@ -22,5 +26,21 @@
     <string name="call_api_error">Cloud Vision APIの呼び出しに失敗しました</string>
     <string name="image_picker_error">イメージの読み込みに失敗しました</string>
     <string name="text_detection_error">文字が含まれていません</string>
+
+    <!--説明文-->
+    <string name="explain1">
+        使い方\n
+        カメラで料理のメニューを撮影してください。
+    </string>
+    <string name="explain2">
+        撮影したメニューから、料理の名前を読み取り、\n
+        あなたのアレルギー、好みの設定に基づき、\n
+        食べられるもの、食べられないものを判別して\n
+        表示します。
+    </string>
+    <string name="explain3">
+        表示された料理の名前をタップすると、\n
+        詳しい料理の説明を表示します。
+    </string>
 
 </resources>
