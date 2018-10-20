@@ -16,6 +16,17 @@ public class Allergies  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allergies);
 
+//        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+//
+//        toolbar.setNavigationIcon(R.drawable.apple_b);
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Allergies.this, Question.class);
+//                startActivity(intent);
+//            }
+//        });
+
         final ImageButton shrimp = (ImageButton)findViewById(R.id.shrimp);
         shrimp.setOnClickListener(new View.OnClickListener() {
 
