@@ -1,30 +1,26 @@
 package com.example.shirokuma.whatsdish;
 
-import android.Manifest;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -56,16 +52,10 @@ public class MainActivity extends AppCompatActivity
     private static final String ANDROID_CERT_HEADER = "X-Android-Cert";
     private static final String ANDROID_PACKAGE_HEADER = "X-Android-Package";
     // GALLARYへのアクセスのための定数
-    private static final int GALLERY_PERMISSIONS_REQUEST = 0;
-    private static final int GALLERY_IMAGE_REQUEST = 1;
     public static final int CAMERA_PERMISSIONS_REQUEST = 2;
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
-    // 結果表示
-    private TextView ocrTextView;
-    private ImageView ocrImageView;
-    private ListView listView;
-    ArrayAdapter<String> adapter;
+    String selectLang = "ja";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,57 +74,19 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //ギャラリーかカメラかを選択するボタン
-        Button selectImg = (Button) findViewById(R.id.select_photo);
+        //カメラを選択するボタン
+        Button selectImg = findViewById(R.id.select_photo);
         selectImg.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder
-                        .setMessage(R.string.dialog_select_prompt)
-                        .setPositiveButton(R.string.dialog_select_gallery, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startGalleryChooser();
-                            }
-                        })
-                        .setNegativeButton(R.string.dialog_select_camera, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startCamera();
-                            }
-                        });
-                builder.create().show();
+                startCamera();
             }
         });
-
-        ocrTextView = findViewById(R.id.ocr_text);
-        ocrImageView = findViewById(R.id.ocr_image);
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        adapter.clear();
-        listView = findViewById(R.id.list_view);
-
-
-    }
-
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
-
-    //ギャラリーが選択されたときの処理
-    public void startGalleryChooser() {
-        if (PermissionUtils.requestPermission(this, GALLERY_PERMISSIONS_REQUEST, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "写真を選択してください"),
-                    GALLERY_IMAGE_REQUEST);
-        }
     }
 
     //カメラが選択されたときの処理
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void startCamera() {
         Intent intent = new Intent();
         intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -142,19 +94,17 @@ public class MainActivity extends AppCompatActivity
     }
 
     // 画像ファイルの選択ができたときの処理
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         // もしカメラ画像が取得できたらアップロード
-        if (requestCode == GALLERY_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            uploadImage(data.getData());
-        } else if (requestCode == CAMERA_IMAGE_REQUEST && resultCode == RESULT_OK) {
+        if (requestCode == CAMERA_IMAGE_REQUEST && resultCode == RESULT_OK) {
             Bitmap bitmap;
             // cancelしたケースも含む
             if (data.getExtras() == null) {
                 Log.d("debug", "cancel ?");
-                return;
             } else {
                 bitmap = (Bitmap) data.getExtras().get("data");
                 if (bitmap != null) {
@@ -165,71 +115,39 @@ public class MainActivity extends AppCompatActivity
     }
 
     // 画像アクセスのための権限設定
+    @TargetApi(Build.VERSION_CODES.CUPCAKE)
     @Override
     public void onRequestPermissionsResult(
-            int requestCode, String[] permissions, int[] grantResults) {
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case CAMERA_PERMISSIONS_REQUEST:
-                if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
-                    startCamera();
-                }
-                break;
-            case GALLERY_PERMISSIONS_REQUEST:
-                if (PermissionUtils.permissionGranted(requestCode, GALLERY_PERMISSIONS_REQUEST, grantResults)) {
-                    startGalleryChooser();
-                }
-                break;
-        }
-    }
-
-    // 画像のOCR処理
-    public void uploadImage(Uri uri) {
-        if (uri != null) {
-            try {
-                // scale the image to save on bandwidth
-                Bitmap ocrBitmap =
-                        scaleBitmapDown(
-                                MediaStore.Images.Media.getBitmap(getContentResolver(), uri),
-                                1200);
-
-                // Google Cloud Vision APIの呼び出し
-                callCloudVision(ocrBitmap);
-                ocrImageView.setImageBitmap(ocrBitmap);
-
-            } catch (IOException e) {
-                Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
+        if (requestCode == CAMERA_IMAGE_REQUEST) {
+            if (PermissionUtils.permissionGranted(requestCode, CAMERA_PERMISSIONS_REQUEST, grantResults)) {
+                startCamera();
             }
-        } else {
-            Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
     }
 
     // 画像のOCR処理
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void uploadImage(Bitmap ocrBitmap) {
         try {
             // Google Cloud Vision APIの呼び出し
             callCloudVision(ocrBitmap);
-            ocrImageView.setImageBitmap(ocrBitmap);
 
         } catch (IOException e) {
             Toast.makeText(this, R.string.image_picker_error, Toast.LENGTH_LONG).show();
         }
     }
 
-    /**
-     * Google Cloud Vision APIの呼び出し
-     *
-     * @param bitmap 送信する画像ファイル
-     * @throws IOException
-     **/
+    //GoogleAPIの呼び出し
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
+    @SuppressLint("StaticFieldLeak")
     private void callCloudVision(final Bitmap bitmap) throws IOException {
 
-        // 処理中メッセージの表示
-        ocrTextView.setText(R.string.loading_message);
-
-        //リストの初期化
-        adapter.clear();
+        //ローディング画面のダイアログを表示させる
+        final DialogFragment loadingDialog = new LoadingDialogFragment();
+        loadingDialog.setCancelable(false);
+        loadingDialog.show(getSupportFragmentManager(), "");
 
         // API呼び出しを行うための非同期処理
         new AsyncTask<Object, Void, String>() {
@@ -288,12 +206,10 @@ public class MainActivity extends AppCompatActivity
 
                         }});
 
-                        // 言語のヒントを設定
-                        final Spinner selectLang = (Spinner) findViewById(R.id.lang);
 
                         // UIで選択された言語を取得する
-                        List<String> langHint = new ArrayList<String>();
-                        langHint.add(selectLang.getSelectedItem().toString());
+                        List<String> langHint = new ArrayList<>();
+                        langHint.add(selectLang);
 
                         ImageContext ic = new ImageContext();
                         ic.setLanguageHints(langHint);
@@ -321,62 +237,52 @@ public class MainActivity extends AppCompatActivity
 
             // 解析結果を表示
             protected void onPostExecute(String result) {
+
+                //Loadingのダイアログを閉じる
+                loadingDialog.dismiss();
+
                 String[] receivedFoodName = result.split("\n", 0);
+                //食事データの呼び出し
                 FoodData foodData = new FoodData();
+
                 LevensteinDistance levensteinDistance = new LevensteinDistance();
                 ArrayList<String> storeFoodname = new ArrayList<>();
+                StringBuilder showFoodname = new StringBuilder();
                 boolean existsSimilarString = false;
 
                 for(String foodName : (foodData.foodInfo).keySet()) {
                     for(String receivedName : receivedFoodName) {
-                        Float distance = levensteinDistance.getDistance(foodName, receivedName);
-                        if (distance > 0.3) {
-                            if (storeFoodname.indexOf(foodName) == -1) {
-                                adapter.add(foodName);
+                        if (storeFoodname.indexOf(foodName) == -1) {
+                            if(levensteinDistance.getDistance(foodName, receivedName) > 0.3) {
+                                showFoodname.append(foodName + ",");
                                 storeFoodname.add(foodName);
+                                existsSimilarString = true;
                             }
-                            //ocrTextView.append(distance + " " + foodName + " " + receivedName +  "\n");
-                            existsSimilarString = true;
                         }
                     }
                 }
-                if (!existsSimilarString) {
-                    ocrTextView.setText("料理データが見つかりませんでした");
-                } else {
-                    ocrTextView.setText("料理名をタップすると\n詳細が表示されます");
-                    listView.setAdapter(adapter);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Intent intent = new Intent(MainActivity.this, ShowFoodInfo.class);
-                            intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
-                            startActivity(intent);
-                        }
-                    });
 
+                //一致する食事データが見つからなかった場合
+                if (!existsSimilarString) {
+                    //失敗のダイアログを表示
+                    DialogFragment missingDialog = new ButtonDialogFragment();
+                    missingDialog.setCancelable(false);
+                    Bundle args = new Bundle();
+                    args.putString("message", getResources().getString(R.string.missing_parse));
+                    missingDialog.setArguments(args);
+                    missingDialog.show(getSupportFragmentManager(), "dialog");
+                } else {
+                    //成功のダイアログを表示
+                    DialogFragment completeDialog = new ButtonDialogFragment();
+                    completeDialog.setCancelable(false);
+                    Bundle args = new Bundle();
+                    args.putString("message", getResources().getString(R.string.compete_parse));
+                    args.putString("showFoodName", showFoodname.toString());
+                    completeDialog.setArguments(args);
+                    completeDialog.show(getSupportFragmentManager(), "dialog");
                 }
             }
         }.execute();
-    }
-
-    // 画像のサイズ変更処理
-    public Bitmap scaleBitmapDown(Bitmap bitmap, int maxDim) {
-
-        int orgWidth = bitmap.getWidth();
-        int orgHeight = bitmap.getHeight();
-        int resWidth = maxDim;
-        int resHeight = maxDim;
-
-        if (orgHeight > orgWidth) {
-            resHeight = maxDim;
-            resWidth = (int) (resHeight * (float) orgWidth / (float) orgHeight);
-        } else if (orgWidth > orgHeight) {
-            resWidth = maxDim;
-            resHeight = (int) (resWidth * (float) orgHeight / (float) orgWidth);
-        } else  {
-            resHeight = maxDim;
-            resWidth = maxDim;
-        }
-        return Bitmap.createScaledBitmap(bitmap, resWidth, resHeight, false);
     }
 
     // レスポンスからの文字列検出
@@ -395,7 +301,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -420,7 +326,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
