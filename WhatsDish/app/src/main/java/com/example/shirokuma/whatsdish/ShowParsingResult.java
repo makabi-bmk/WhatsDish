@@ -41,8 +41,6 @@ public class ShowParsingResult extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_parsing_result);
 
-        Log.d("wei", "weiweiwei");
-
         Intent intent = getIntent();
         String[] foodName = intent.getStringExtra("foodName").split(",", 0);
         final ListView listView = findViewById(R.id.list_viewa);
