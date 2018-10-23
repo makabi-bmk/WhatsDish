@@ -17,9 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,38 +28,42 @@ public class Religion extends AppCompatActivity {
     private String fileName = "religion.json";
     private String text = null;
     List<ReligionData> list = new ArrayList<>();
-    Gson gson;
+    Gson gson = new Gson();
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.religion);
 
         //宗教情報をセット
-        openFile();
+        openReligionFile();
 
         for (ReligionData i : list) {
-            Log.d("weiweiwei", i.relifionName + " " + i.isSelected);
+            Log.d("41:weiwei", i.relifionName + " " + i.isSelected);
         }
 
-        final ImageButton buddhism = (ImageButton)findViewById(R.id.buddhism);
+        final ImageButton buddhism = findViewById(R.id.buddhism);
         buddhism.setOnClickListener(new View.OnClickListener() {
             int buddhism_flag = 0;
             @Override
             public void onClick(View view) {
                 if (buddhism_flag == 0){
                     list.set(0, new ReligionData("buddhism", true));
+                    Log.d("51:weiwei", list.get(0).relifionName + ":" + list.get(0).isSelected);
                     //食品リストをハッシュマップに追加
                     buddhism_flag = 1;
                     buddhism.setImageResource(R.drawable.buddhism_check);
                 } else {
                     //食品リストを削除
                     buddhism_flag = 0;
+
+                    list.set(0, new ReligionData("buddhism", false));
+                    Log.d("61:weiwei", list.get(0).relifionName + ":" + list.get(0).isSelected);
                     buddhism.setImageResource(R.drawable.buddhism);
                 }
             }
         });
 
-        final ImageButton christ = (ImageButton)findViewById(R.id.christ);
+        final ImageButton christ = findViewById(R.id.christ);
         christ.setOnClickListener(new View.OnClickListener() {
             int christ_flag = 0;
             @Override
@@ -78,7 +81,7 @@ public class Religion extends AppCompatActivity {
             }
         });
 
-        final ImageButton hinduism = (ImageButton)findViewById(R.id.hinduism);
+        final ImageButton hinduism = findViewById(R.id.hinduism);
         hinduism.setOnClickListener(new View.OnClickListener() {
             int hinduism_flag = 0;
             @Override
@@ -95,7 +98,7 @@ public class Religion extends AppCompatActivity {
             }
         });
 
-        final ImageButton islam = (ImageButton)findViewById(R.id.islam);
+        final ImageButton islam = findViewById(R.id.islam);
         islam.setOnClickListener(new View.OnClickListener() {
             int islam_flag = 0;
             @Override
@@ -112,7 +115,7 @@ public class Religion extends AppCompatActivity {
             }
         });
 
-        final ImageButton judaism = (ImageButton)findViewById(R.id.judaism);
+        final ImageButton judaism = findViewById(R.id.judaism);
         judaism.setOnClickListener(new View.OnClickListener() {
             int judaism_flag = 0;
             @Override
@@ -128,7 +131,7 @@ public class Religion extends AppCompatActivity {
                 }
             }
         });
-        final ImageButton shinto = (ImageButton)findViewById(R.id.shinto);
+        final ImageButton shinto = findViewById(R.id.shinto);
         shinto.setOnClickListener(new View.OnClickListener() {
             int shinto_flag = 0;
             @Override
@@ -154,44 +157,39 @@ public class Religion extends AppCompatActivity {
     }
 
     // ファイルを読み出し
-    public String openFile() {
-        String text = null;
+    public void openReligionFile() {
 
         // try-with-resources
-        try (FileInputStream fileInputStream = new FileInputStream(fileName);
+        try (FileInputStream fileInputStream = openFileInput(fileName);
              BufferedReader reader= new BufferedReader(
                      new InputStreamReader(fileInputStream, "UTF-8"))) {
 
             String lineBuffer;
             while( (lineBuffer = reader.readLine()) != null ) {
-                text = lineBuffer ;
+                text = lineBuffer;
             }
-
+            list = gson.fromJson(text, new TypeToken<List<ReligionData>>(){}.getType());
         } catch (FileNotFoundException e) {
             initData();
             Log.d("weiwei", "ファイルが無かったYO");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return text;
-    }
-
-    public List<ReligionData> setData() {
-        Gson gson = new Gson();
-        //Type collectionType = new TypeToken<Collection<ReligionData>>(){}.getType();
-        //return gson.fromJson(text, collectionType);
-        return gson.fromJson(text, new TypeToken<List<ReligionData>>(){}.getType());
     }
 
     public void saveData() {
         // try-with-resources
         try (FileOutputStream fileOutputstream = openFileOutput(fileName,
-                Context.MODE_PRIVATE);){
+                Context.MODE_PRIVATE)){
 
-            String str = gson.toJson(list);
-            fileOutputstream.write(str.getBytes());
+            text = gson.toJson(list);
+            for (ReligionData li : list) {
+                Log.d("185:weiwei", li.relifionName + " " + li.isSelected);
+            }
+            fileOutputstream.write(text.getBytes());
 
         } catch (IOException e) {
+            Log.d("190:weiwei", "データ保存に失敗したよ");
             e.printStackTrace();
         }
     }
@@ -209,16 +207,13 @@ public class Religion extends AppCompatActivity {
             religionData[3] = new ReligionData("islam", false);
             religionData[4] = new ReligionData("judaism", false);
             religionData[5] = new ReligionData("shinto", false);
-
-
-            for (ReligionData data : religionData) {
-                list.add(data);
-            }
+            Collections.addAll(list, religionData);
             text = gson.toJson(list);
         }
 
 
     }
+
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == android.view.KeyEvent.KEYCODE_BACK) {
             finish();
