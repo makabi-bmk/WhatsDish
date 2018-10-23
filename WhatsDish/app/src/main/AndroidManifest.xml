@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Allergies"/>
+        <activity android:name=".Question_allergies"/>
+        <activity android:name=".Allergies" android:theme="@style/CustomToolbar"/>
     </application>
 
 </manifest>

@@ -1,8 +1,11 @@
 package com.example.shirokuma.whatsdish;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -449,6 +452,22 @@ public class Allergies  extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.allergies_menu,menu);
+        return true;
+    }
+
+    public boolean onOptionItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.quetion_a) {
+            Intent intent = new Intent(Allergies.this, Question_allergies.class);
+            startActivity(intent);
+            finish();
+        }
+        return true;
     }
 
 }
