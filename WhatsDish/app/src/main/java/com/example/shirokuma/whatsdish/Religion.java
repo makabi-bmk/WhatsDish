@@ -1,6 +1,7 @@
 package com.example.shirokuma.whatsdish;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -25,6 +27,7 @@ public class Religion extends AppCompatActivity {
 
     private String fileName = "religion.json";
     private String jsonReligiousData = null;
+    private final int religionNum = 6;
     static List<ReligionData> religionDataList = new ArrayList<>();
     Gson gson = new Gson();
 
@@ -35,134 +38,29 @@ public class Religion extends AppCompatActivity {
         //宗教情報をセット
         openReligionDataFile();
 
-        final ReligionButton budd = findViewById(R.id.buddhism);
-        budd.setValue("buddhism", religionDataList.get(0).isSelected);
-        budd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("weiwei", "43;" + budd.isSelect());
-                religionDataList.set(0, new ReligionData("buddhism", budd.isSelect()));
-            }
-        });
+        //ImageButtonの配置
+        ReligionButton[] religionButtons = new ReligionButton[religionNum];
+        for (int i = 0; i < religionNum; i++) {
+            Resources res = getResources();
+            int stringID = res.getIdentifier("religion_" + i, "string", getPackageName());
+            String religionName = res.getString(stringID);
+            int resourseID = res.getIdentifier(religionName, "id", getPackageName());
 
-//        final ImageButton buddhism = findViewById(R.id.buddhism);
-//        buddhism.setOnClickListener(new View.OnClickListener() {
-//            boolean isSelected = false;
-//            @Override
-//            public void onClick(View view) {
-//                isSelected = !isSelected;
-//                //buddhism.setImageResource(changeReligionPicture("buddhism" , isSelected));
-//                //changeReligionPicture("buddhism", isSelected);
-////                if (isSelected == false){
-////                    //食品リストをハッシュマップに追加
-////                    isSelected = 1;
-////                    buddhism.setImageResource(R.drawable.buddhism_check);
-////                } else {
-////                    //食品リストを削除
-////                    isSelected = 0;
-////
-////                    religionDataList.set(0, new ReligionData("buddhism", false));
-////                    buddhism.setImageResource(R.drawable.buddhism);
-////                }
-//                Log.d("weiwei", "buddhism:" + isSelected);
-//            }
-//        });
-
-        final ImageButton christ = findViewById(R.id.christ);
-        christ.setOnClickListener(new View.OnClickListener() {
-            int christ_flag = 0;
-            @Override
-            public void onClick(View view) {
-                if (christ_flag == 0){
-                    //食品リストをハッシュマップに追加
-                    christ_flag = 1;
-                    christ.setImageResource(R.drawable.christ_check);
-                } else {
-                    //食品リストを削除
-                    christ_flag = 0;
-                    christ.setImageResource(R.drawable.christ);
-                }
-
-            }
-        });
-
-        final ImageButton hinduism = findViewById(R.id.hinduism);
-        hinduism.setOnClickListener(new View.OnClickListener() {
-            int hinduism_flag = 0;
-            @Override
-            public void onClick(View view) {
-                if (hinduism_flag == 0){
-                    //食品リストをハッシュマップに追加
-                    hinduism_flag = 1;
-                    hinduism.setImageResource(R.drawable.hinduism_check);
-                } else {
-                    //食品リストを削除
-                    hinduism_flag = 0;
-                    hinduism.setImageResource(R.drawable.hinduism);
-                }
-            }
-        });
-
-        final ImageButton islam = findViewById(R.id.islam);
-        islam.setOnClickListener(new View.OnClickListener() {
-            int islam_flag = 0;
-            @Override
-            public void onClick(View view) {
-                if (islam_flag == 0){
-                    //食品リストを追加
-                    islam_flag = 1;
-                    islam.setImageResource(R.drawable.islam_check);
-                } else {
-                    //食品リストを削除
-                    islam_flag = 0;
-                    islam.setImageResource(R.drawable.islam);
-                }
-            }
-        });
-
-        final ImageButton judaism = findViewById(R.id.judaism);
-        judaism.setOnClickListener(new View.OnClickListener() {
-            int judaism_flag = 0;
-            @Override
-            public void onClick(View view) {
-                if (judaism_flag == 0){
-                    //食品リストを追加
-                    judaism_flag = 1;
-                    judaism.setImageResource(R.drawable.judaism_check);
-                } else {
-                    //食品リストを削除
-                    judaism_flag = 0;
-                    judaism.setImageResource(R.drawable.judaism);
-                }
-            }
-        });
-        final ImageButton shinto = findViewById(R.id.shinto);
-        shinto.setOnClickListener(new View.OnClickListener() {
-            int shinto_flag = 0;
-            @Override
-            public void onClick(View view) {
-                if (shinto_flag == 0) {
-                    //食品リストを追加
-                    shinto_flag = 1;
-                    shinto.setImageResource(R.drawable.shinto_check);
-                } else {
-                    //食品リストを削除
-                    shinto_flag = 0;
-                    shinto.setImageResource(R.drawable.shinto);
-                }
-            }
-        });
-
+            religionButtons[i] = findViewById(resourseID);
+            religionButtons[i].setValue(i, religionName, religionDataList.get(i).isSelected);
+            religionButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.d("weiwei", "onDestroy:budd = " + religionDataList.get(0).isSelected);
+        Log.d("weiwei", "onDestroy");
+        for (ReligionData l : religionDataList) {
+            Log.d("weiwei", l.relifionName + ":" + l.isSelected);
+        }
         saveData();
     }
-
-
 
     // ファイルを読み出し
     public void openReligionDataFile() {

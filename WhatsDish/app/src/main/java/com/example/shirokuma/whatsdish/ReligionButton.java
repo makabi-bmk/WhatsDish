@@ -18,6 +18,7 @@ import static com.example.shirokuma.whatsdish.Religion.religionDataList;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
 
+    private int listID;
     private boolean isSelect = false;
     private String religionName;
     private OnClickListener listener;
@@ -34,7 +35,8 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
         super(context, attrs, defStyleAttr);
     }
 
-    public void setValue(String religionName, boolean isSelect) {
+    public void setValue(int listID, String religionName, boolean isSelect) {
+        this.listID = listID;
         this.religionName = religionName;
         this.isSelect = isSelect;
         setImageResource(changeReligionPicture());
@@ -71,12 +73,14 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        Log.d("weiwei", "run通ったよ");
                         isSelect = !isSelect;
-                        Log.d("weiwei", "63:" + isSelect);
-                        religionDataList.set(0, new ReligionData(religionName, isSelect));
+                        Log.d("weiwei", "63:" + religionName + ":" + isSelect);
+                        religionDataList.set(listID, new ReligionData(religionName, isSelect));
+                        Log.d("weiwei", "一覧");
+                        for (ReligionData l : religionDataList) {
+                            Log.d("weiwei",l.relifionName + ":" + l.isSelected);
+                        }
                         setImageResource(changeReligionPicture());
-    //                    listener.onClick(ReligionButton.this);
                     }
                 });
             }
