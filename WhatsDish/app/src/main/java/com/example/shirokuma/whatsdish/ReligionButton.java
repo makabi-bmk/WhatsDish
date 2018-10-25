@@ -2,19 +2,14 @@ package com.example.shirokuma.whatsdish;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.widget.ImageButton;
 
-import java.net.ConnectException;
-import java.text.AttributedCharacterIterator;
-
-import static com.example.shirokuma.whatsdish.Religion.religionDataList;
+import static com.example.shirokuma.whatsdish.ReligionView.religionDataFormatList;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
 
@@ -47,7 +42,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
     }
 
     private void changeReligionData(int religionNum) {
-        //religionDataList.set(0, new ReligionData("buddhism", true));
+        //religionDataFormatList.set(0, new ReligionDataFormat("buddhism", true));
     }
 
     public int changeReligionPicture() {
@@ -75,10 +70,10 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                     public void run() {
                         isSelect = !isSelect;
                         Log.d("weiwei", "63:" + religionName + ":" + isSelect);
-                        religionDataList.set(listID, new ReligionData(religionName, isSelect));
+                        religionDataFormatList.set(listID, new ReligionDataFormat(religionName, isSelect));
                         Log.d("weiwei", "一覧");
-                        for (ReligionData l : religionDataList) {
-                            Log.d("weiwei",l.relifionName + ":" + l.isSelected);
+                        for (ReligionDataFormat l : religionDataFormatList) {
+                            Log.d("weiwei",l.relifionName + ":" + l.isSelect);
                         }
                         setImageResource(changeReligionPicture());
                     }
