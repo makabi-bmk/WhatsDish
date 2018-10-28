@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity
 
         //食材リストファイルを開く
         openIngredientDataFile();
+//        for(IngredientListFormat l: ingredientList) {
+//            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
+//        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        for(IngredientListFormat l: ingredientList) {
-            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
-        }
         saveData();
     }
 
@@ -395,9 +395,12 @@ public class MainActivity extends AppCompatActivity
                 jsonIngredientData = lineBuffer;
             }
             ingredientList = gson.fromJson(jsonIngredientData, new TypeToken<List<IngredientListFormat>>(){}.getType());
+            Log.d("weiwei", "ファイル読み込みに成功したZE");
         } catch (FileNotFoundException e) {
+            Log.d("weiwei", "ファイルが無かったから初期化するZE");
             initData();
         } catch (IOException e) {
+            Log.d("weiwei", "エラーだZE:" + e);
             e.printStackTrace();
         }
     }
@@ -419,7 +422,9 @@ public class MainActivity extends AppCompatActivity
         if (fileName.equals("ingredient.json")) {
             //食材情報をセット
             Gson gson = new Gson();
-            IngredientListFormat[] ingredientListFormats = new IngredientListFormat[6];
+            //TODO:resourseの中の要素数を返す仕様とかないかな？
+            final int ingredientLength = 195;
+            IngredientListFormat[] ingredientListFormats = new IngredientListFormat[ingredientLength];
 
             int strID;
             int elementsNum = 0;
@@ -430,7 +435,11 @@ public class MainActivity extends AppCompatActivity
 
             for (int i = 0; i < categoryNum; i++) {
                 ingredientNum = 0;
-                while ((strID = getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "ingredient", getPackageName())) != NULL) {
+                while (true) {
+                    strID = getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "string", getPackageName());
+                    if (strID == NULL || strID == 0) {
+                        break;
+                    }
                     ingredientListFormats[elementsNum] = new IngredientListFormat(getResources().getString(strID), categories[i]);
                     ingredientNum++;
                     elementsNum++;
@@ -438,6 +447,9 @@ public class MainActivity extends AppCompatActivity
             }
 
             Collections.addAll(ingredientList, ingredientListFormats);
+            for (IngredientListFormat l : ingredientList) {
+                Log.d("weiwei", "l = " + l.category + ", " + l.ingredientName + ", " + l.isPossibleToEat);
+            }
             jsonIngredientData = gson.toJson(ingredientList);
         }
     }
