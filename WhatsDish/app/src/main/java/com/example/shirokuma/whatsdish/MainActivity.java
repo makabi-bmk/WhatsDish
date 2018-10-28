@@ -2,6 +2,7 @@ package com.example.shirokuma.whatsdish;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -37,13 +38,30 @@ import com.google.api.services.vision.v1.model.EntityAnnotation;
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
 import com.google.api.services.vision.v1.model.ImageContext;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.apache.lucene.search.spell.LevensteinDistance;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.dairy_product;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.fruit;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.grain;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.meat;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.seafood;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.seasoning;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.vegetable;
+import static java.sql.Types.NULL;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -56,6 +74,12 @@ public class MainActivity extends AppCompatActivity
     public static final int CAMERA_IMAGE_REQUEST = 3;
 
     String selectLang = "ja";
+
+    //食材ファイルを開くための変数
+    String fileName = "ingredient.json";
+    private String jsonIngredientData = null;
+    static List<IngredientListFormat> ingredientList = new ArrayList<>();
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +107,18 @@ public class MainActivity extends AppCompatActivity
                 startCamera();
             }
         });
+
+        //食材リストファイルを開く
+        openIngredientDataFile();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        for(IngredientListFormat l: ingredientList) {
+            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
+        }
+        saveData();
     }
 
     //カメラが選択されたときの処理
@@ -336,7 +372,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_cannotEat) {
 
         } else if (id == R.id.nav_religion) {
-            Intent intent = new Intent(MainActivity.this, ReligionView.class);
+            Intent intent = new Intent(MainActivity.this, Religion.class);
             startActivity(intent);
         } else if (id == R.id.nav_language) {
 
@@ -346,5 +382,64 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    // ファイルを読み出し
+    public void openIngredientDataFile() {
+
+        // try-with-resources
+        try (FileInputStream fileInputStream = openFileInput(fileName);
+             BufferedReader reader= new BufferedReader(
+                     new InputStreamReader(fileInputStream, "UTF-8"))) {
+
+            String lineBuffer;
+            while( (lineBuffer = reader.readLine()) != null ) {
+                jsonIngredientData = lineBuffer;
+            }
+            ingredientList = gson.fromJson(jsonIngredientData, new TypeToken<List<IngredientListFormat>>(){}.getType());
+        } catch (FileNotFoundException e) {
+            initData();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveData() {
+        // try-with-resources
+        try (FileOutputStream fileOutputstream = openFileOutput(fileName,
+                Context.MODE_PRIVATE)){
+
+            jsonIngredientData = gson.toJson(ingredientList);
+            fileOutputstream.write(jsonIngredientData.getBytes());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initData() {
+        if (fileName.equals("ingredient.json")) {
+            //食材情報をセット
+            Gson gson = new Gson();
+            IngredientListFormat[] ingredientListFormats = new IngredientListFormat[6];
+
+            int strID;
+            int elementsNum = 0;
+            int ingredientNum = 0;
+            IngredientListFormat.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
+            String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
+            final int categoryNum = categories.length;
+
+            for (int i = 0; i < categoryNum; i++) {
+                ingredientNum = 0;
+                while ((strID = getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "ingredient", getPackageName())) != NULL) {
+                    ingredientListFormats[elementsNum] = new IngredientListFormat(getResources().getString(strID), categories[i]);
+                    ingredientNum++;
+                    elementsNum++;
+                }
+            }
+
+            Collections.addAll(ingredientList, ingredientListFormats);
+            jsonIngredientData = gson.toJson(ingredientList);
+        }
+    }
 
 }

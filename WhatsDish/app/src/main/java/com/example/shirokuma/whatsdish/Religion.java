@@ -21,12 +21,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ReligionView extends AppCompatActivity {
+public class Religion extends AppCompatActivity {
 
     private String fileName = "religion.json";
     private String jsonReligiousData = null;
     private final int religionNum = 6;
-    static List<ReligionDataFormat> religionDataFormatList = new ArrayList<>();
+    static List<ReligionListFormat> religionList = new ArrayList<>();
     Gson gson = new Gson();
 
     protected void onCreate(Bundle savedInstanceState){
@@ -45,7 +45,7 @@ public class ReligionView extends AppCompatActivity {
             int resourseID = res.getIdentifier(religionName, "id", getPackageName());
 
             religionButtons[i] = findViewById(resourseID);
-            religionButtons[i].setValue(i, religionName, religionDataFormatList.get(i).isSelect);
+            religionButtons[i].setValue(i, religionName, religionList.get(i).isSelect);
             religionButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
         }
     }
@@ -54,7 +54,7 @@ public class ReligionView extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d("weiwei", "onDestroy");
-        for (ReligionDataFormat l : religionDataFormatList) {
+        for (ReligionListFormat l : religionList) {
             Log.d("weiwei", l.relifionName + ":" + l.isSelect);
         }
         saveData();
@@ -72,7 +72,7 @@ public class ReligionView extends AppCompatActivity {
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonReligiousData = lineBuffer;
             }
-            religionDataFormatList = gson.fromJson(jsonReligiousData, new TypeToken<List<ReligionDataFormat>>(){}.getType());
+            religionList = gson.fromJson(jsonReligiousData, new TypeToken<List<ReligionListFormat>>(){}.getType());
         } catch (FileNotFoundException e) {
             initData();
         } catch (IOException e) {
@@ -85,7 +85,7 @@ public class ReligionView extends AppCompatActivity {
         try (FileOutputStream fileOutputstream = openFileOutput(fileName,
                 Context.MODE_PRIVATE)){
 
-            jsonReligiousData = gson.toJson(religionDataFormatList);
+            jsonReligiousData = gson.toJson(religionList);
             fileOutputstream.write(jsonReligiousData.getBytes());
 
         } catch (IOException e) {
@@ -98,16 +98,16 @@ public class ReligionView extends AppCompatActivity {
 
             //宗教情報をセット
             Gson gson = new Gson();
-            ReligionDataFormat[] religionDatumFormats = new ReligionDataFormat[6];
+            ReligionListFormat[] religionListFormats = new ReligionListFormat[6];
 
-            religionDatumFormats[0] = new ReligionDataFormat("buddhism", false);
-            religionDatumFormats[1] = new ReligionDataFormat("christ", false);
-            religionDatumFormats[2] = new ReligionDataFormat("hinduism", false);
-            religionDatumFormats[3] = new ReligionDataFormat("islam", false);
-            religionDatumFormats[4] = new ReligionDataFormat("judaism", false);
-            religionDatumFormats[5] = new ReligionDataFormat("shinto", false);
-            Collections.addAll(religionDataFormatList, religionDatumFormats);
-            jsonReligiousData = gson.toJson(religionDataFormatList);
+            religionListFormats[0] = new ReligionListFormat("buddhism");
+            religionListFormats[1] = new ReligionListFormat("christ");
+            religionListFormats[2] = new ReligionListFormat("hinduism");
+            religionListFormats[3] = new ReligionListFormat("islam");
+            religionListFormats[4] = new ReligionListFormat("judaism");
+            religionListFormats[5] = new ReligionListFormat("shinto");
+            Collections.addAll(religionList, religionListFormats);
+            jsonReligiousData = gson.toJson(religionList);
         }
     }
 

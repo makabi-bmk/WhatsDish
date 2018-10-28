@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class FoodData {
 
-    public HashMap<String, String> foodInfo;
-    public HashMap<String, String> foodMat;
+    public static HashMap<String, String> foodInfo;
+    public static HashMap<String, String> foodMat;
 
     FoodData() {
         foodInfo = new HashMap<>();

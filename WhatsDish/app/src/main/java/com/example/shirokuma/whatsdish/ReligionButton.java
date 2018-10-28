@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
-import static com.example.shirokuma.whatsdish.ReligionView.religionDataFormatList;
+import static com.example.shirokuma.whatsdish.Religion.religionList;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
 
@@ -42,7 +42,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
     }
 
     private void changeReligionData(int religionNum) {
-        //religionDataFormatList.set(0, new ReligionDataFormat("buddhism", true));
+        //religionList.set(0, new ReligionListFormat("buddhism", true));
     }
 
     public int changeReligionPicture() {
@@ -70,9 +70,9 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                     public void run() {
                         isSelect = !isSelect;
                         Log.d("weiwei", "63:" + religionName + ":" + isSelect);
-                        religionDataFormatList.set(listID, new ReligionDataFormat(religionName, isSelect));
+                        religionList.set(listID, new ReligionListFormat(religionName, isSelect));
                         Log.d("weiwei", "一覧");
-                        for (ReligionDataFormat l : religionDataFormatList) {
+                        for (ReligionListFormat l : religionList) {
                             Log.d("weiwei",l.relifionName + ":" + l.isSelect);
                         }
                         setImageResource(changeReligionPicture());
