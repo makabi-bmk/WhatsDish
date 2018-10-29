@@ -110,14 +110,14 @@ public class MainActivity extends AppCompatActivity
 
         //食材リストファイルを開く
         openIngredientDataFile();
-//        for(IngredientListFormat l: ingredientList) {
-//            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
-//        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        for(IngredientListFormat l: ingredientList) {
+            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
+        }
         saveData();
     }
 
@@ -422,12 +422,8 @@ public class MainActivity extends AppCompatActivity
         if (fileName.equals("ingredient.json")) {
             //食材情報をセット
             Gson gson = new Gson();
-            //TODO:resourseの中の要素数を返す仕様とかないかな？
-            final int ingredientLength = 195;
-            IngredientListFormat[] ingredientListFormats = new IngredientListFormat[ingredientLength];
 
             int strID;
-            int elementsNum = 0;
             int ingredientNum = 0;
             IngredientListFormat.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
             String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
@@ -440,13 +436,11 @@ public class MainActivity extends AppCompatActivity
                     if (strID == NULL || strID == 0) {
                         break;
                     }
-                    ingredientListFormats[elementsNum] = new IngredientListFormat(getResources().getString(strID), categories[i]);
+                    ingredientList.add(new IngredientListFormat(getResources().getString(strID), categories[i]));
                     ingredientNum++;
-                    elementsNum++;
                 }
             }
 
-            Collections.addAll(ingredientList, ingredientListFormats);
             for (IngredientListFormat l : ingredientList) {
                 Log.d("weiwei", "l = " + l.category + ", " + l.ingredientName + ", " + l.isPossibleToEat);
             }
