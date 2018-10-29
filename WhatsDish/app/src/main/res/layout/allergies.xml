@@ -26,19 +26,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <!--1行目(えび、かに、そば)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/shrimp"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_shape"
                 android:scaleType="centerCrop"
-                app:layout_constraintEnd_toStartOf="@+id/crub"
+                app:layout_constraintEnd_toStartOf="@+id/crab"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:srcCompat="@drawable/shrimp_b" />
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
             <TextView
                 android:id="@+id/ebi"
                 android:layout_width="wrap_content"
@@ -48,8 +47,8 @@
                 app:layout_constraintLeft_toLeftOf="@+id/shrimp"
                 app:layout_constraintRight_toRightOf="@+id/shrimp"/>
 
-            <com.example.shirokuma.whatsdish.CustomButton
-                android:id="@+id/crub"
+            <com.example.shirokuma.whatsdish.AllergiesButton
+                android:id="@+id/crab"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"
@@ -58,18 +57,17 @@
                 app:layout_constraintEnd_toStartOf="@id/buckwheat"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/shrimp"
-                app:layout_constraintTop_toBottomOf="@id/textView"
-                app:srcCompat="@drawable/crub_b" />
+                app:layout_constraintTop_toBottomOf="@id/textView" />
             <TextView
                 android:id="@+id/kani"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="かに"
-                app:layout_constraintTop_toBottomOf="@+id/crub"
-                app:layout_constraintLeft_toLeftOf="@id/crub"
-                app:layout_constraintRight_toRightOf="@id/crub"/>
+                app:layout_constraintTop_toBottomOf="@+id/crab"
+                app:layout_constraintLeft_toLeftOf="@id/crab"
+                app:layout_constraintRight_toRightOf="@id/crab"/>
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/buckwheat"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -78,9 +76,8 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@id/crub"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:srcCompat="@drawable/buckwheat_b" />
+                app:layout_constraintStart_toEndOf="@id/crab"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
             <TextView
                 android:id="@+id/soba"
                 android:layout_width="wrap_content"
@@ -91,7 +88,7 @@
                 app:layout_constraintRight_toRightOf="@id/buckwheat"/>
 
             <!--2行目(小麦,卵,乳)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/wheat"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -102,8 +99,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ebi"
-                app:srcCompat="@drawable/wheat_b" />
+                app:layout_constraintTop_toBottomOf="@+id/ebi" />
             <TextView
                 android:id="@+id/komugi"
                 android:layout_width="wrap_content"
@@ -113,7 +109,7 @@
                 app:layout_constraintLeft_toLeftOf="@id/wheat"
                 app:layout_constraintRight_toRightOf="@id/wheat"/>
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/egg"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -123,8 +119,7 @@
                 app:layout_constraintEnd_toStartOf="@id/milk"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/wheat"
-                app:layout_constraintTop_toBottomOf="@id/ebi"
-                app:srcCompat="@drawable/egg_b" />
+                app:layout_constraintTop_toBottomOf="@id/ebi" />
             <TextView
                 android:id="@+id/tamago"
                 android:layout_width="wrap_content"
@@ -134,7 +129,7 @@
                 app:layout_constraintLeft_toLeftOf="@id/egg"
                 app:layout_constraintRight_toRightOf="@id/egg"/>
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/milk"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -144,8 +139,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/egg"
-                app:layout_constraintTop_toBottomOf="@+id/ebi"
-                app:srcCompat="@drawable/milk_b" />
+                app:layout_constraintTop_toBottomOf="@+id/ebi" />
             <TextView
                 android:id="@+id/nyu"
                 android:layout_width="wrap_content"
@@ -156,7 +150,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/milk" />
 
             <!--3行目(落花生,いか,いくら)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/peanuts"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -167,8 +161,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/komugi"
-                app:srcCompat="@drawable/peanuts_b" />
+                app:layout_constraintTop_toBottomOf="@id/komugi" />
             <TextView
                 android:id="@+id/pnuts"
                 android:layout_width="wrap_content"
@@ -178,7 +171,7 @@
                 app:layout_constraintRight_toRightOf="@id/peanuts"
                 app:layout_constraintTop_toBottomOf="@+id/peanuts" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/squid"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -187,8 +180,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/salmon_roe"
                 app:layout_constraintStart_toEndOf="@id/peanuts"
-                app:layout_constraintTop_toBottomOf="@+id/komugi"
-                app:srcCompat="@drawable/squid_b" />
+                app:layout_constraintTop_toBottomOf="@+id/komugi" />
             <TextView
                 android:id="@+id/ika"
                 android:layout_width="wrap_content"
@@ -198,7 +190,7 @@
                 app:layout_constraintRight_toRightOf="@id/squid"
                 app:layout_constraintTop_toBottomOf="@+id/squid" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/salmon_roe"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -208,8 +200,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/squid"
-                app:layout_constraintTop_toBottomOf="@+id/komugi"
-                app:srcCompat="@drawable/salmon_roe_b" />
+                app:layout_constraintTop_toBottomOf="@+id/komugi" />
             <TextView
                 android:id="@+id/ikura"
                 android:layout_width="wrap_content"
@@ -220,7 +211,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/salmon_roe" />
 
             <!--4行目(オレンジ,カシューナッツ,キウイ)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/orange"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -231,8 +222,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pnuts"
-                app:srcCompat="@drawable/orange_b" />
+                app:layout_constraintTop_toBottomOf="@id/pnuts" />
             <TextView
                 android:id="@+id/mikan"
                 android:layout_width="wrap_content"
@@ -242,7 +232,7 @@
                 app:layout_constraintRight_toRightOf="@id/orange"
                 app:layout_constraintTop_toBottomOf="@+id/orange" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/cashewnuts"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -251,8 +241,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/kiwi"
                 app:layout_constraintStart_toEndOf="@id/orange"
-                app:layout_constraintTop_toBottomOf="@+id/pnuts"
-                app:srcCompat="@drawable/cashewnuts_b" />
+                app:layout_constraintTop_toBottomOf="@+id/pnuts" />
             <TextView
                 android:id="@+id/cashew"
                 android:layout_width="wrap_content"
@@ -262,7 +251,7 @@
                 app:layout_constraintRight_toRightOf="@id/cashewnuts"
                 app:layout_constraintTop_toBottomOf="@+id/cashewnuts" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/kiwi"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -272,8 +261,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/cashewnuts"
-                app:layout_constraintTop_toBottomOf="@+id/pnuts"
-                app:srcCompat="@drawable/kiwi_b" />
+                app:layout_constraintTop_toBottomOf="@+id/pnuts" />
             <TextView
                 android:id="@+id/kiui"
                 android:layout_width="wrap_content"
@@ -284,7 +272,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/kiwi" />
 
             <!--5行目(牛肉,くるみ,ごま)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/cow"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -295,8 +283,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mikan"
-                app:srcCompat="@drawable/cow_b" />
+                app:layout_constraintTop_toBottomOf="@id/mikan" />
             <TextView
                 android:id="@+id/usi"
                 android:layout_width="wrap_content"
@@ -306,7 +293,7 @@
                 app:layout_constraintRight_toRightOf="@id/cow"
                 app:layout_constraintTop_toBottomOf="@+id/cow" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/walnut"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -315,8 +302,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/sesame"
                 app:layout_constraintStart_toEndOf="@id/cow"
-                app:layout_constraintTop_toBottomOf="@+id/mikan"
-                app:srcCompat="@drawable/walnut_b" />
+                app:layout_constraintTop_toBottomOf="@+id/mikan" />
             <TextView
                 android:id="@+id/kurumi"
                 android:layout_width="wrap_content"
@@ -326,7 +312,7 @@
                 app:layout_constraintRight_toRightOf="@id/walnut"
                 app:layout_constraintTop_toBottomOf="@+id/walnut" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/sesame"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -336,8 +322,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/walnut"
-                app:layout_constraintTop_toBottomOf="@+id/mikan"
-                app:srcCompat="@drawable/sesame_b" />
+                app:layout_constraintTop_toBottomOf="@+id/mikan" />
             <TextView
                 android:id="@+id/goma"
                 android:layout_width="wrap_content"
@@ -348,7 +333,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/sesame" />
 
             <!--6行目(魚,大豆,鶏肉)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/fish"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -359,8 +344,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/usi"
-                app:srcCompat="@drawable/fish_b" />
+                app:layout_constraintTop_toBottomOf="@id/usi" />
             <TextView
                 android:id="@+id/sakana"
                 android:layout_width="wrap_content"
@@ -370,7 +354,7 @@
                 app:layout_constraintRight_toRightOf="@id/fish"
                 app:layout_constraintTop_toBottomOf="@+id/fish" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/soy"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -379,8 +363,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/chicken"
                 app:layout_constraintStart_toEndOf="@id/fish"
-                app:layout_constraintTop_toBottomOf="@+id/usi"
-                app:srcCompat="@drawable/soy_b" />
+                app:layout_constraintTop_toBottomOf="@+id/usi" />
 
             <TextView
                 android:id="@+id/daizu"
@@ -391,7 +374,7 @@
                 app:layout_constraintRight_toRightOf="@id/soy"
                 app:layout_constraintTop_toBottomOf="@+id/soy" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/chicken"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -401,8 +384,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/soy"
-                app:layout_constraintTop_toBottomOf="@+id/usi"
-                app:srcCompat="@drawable/chicken_b" />
+                app:layout_constraintTop_toBottomOf="@+id/usi" />
             <TextView
                 android:id="@+id/tori"
                 android:layout_width="wrap_content"
@@ -414,7 +396,7 @@
 
 
             <!--7行目(バナナ,豚肉,きのこ)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/banana"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -425,8 +407,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/sakana"
-                app:srcCompat="@drawable/banana_b" />
+                app:layout_constraintTop_toBottomOf="@id/sakana" />
             <TextView
                 android:id="@+id/banana_t"
                 android:layout_width="wrap_content"
@@ -436,7 +417,7 @@
                 app:layout_constraintRight_toRightOf="@id/banana"
                 app:layout_constraintTop_toBottomOf="@+id/banana" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/mushroom"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -446,8 +427,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/pig"
-                app:layout_constraintTop_toBottomOf="@+id/sakana"
-                app:srcCompat="@drawable/mushroom_b" />
+                app:layout_constraintTop_toBottomOf="@+id/sakana" />
             <TextView
                 android:id="@+id/kinoko"
                 android:layout_width="wrap_content"
@@ -457,7 +437,7 @@
                 app:layout_constraintRight_toRightOf="@id/mushroom"
                 app:layout_constraintTop_toBottomOf="@+id/mushroom" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/pig"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -466,8 +446,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/mushroom"
                 app:layout_constraintStart_toEndOf="@id/banana"
-                app:layout_constraintTop_toBottomOf="@+id/sakana"
-                app:srcCompat="@drawable/pig_b" />
+                app:layout_constraintTop_toBottomOf="@+id/sakana"/>
             <TextView
                 android:id="@+id/buta"
                 android:layout_width="wrap_content"
@@ -479,7 +458,7 @@
 
 
             <!--8行目(もも,やまいも,りんご)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/peach"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -490,8 +469,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/banana_t"
-                app:srcCompat="@drawable/peach_b" />
+                app:layout_constraintTop_toBottomOf="@id/banana_t" />
 
             <TextView
                 android:id="@+id/momo"
@@ -502,7 +480,7 @@
                 app:layout_constraintRight_toRightOf="@id/peach"
                 app:layout_constraintTop_toBottomOf="@+id/peach" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/yam"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -511,8 +489,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toStartOf="@id/apple"
                 app:layout_constraintStart_toEndOf="@id/peach"
-                app:layout_constraintTop_toBottomOf="@+id/banana_t"
-                app:srcCompat="@drawable/yam_b" />
+                app:layout_constraintTop_toBottomOf="@+id/banana_t" />
 
             <TextView
                 android:id="@+id/yamaimo"
@@ -523,7 +500,7 @@
                 app:layout_constraintRight_toRightOf="@id/yam"
                 app:layout_constraintTop_toBottomOf="@+id/yam" />
 
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/apple"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -533,8 +510,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/yam"
-                app:layout_constraintTop_toBottomOf="@+id/banana_t"
-                app:srcCompat="@drawable/apple_b" />
+                app:layout_constraintTop_toBottomOf="@+id/banana_t" />
 
             <TextView
                 android:id="@+id/ringo"
@@ -547,7 +523,7 @@
 
 
             <!--9行目(ゼラチン)-->
-            <com.example.shirokuma.whatsdish.CustomButton
+            <com.example.shirokuma.whatsdish.AllergiesButton
                 android:id="@+id/gelatin"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
@@ -556,8 +532,7 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="@id/peach"
-                app:layout_constraintTop_toBottomOf="@id/momo"
-                app:srcCompat="@drawable/gelatin_b" />
+                app:layout_constraintTop_toBottomOf="@id/momo" />
 
             <TextView
                 android:id="@+id/zeratin"

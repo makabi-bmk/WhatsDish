@@ -55,4 +55,30 @@
     <string name="religion_3">islam</string>
     <string name="religion_4">judaism</string>
     <string name="religion_5">shinto</string>
+
+    <string name="allergies_0">shrimp</string>
+    <string name="allergies_1">crab</string>
+    <string name="allergies_2">buckwheat</string>
+    <string name="allergies_3">wheat</string>
+    <string name="allergies_4">egg</string>
+    <string name="allergies_5">milk</string>
+    <string name="allergies_6">peanuts</string>
+    <string name="allergies_7">squid</string>
+    <string name="allergies_8">salmon_roe</string>
+    <string name="allergies_9">orange</string>
+    <string name="allergies_10">cashewnuts</string>
+    <string name="allergies_11">kiwi</string>
+    <string name="allergies_12">cow</string>
+    <string name="allergies_13">walnut</string>
+    <string name="allergies_14">sesame</string>
+    <string name="allergies_15">fish</string>
+    <string name="allergies_16">soy</string>
+    <string name="allergies_17">chicken</string>
+    <string name="allergies_18">banana</string>
+    <string name="allergies_19">mushroom</string>
+    <string name="allergies_20">pig</string>
+    <string name="allergies_21">peach</string>
+    <string name="allergies_22">yam</string>
+    <string name="allergies_23">apple</string>
+    <string name="allergies_24">gelatin</string>
 </resources>

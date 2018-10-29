@@ -1,11 +1,11 @@
 package com.example.shirokuma.whatsdish;
 
 public class ReligionDataFormat {
-    public String relifionName;
+    public String religionName;
     public boolean isSelect;
 
-    public ReligionDataFormat(String relifionName, boolean isSelect) {
-        this.relifionName = relifionName;
+    public ReligionDataFormat(String religionName, boolean isSelect) {
+        this.religionName = religionName;
         this.isSelect = isSelect;
     }
 }
