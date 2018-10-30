@@ -73,7 +73,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                         religionDataFormatList.set(listID, new ReligionDataFormat(religionName, isSelect));
                         Log.d("weiwei", "一覧");
                         for (ReligionDataFormat l : religionDataFormatList) {
-                            Log.d("weiwei",l.relifionName + ":" + l.isSelect);
+                            Log.d("weiwei",l.religionName + ":" + l.isSelect);
                         }
                         setImageResource(changeReligionPicture());
                     }

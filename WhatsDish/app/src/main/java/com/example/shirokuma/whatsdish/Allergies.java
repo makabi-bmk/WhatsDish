@@ -36,6 +36,12 @@ public class Allergies  extends AppCompatActivity {
 
         openAllergiesDataFile();
 
+//        for (AllergiesDataFormat l : allergiesDataFormatList) {
+//            if (l.isSelect) {
+//                l.allergiesName;
+//            }
+//        }
+
         AllergiesButton[] allergiesButtons = new AllergiesButton[allergiesNum];
         for (int i = 0; i < allergiesNum; i++) {
             Resources res = getResources();
