@@ -427,16 +427,16 @@ public class MainActivity extends AppCompatActivity
             int ingredientNum = 0;
             IngredientListFormat.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
             String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
-            final int categoryNum = categories.length;
+            final int categoryLength = categories.length;
 
-            for (int i = 0; i < categoryNum; i++) {
+            for (int i = 0; i < categoryLength; i++) {
                 ingredientNum = 0;
                 while (true) {
                     strID = getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "string", getPackageName());
                     if (strID == NULL || strID == 0) {
                         break;
                     }
-                    ingredientList.add(new IngredientListFormat(getResources().getString(strID), categories[i]));
+                    ingredientList.add(new IngredientListFormat(ingredientNum, getResources().getString(strID), categories[i]));
                     ingredientNum++;
                 }
             }
