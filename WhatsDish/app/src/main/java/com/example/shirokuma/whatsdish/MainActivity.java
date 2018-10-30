@@ -370,7 +370,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, Allergies.class);
             startActivity(intent);
         } else if (id == R.id.nav_cannotEat) {
-
+            Intent intent = new Intent(MainActivity.this, ShowIngredientList1.class);
+            startActivity(intent);
         } else if (id == R.id.nav_religion) {
             Intent intent = new Intent(MainActivity.this, Religion.class);
             startActivity(intent);

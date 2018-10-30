@@ -17,8 +17,9 @@ public class ShowIngredientList1 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.show_ingredientlist1);
 
-        final ListView listView = findViewById(R.id.ingrediens_list);
+        final ListView listView = findViewById(R.id.ingredient_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         int ingredientNum;
 
