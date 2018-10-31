@@ -37,7 +37,7 @@ public class ShowIngredientList1 extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ShowIngredientList1.this, ShowIngredientList2.class);
-                intent.putExtra("categoryName", (String)listView.getItemAtPosition(position));
+                intent.putExtra("categoryNum", position);
                 startActivity(intent);
             }
         });

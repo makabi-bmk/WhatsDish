@@ -19,15 +19,19 @@ public class ShowIngredientList2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_ingredientlist1);
 
-        String categoryName = getIntent().getStringExtra("categoryName");
+        int categoryNum = getIntent().getIntExtra("categoryNum", -1);
+        //String categoryName = getResources().getString(getResources().getIdentifier("category_" + categoryNum, "string", getPackageName()));
+        String[] categoryName = {"vegetables", "fruits", "meats", "seafoods", "seasonings", "grains", "dairy_products"};
 
+        Log.d("weiwei", "categoryNum = " + categoryNum);
+        Log.d("weiwei", "categoryName = " + categoryName[categoryNum]);
         final ListView listView = findViewById(R.id.ingredient_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice);
         int ingredientNum;
 
         ingredientNum = 0;
         while (true) {
-            int strID = getResources().getIdentifier( categoryName + "_" + ingredientNum, "string", getPackageName());
+            int strID = getResources().getIdentifier( categoryName[categoryNum] + "_ja_" + ingredientNum, "string", getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
