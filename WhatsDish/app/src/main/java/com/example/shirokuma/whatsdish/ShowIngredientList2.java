@@ -5,13 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import static com.example.shirokuma.whatsdish.IngredientListFormat.categories;
+import static com.example.shirokuma.whatsdish.IngredientListFormat.categoryNames;
 import static java.sql.Types.NULL;
 
 public class ShowIngredientList2 extends AppCompatActivity {
@@ -22,38 +21,31 @@ public class ShowIngredientList2 extends AppCompatActivity {
         setContentView(R.layout.show_ingredientlist2);
 
         int categoryNum = getIntent().getIntExtra("categoryNum", -1);
-        //String categoryName = getResources().getString(getResources().getIdentifier("category_" + categoryNum, "string", getPackageName()));
-        String[] categoryName = {"vegetables", "fruits", "meats", "seafoods", "seasonings", "grains", "dairy_products"};
-        IngredientListFormat.Category[] category = {IngredientListFormat.Category.vegetable, IngredientListFormat.Category.fruit, IngredientListFormat.Category.meat, IngredientListFormat.Category.seafood, IngredientListFormat.Category.seasoning, IngredientListFormat.Category.seasoning, IngredientListFormat.Category.grain, IngredientListFormat.Category.dairy_product};
-        ArrayList<IngredientListFormat> list = new ArrayList<IngredientListFormat>();
+        final ListView listView = findViewById(R.id.ingredient_list2);
+        ArrayList<IngredientListFormat> list = new ArrayList<>();
 
-        Log.d("weiwei", "categoryNum = " + categoryNum);
-        Log.d("weiwei", "categoryName = " + categoryName[categoryNum]);
-        final ListView listView = findViewById(R.id.ingredient_list);
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice);
-        IngredientAdapter adapter = new IngredientAdapter(ShowIngredientList2.this);
-        int ingredientNum;
-
-        ingredientNum = 0;
+        int ingredientNum = 0;
         while (true) {
-            int strID = getResources().getIdentifier( categoryName[categoryNum] + "_ja_" + ingredientNum, "string", getPackageName());
+            int strID = getResources().getIdentifier( categoryNames[categoryNum] + "_ja_" + ingredientNum, "string", getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
-            IngredientListFormat ingredientListFormat = new IngredientListFormat(0, getResources().getString(strID), category[categoryNum]);
-            list.add(ingredientListFormat);
+            Log.d("weiwei", "strID = " + categoryNames[categoryNum] + "_ja_" + ingredientNum);
+            Log.d("weiwei", "str = " + getResources().getString(strID));
+            list.add(new IngredientListFormat(getResources().getString(strID), categories[categoryNum]));
             ingredientNum++;
         }
-        adapter.setIngredientList(list);
+
+        IngredientAdapter adapter = new IngredientAdapter(this, R.layout.ingredient_listview, list);
         listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (listView.getCheckedItemPositions().valueAt(position)) {
-                    //TODO:チャックリストに追加する文を書く
-                    Log.d("weiwei", "このアイテムが選択されたよ！→" + listView.getItemAtPosition(position));
-                }
-            }
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if (listView.getCheckedItemPositions().valueAt(position)) {
+//                    //TODO:チャックリストに追加する文を書く
+//                    Log.d("weiwei", "このアイテムが選択されたよ！→" + listView.getItemAtPosition(position));
+//                }
+//            }
+//        });
     }
 
     @Override

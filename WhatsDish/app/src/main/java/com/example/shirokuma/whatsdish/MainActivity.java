@@ -51,7 +51,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.dairy_product;
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity
     protected void onDestroy() {
         super.onDestroy();
         for(IngredientListFormat l: ingredientList) {
-            Log.d("weiwei", l.ingredientName + ":" + l.category + ":"+ l.isPossibleToEat);
+            Log.d("weiwei", l.name + ":" + l.category + ":"+ l.isSelect);
         }
         saveData();
     }
@@ -437,13 +436,13 @@ public class MainActivity extends AppCompatActivity
                     if (strID == NULL || strID == 0) {
                         break;
                     }
-                    ingredientList.add(new IngredientListFormat(ingredientNum, getResources().getString(strID), categories[i]));
+                    ingredientList.add(new IngredientListFormat(getResources().getString(strID), categories[i]));
                     ingredientNum++;
                 }
             }
 
             for (IngredientListFormat l : ingredientList) {
-                Log.d("weiwei", "l = " + l.category + ", " + l.ingredientName + ", " + l.isPossibleToEat);
+                Log.d("weiwei", "l = " + l.category + ", " + l.name + ", " + l.isSelect);
             }
             jsonIngredientData = gson.toJson(ingredientList);
         }
