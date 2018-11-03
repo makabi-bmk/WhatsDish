@@ -9,48 +9,49 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
-import static com.example.shirokuma.whatsdish.Religion.religionList;
+import static com.example.shirokuma.whatsdish.Allergies.allergiesDataFormatList;
 
-public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
+
+public class AllergiesButton extends android.support.v7.widget.AppCompatImageButton {
 
     private int listID;
     private boolean isSelect = false;
-    private String religionName;
+    private String allergiesName;
     private OnClickListener listener;
 
-    public ReligionButton(Context context) {
+    public AllergiesButton(Context context) {
         super(context);
     }
 
-    public ReligionButton(Context context, AttributeSet attrs) {
+    public AllergiesButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ReligionButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AllergiesButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     public void setValue(int listID, String religionName, boolean isSelect) {
         this.listID = listID;
-        this.religionName = religionName;
+        this.allergiesName = religionName;
         this.isSelect = isSelect;
-        setImageResource(changeReligionPicture());
+        setImageResource(changeAllergiesPicture());
     }
 
     public boolean isSelect() {
         return isSelect;
     }
 
-    private void changeReligionData(int religionNum) {
-        //religionList.set(0, new ReligionDataFormat("buddhism", true));
+    private void changeAllergiesData(int allergiesNum) {
+        //religionDataFormatList.set(0, new ReligionDataFormat("buddhism", true));
     }
 
-    public int changeReligionPicture() {
+    public int changeAllergiesPicture() {
         int resID;
         if (isSelect) {
-            resID = getResources().getIdentifier(religionName + "_check", "drawable", getContext().getPackageName());
+            resID = getResources().getIdentifier(allergiesName + "_a", "drawable", getContext().getPackageName());
         } else {
-            resID = getResources().getIdentifier(religionName, "drawable", getContext().getPackageName());
+            resID = getResources().getIdentifier(allergiesName + "_b", "drawable", getContext().getPackageName());
         }
         return resID;
     }
@@ -69,19 +70,17 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                     @Override
                     public void run() {
                         isSelect = !isSelect;
-                        Log.d("weiwei", "63:" + religionName + ":" + isSelect);
-                        religionList.set(listID, new ReligionDataFormat(religionName, isSelect));
+                        Log.d("weiwei", "63:" + allergiesName + ":" + isSelect);
+                        allergiesDataFormatList.set(listID, new AllergiesDataFormat(allergiesName, isSelect));
                         Log.d("weiwei", "一覧");
-
-                        for (ReligionDataFormat l : religionList) {
-                            Log.d("weiwei",l.religionName + ":" + l.isSelect);
+                        for (AllergiesDataFormat l : allergiesDataFormatList) {
+                            Log.d("weiwei",l.allergiesName + ":" + l.isSelect);
                         }
-                        setImageResource(changeReligionPicture());
+                        setImageResource(changeAllergiesPicture());
                     }
                 });
             }
         }
-
         return super.dispatchTouchEvent(event);
     }
 
@@ -126,4 +125,6 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
 
         super.setPressed(pressed);
     }
+
 }
+
