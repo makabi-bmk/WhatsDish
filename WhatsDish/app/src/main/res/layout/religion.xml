@@ -138,5 +138,25 @@
         app:layout_constraintRight_toRightOf="@id/shinto"
         app:layout_constraintLeft_toLeftOf="@id/shinto"/>
 
+    <Button
+        android:id="@+id/allergy_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="アレルギーの質問画面"
+        app:layout_constraintTop_toBottomOf="@+id/isuramu"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Button
+        android:id="@+id/religion_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:text="宗教質問画面"
+        app:layout_constraintTop_toBottomOf="@id/allergy_question"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
