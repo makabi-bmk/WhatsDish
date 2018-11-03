@@ -1,8 +1,6 @@
 package com.example.shirokuma.whatsdish;
 
-public class IngredientListFormat {
-    public String name;
-    public boolean isSelect;
+public class IngredientListFormat extends Data{
     Category category;
 
     public enum Category {
@@ -21,14 +19,12 @@ public class IngredientListFormat {
             IngredientListFormat.Category.grain, IngredientListFormat.Category.dairy_product};
 
     IngredientListFormat(String name, Category category, boolean isSelect) {
-        this.name = name;
-        this.isSelect = isSelect;
+        super(name, isSelect);
         this.category = category;
     }
 
     IngredientListFormat(String name, Category category) {
-        this.name = name;
-        this.isSelect = false;
+        super(name);
         this.category = category;
     }
 

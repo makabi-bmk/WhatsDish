@@ -26,7 +26,7 @@ public class Allergies  extends AppCompatActivity {
     private String fileName = "allergies.json";
     private String jsonAllergiesData = null;
     private final int allergiesNum = 25;
-    static List<AllergiesDataFormat> allergiesDataFormatList = new ArrayList<>();
+    static List<Data> DataList = new ArrayList<>();
     Gson gson = new Gson();
 
     @Override
@@ -36,7 +36,7 @@ public class Allergies  extends AppCompatActivity {
 
         openAllergiesDataFile();
 
-//        for (AllergiesDataFormat l : allergiesDataFormatList) {
+//        for (Data l : DataList) {
 //            if (l.isSelect) {
 //                l.allergiesName;
 //            }
@@ -50,7 +50,7 @@ public class Allergies  extends AppCompatActivity {
             int resourseID = res.getIdentifier(allergiesName, "id", getPackageName());
 
             allergiesButtons[i] = findViewById(resourseID);
-            allergiesButtons[i].setValue(i, allergiesName, allergiesDataFormatList.get(i).isSelect);
+            allergiesButtons[i].setValue(i, allergiesName, DataList.get(i).isSelect);
             allergiesButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
         }
     }
@@ -59,8 +59,8 @@ public class Allergies  extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Log.d("weiwei", "onDestroy");
-        for (AllergiesDataFormat l : allergiesDataFormatList) {
-            Log.d("weiwei", l.allergiesName + ":" + l.isSelect);
+        for (Data l : DataList) {
+            Log.d("weiwei", l.name + ":" + l.isSelect);
         }
         saveData();
     }
@@ -76,7 +76,7 @@ public class Allergies  extends AppCompatActivity {
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonAllergiesData = lineBuffer;
             }
-            allergiesDataFormatList = gson.fromJson(jsonAllergiesData, new TypeToken<List<AllergiesDataFormat>>(){}.getType());
+            DataList = gson.fromJson(jsonAllergiesData, new TypeToken<List<Data>>(){}.getType());
         } catch (FileNotFoundException e) {
             initData();
         } catch (IOException e) {
@@ -89,7 +89,7 @@ public class Allergies  extends AppCompatActivity {
         try (FileOutputStream fileOutputstream = openFileOutput(fileName,
                 Context.MODE_PRIVATE)){
 
-            jsonAllergiesData = gson.toJson(allergiesDataFormatList);
+            jsonAllergiesData = gson.toJson(DataList);
             fileOutputstream.write(jsonAllergiesData.getBytes());
 
         } catch (IOException e) {
@@ -101,36 +101,36 @@ public class Allergies  extends AppCompatActivity {
         if (fileName.equals("allergies.json")) {
 
             Gson gson = new Gson();
-            AllergiesDataFormat[] allergiesDataFormats = new AllergiesDataFormat[allergiesNum];
+            Data[] Datas = new Data[allergiesNum];
 
-            allergiesDataFormats[0] = new AllergiesDataFormat("shrimp", false);
-            allergiesDataFormats[1] = new AllergiesDataFormat("crab", false);
-            allergiesDataFormats[2] = new AllergiesDataFormat("buckwheat", false);
-            allergiesDataFormats[3] = new AllergiesDataFormat("wheat", false);
-            allergiesDataFormats[4] = new AllergiesDataFormat("egg", false);
-            allergiesDataFormats[5] = new AllergiesDataFormat("milk", false);
-            allergiesDataFormats[6] = new AllergiesDataFormat("peanuts", false);
-            allergiesDataFormats[7] = new AllergiesDataFormat("squid", false);
-            allergiesDataFormats[8] = new AllergiesDataFormat("salmon_roe", false);
-            allergiesDataFormats[9] = new AllergiesDataFormat("orange", false);
-            allergiesDataFormats[10] = new AllergiesDataFormat("cashewnuts", false);
-            allergiesDataFormats[11] = new AllergiesDataFormat("kiwi", false);
-            allergiesDataFormats[12] = new AllergiesDataFormat("cow", false);
-            allergiesDataFormats[13] = new AllergiesDataFormat("walnut", false);
-            allergiesDataFormats[14] = new AllergiesDataFormat("sesame", false);
-            allergiesDataFormats[15] = new AllergiesDataFormat("fish", false);
-            allergiesDataFormats[16] = new AllergiesDataFormat("soy", false);
-            allergiesDataFormats[17] = new AllergiesDataFormat("chicken", false);
-            allergiesDataFormats[18] = new AllergiesDataFormat("banana", false);
-            allergiesDataFormats[19] = new AllergiesDataFormat("pig", false);
-            allergiesDataFormats[20] = new AllergiesDataFormat("mushroom", false);
-            allergiesDataFormats[21] = new AllergiesDataFormat("peach", false);
-            allergiesDataFormats[22] = new AllergiesDataFormat("yam", false);
-            allergiesDataFormats[23] = new AllergiesDataFormat("apple", false);
-            allergiesDataFormats[24] = new AllergiesDataFormat("gelatin", false);
+            Datas[0] = new Data("shrimp", false);
+            Datas[1] = new Data("crab", false);
+            Datas[2] = new Data("buckwheat", false);
+            Datas[3] = new Data("wheat", false);
+            Datas[4] = new Data("egg", false);
+            Datas[5] = new Data("milk", false);
+            Datas[6] = new Data("peanuts", false);
+            Datas[7] = new Data("squid", false);
+            Datas[8] = new Data("salmon_roe", false);
+            Datas[9] = new Data("orange", false);
+            Datas[10] = new Data("cashewnuts", false);
+            Datas[11] = new Data("kiwi", false);
+            Datas[12] = new Data("cow", false);
+            Datas[13] = new Data("walnut", false);
+            Datas[14] = new Data("sesame", false);
+            Datas[15] = new Data("fish", false);
+            Datas[16] = new Data("soy", false);
+            Datas[17] = new Data("chicken", false);
+            Datas[18] = new Data("banana", false);
+            Datas[19] = new Data("pig", false);
+            Datas[20] = new Data("mushroom", false);
+            Datas[21] = new Data("peach", false);
+            Datas[22] = new Data("yam", false);
+            Datas[23] = new Data("apple", false);
+            Datas[24] = new Data("gelatin", false);
 
-            Collections.addAll(allergiesDataFormatList, allergiesDataFormats);
-            jsonAllergiesData = gson.toJson(allergiesDataFormatList);
+            Collections.addAll(DataList, Datas);
+            jsonAllergiesData = gson.toJson(DataList);
         }
     }
 

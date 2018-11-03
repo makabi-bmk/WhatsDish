@@ -42,7 +42,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
     }
 
     private void changeReligionData(int religionNum) {
-        //religionList.set(0, new ReligionDataFormat("buddhism", true));
+        //religionList.set(0, new Data("buddhism", true));
     }
 
     public int changeReligionPicture() {
@@ -70,11 +70,11 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                     public void run() {
                         isSelect = !isSelect;
                         Log.d("weiwei", "63:" + religionName + ":" + isSelect);
-                        religionList.set(listID, new ReligionDataFormat(religionName, isSelect));
+                        religionList.set(listID, new Data(religionName, isSelect));
                         Log.d("weiwei", "一覧");
 
-                        for (ReligionDataFormat l : religionList) {
-                            Log.d("weiwei",l.religionName + ":" + l.isSelect);
+                        for (Data l : religionList) {
+                            Log.d("weiwei",l.name + ":" + l.isSelect);
                         }
                         setImageResource(changeReligionPicture());
                     }

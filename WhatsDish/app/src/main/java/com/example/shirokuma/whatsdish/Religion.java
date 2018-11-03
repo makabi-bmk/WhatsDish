@@ -26,7 +26,7 @@ public class Religion extends AppCompatActivity {
     private String fileName = "religion.json";
     private String jsonReligionData = null;
     private final int religionNum = 6;
-    static List<ReligionDataFormat> religionList = new ArrayList<>();
+    static List<Data> religionList = new ArrayList<>();
     Gson gson = new Gson();
 
     protected void onCreate(Bundle savedInstanceState){
@@ -55,8 +55,8 @@ public class Religion extends AppCompatActivity {
         super.onDestroy();
         Log.d("weiwei", "onDestroy");
         
-        for (ReligionDataFormat l : religionList) {
-            Log.d("weiwei", l.religionName + ":" + l.isSelect);
+        for (Data l : religionList) {
+            Log.d("weiwei", l.name + ":" + l.isSelect);
         }
         saveData();
     }
@@ -73,7 +73,7 @@ public class Religion extends AppCompatActivity {
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonReligionData = lineBuffer;
             }
-            religionList = gson.fromJson(jsonReligionData, new TypeToken<List<ReligionDataFormat>>(){}.getType());
+            religionList = gson.fromJson(jsonReligionData, new TypeToken<List<Data>>(){}.getType());
         } catch (FileNotFoundException e) {
             initData();
         } catch (IOException e) {
@@ -98,15 +98,15 @@ public class Religion extends AppCompatActivity {
 
             //宗教情報をセット
             Gson gson = new Gson();
-            ReligionDataFormat[] religionDataFormats = new ReligionDataFormat[6];
+            Data[] Datas = new Data[6];
 
-            religionDataFormats[0] = new ReligionDataFormat("buddhism", false);
-            religionDataFormats[1] = new ReligionDataFormat("christ", false);
-            religionDataFormats[2] = new ReligionDataFormat("hinduism", false);
-            religionDataFormats[3] = new ReligionDataFormat("islam", false);
-            religionDataFormats[4] = new ReligionDataFormat("judaism", false);
-            religionDataFormats[5] = new ReligionDataFormat("shinto", false);
-            Collections.addAll(religionList, religionDataFormats);
+            Datas[0] = new Data("buddhism", false);
+            Datas[1] = new Data("christ", false);
+            Datas[2] = new Data("hinduism", false);
+            Datas[3] = new Data("islam", false);
+            Datas[4] = new Data("judaism", false);
+            Datas[5] = new Data("shinto", false);
+            Collections.addAll(religionList, Datas);
             jsonReligionData = gson.toJson(religionList);
         }
     }

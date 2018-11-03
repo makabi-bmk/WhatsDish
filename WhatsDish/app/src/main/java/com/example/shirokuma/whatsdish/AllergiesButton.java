@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
-import static com.example.shirokuma.whatsdish.Allergies.allergiesDataFormatList;
+import static com.example.shirokuma.whatsdish.Allergies.DataList;
 
 
 public class AllergiesButton extends android.support.v7.widget.AppCompatImageButton {
@@ -43,7 +43,7 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
     }
 
     private void changeAllergiesData(int allergiesNum) {
-        //religionDataFormatList.set(0, new ReligionDataFormat("buddhism", true));
+
     }
 
     public int changeAllergiesPicture() {
@@ -71,10 +71,10 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
                     public void run() {
                         isSelect = !isSelect;
                         Log.d("weiwei", "63:" + allergiesName + ":" + isSelect);
-                        allergiesDataFormatList.set(listID, new AllergiesDataFormat(allergiesName, isSelect));
+                        DataList.set(listID, new Data(allergiesName, isSelect));
                         Log.d("weiwei", "一覧");
-                        for (AllergiesDataFormat l : allergiesDataFormatList) {
-                            Log.d("weiwei",l.allergiesName + ":" + l.isSelect);
+                        for (Data l : DataList) {
+                            Log.d("weiwei",l.name + ":" + l.isSelect);
                         }
                         setImageResource(changeAllergiesPicture());
                     }
