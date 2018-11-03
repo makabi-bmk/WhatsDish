@@ -12,9 +12,8 @@ import static com.example.shirokuma.whatsdish.Religion.religionFile;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
 
-    private int listID;
-    private boolean isSelect = false;
-    private String religionName;
+    private String name;
+    private int position;
     private OnClickListener listener;
 
     public ReligionButton(Context context) {
@@ -29,23 +28,22 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
         super(context, attrs, defStyleAttr);
     }
 
-    public void setValue(int listID, String religionName, boolean isSelect) {
-        this.listID = listID;
-        this.religionName = religionName;
-        this.isSelect = isSelect;
+    public void setValue(int position) {
+        this.position = position;
+        this.name = religionFile.getList().get(position).name;
         setImageResource(changeReligionPicture());
     }
 
     public boolean isSelect() {
-        return isSelect;
+        return religionFile.getList().get(position).isSelect;
     }
 
     public int changeReligionPicture() {
         int resID;
-        if (isSelect) {
-            resID = getResources().getIdentifier(religionName + "_check", "drawable", getContext().getPackageName());
+        if (religionFile.getList().get(position).isSelect) {
+            resID = getResources().getIdentifier(name + "_check", "drawable", getContext().getPackageName());
         } else {
-            resID = getResources().getIdentifier(religionName, "drawable", getContext().getPackageName());
+            resID = getResources().getIdentifier(name, "drawable", getContext().getPackageName());
         }
         return resID;
     }
@@ -63,7 +61,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        religionFile.changeSelect(listID);
+                        religionFile.changeSelect(position);
                         setImageResource(changeReligionPicture());
                     }
                 });

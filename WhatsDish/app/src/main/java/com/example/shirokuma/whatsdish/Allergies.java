@@ -42,7 +42,7 @@ public class Allergies  extends AppCompatActivity {
 
             allergiesButtons[i] = findViewById(resourseID);
             Log.d("weiwei", "name = " + allergyFile.getList().get(i).name + ", isSelect = " + allergyFile.getList().get(i).isSelect);
-            allergiesButtons[i].setValue(i, allergiesName, allergyFile.getList().get(i).isSelect);
+            allergiesButtons[i].setValue(i);
             allergiesButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
         }
     }

@@ -3,7 +3,6 @@ package com.example.shirokuma.whatsdish;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -14,9 +13,8 @@ import static com.example.shirokuma.whatsdish.Allergies.allergyFile;
 
 public class AllergiesButton extends android.support.v7.widget.AppCompatImageButton {
 
-    private int listID;
-    private boolean isSelect = false;
-    private String allergiesName;
+    private String name;
+    private int position;
     private OnClickListener listener;
 
     public AllergiesButton(Context context) {
@@ -31,23 +29,22 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
         super(context, attrs, defStyleAttr);
     }
 
-    public void setValue(int listID, String religionName, boolean isSelect) {
-        this.listID = listID;
-        this.allergiesName = religionName;
-        this.isSelect = isSelect;
+    public void setValue(int position) {
+        this.position = position;
+        this.name = allergyFile.getList().get(position).name;
         setImageResource(changeAllergiesPicture());
     }
 
     public boolean isSelect() {
-        return isSelect;
+        return allergyFile.getList().get(position).isSelect;
     }
 
     public int changeAllergiesPicture() {
         int resID;
-        if (isSelect) {
-            resID = getResources().getIdentifier(allergiesName + "_a", "drawable", getContext().getPackageName());
+        if (allergyFile.getList().get(position).isSelect) {
+            resID = getResources().getIdentifier(name + "_a", "drawable", getContext().getPackageName());
         } else {
-            resID = getResources().getIdentifier(allergiesName + "_b", "drawable", getContext().getPackageName());
+            resID = getResources().getIdentifier(name + "_b", "drawable", getContext().getPackageName());
         }
         return resID;
     }
@@ -65,7 +62,7 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        allergyFile.changeSelect(listID);
+                        allergyFile.changeSelect(position);
                         setImageResource(changeAllergiesPicture());
                     }
                 });

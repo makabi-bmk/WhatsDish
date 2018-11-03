@@ -13,4 +13,8 @@ class Data {
         this.name = name;
         this.isSelect = isSelect;
     }
+
+    public void setSelect(boolean select) {
+        isSelect = select;
+    }
 }

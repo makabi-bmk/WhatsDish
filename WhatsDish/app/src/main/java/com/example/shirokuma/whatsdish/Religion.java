@@ -41,7 +41,7 @@ public class Religion extends AppCompatActivity {
             int resourseID = res.getIdentifier(religionName, "id", getPackageName());
 
             religionButtons[i] = findViewById(resourseID);
-            religionButtons[i].setValue(i, religionName, religionFile.getList().get(i).isSelect);
+            religionButtons[i].setValue(i);
             religionButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
         }
     }
