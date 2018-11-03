@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- アプリケーション設定 -->
     <string name="app_name">What\'s Dish</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -82,6 +82,7 @@
     <string name="allergies_23">apple</string>
     <string name="allergies_24">gelatin</string>
 
+
     <string name="question_ja">
         私には食物アレルギーがあります。\n
         アレルゲンを食べることができません。\n
@@ -100,4 +101,5 @@
         我有食物過敏，不能吃變應素。\n
         這個菜里有變應素嗎?
     </string>
+
 </resources>
