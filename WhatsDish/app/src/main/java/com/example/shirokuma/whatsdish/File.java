@@ -74,13 +74,13 @@ public class File {
 
             switch(fileName) {
                 case religionsFileName:
-                    initReligionData();
+                    initData("religion");
                     break;
                 case ingredientFileName:
                     initIngredientData();
                     break;
                 case allergiesFileName:
-                    initAllergyData();
+                    initData("allergies");
                     break;
             }
 
@@ -135,23 +135,19 @@ public class File {
         }
         jsonData = gson.toJson(ingredientList);
     }
-
-    private void initReligionData() {
-        //宗教情報をセット
-        String[] religionsName = {"buddhism", "christ", "hinduism", "islam", "judaism", "shinto"};
-
-        for (String name : religionsName) {
-            list.add(new Data(name));
-        }
-        jsonData = gson.toJson(list);
-    }
     
-    private void initAllergyData() {
-        String[] allergiesName = {"shrimp", "crab", "buckwheat",  "wheat", "egg", "milk", "peanuts", "squid", "salmon_roe", "orange", "cashewnuts", "kiwi",
-                                  "cow", "walnut", "sesame", "fish", "soy", "chiken", "banana", "mushroom", "pig", "peach", "yam", "apple", "gelatin"};
+    private void initData(String firstStr) {
 
-        for (String name : allergiesName) {
-            list.add(new Data(name));
+        int i = 0;
+        while (true) {
+            int strID = context.getResources().getIdentifier( firstStr + "_" + i, "string", context.getPackageName());
+            if (strID == NULL || strID == 0) {
+                break;
+            }
+            Log.d("weiwei", "strID = " + firstStr + "_" + i);
+            Log.d("weiwei", "str = " + context.getResources().getString(strID));
+            list.add(new Data(context.getResources().getString(strID)));
+            i++;
         }
         jsonData = gson.toJson(list);
     }
