@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">What\'s Dish</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,13 +7,13 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="setAllergies">アレルギー製品を選択してください。</string>
+    <string name="setAllergies">请选择您的变应素。</string>
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
-    <string name="button_next">次へ</string>
-    <string name="button_before">前へ</string>
-    <string name="pageSkip">スキップ</string>
+    <string name="button_next">下面</string>
+    <string name="button_before">返回前面</string>
+    <string name="pageSkip">跳过</string>
 
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
@@ -28,18 +27,16 @@
 
     <!--説明文-->
     <string name="explain1">
-        使い方\n
-        カメラで料理のメニューを撮影してください。
+        使用方法\n
+        请用手机拍照菜单。
     </string>
     <string name="explain2">
-        撮影したメニューから、料理の名前を読み取り、\n
-        あなたのアレルギー、好みの設定に基づき、\n
-        食べられるもの、食べられないものを判別して\n
-        表示します。
+        拍照的菜单中读取菜名。\n
+        然后根据您的过敏症及喜欢的口味，\n
+        App辨别您能吃的或者不能吃的菜名提示给您。
     </string>
     <string name="explain3">
-        表示された料理の名前をタップすると、\n
-        詳しい料理の説明を表示します。
+        轻击被提示的菜名，将提示详细说明。
     </string>
 
 
@@ -147,6 +144,5 @@
     <string name="question2_tw">
         哪些菜可以吃哪些菜可以吃？
     </string>
-
 
 </resources>

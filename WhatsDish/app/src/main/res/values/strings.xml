@@ -100,4 +100,51 @@
         我有食物過敏，不能吃變應素。\n
         這個菜里有變應素嗎?
     </string>
+
+    <!--回答1-->
+    <string name="answer1_ja">
+        アレルゲンは含まれていません。\n
+        食べることができます。
+    </string>
+    <string name="answer1_en">
+        allergies FREE.
+        You can eat.
+    </string>
+    <string name="answer1_cn">
+        菜中没有变应素成分。您可以吃。
+    </string>
+    <string name="answer1_tw">
+        菜中沒有變應素成分。您可以吃。
+    </string>
+
+    <!--回答2-->
+    <string name="answer2_ja">
+        申し訳ございません。\n
+        食べることができません。
+    </string>
+    <string name="answer2_en">
+        sorry.You can not eat.
+    </string>
+    <string name="answer2_cn">
+        真对不起，这个菜不能吃。
+    </string>
+    <string name="answer2_tw">
+        真對不起，這個菜不能吃。
+    </string>
+
+    <!--質問2-->
+    <string name="question2_ja">
+        どのメニューであれば食べることが\n
+        できますか？
+    </string>
+    <string name="question2_en">
+        Which menu can I eat?
+    </string>
+    <string name="question2_cn">
+        哪些菜可以吃？
+    </string>
+    <string name="question2_tw">
+        哪些菜可以吃哪些菜可以吃？
+    </string>
+
 </resources>
