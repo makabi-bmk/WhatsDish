@@ -9,8 +9,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import static com.example.shirokuma.whatsdish.IngredientListFormat.categories;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.categoryNames;
+import static com.example.shirokuma.whatsdish.IngredientData.categories;
+import static com.example.shirokuma.whatsdish.IngredientData.categoryNames;
 import static java.sql.Types.NULL;
 
 public class ShowIngredientList2 extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class ShowIngredientList2 extends AppCompatActivity {
 
         int categoryNum = getIntent().getIntExtra("categoryNum", -1);
         final ListView listView = findViewById(R.id.ingredient_list2);
-        ArrayList<IngredientListFormat> list = new ArrayList<>();
+        ArrayList<IngredientData> list = new ArrayList<>();
 
         int ingredientNum = 0;
         while (true) {
@@ -32,7 +32,7 @@ public class ShowIngredientList2 extends AppCompatActivity {
             }
             Log.d("weiwei", "strID = " + categoryNames[categoryNum] + "_ja_" + ingredientNum);
             Log.d("weiwei", "str = " + getResources().getString(strID));
-            list.add(new IngredientListFormat(getResources().getString(strID), categories[categoryNum]));
+            list.add(new IngredientData(getResources().getString(strID), categories[categoryNum]));
             ingredientNum++;
         }
 

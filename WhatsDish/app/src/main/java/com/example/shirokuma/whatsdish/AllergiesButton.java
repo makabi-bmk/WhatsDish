@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
-import static com.example.shirokuma.whatsdish.Allergies.DataList;
+import static com.example.shirokuma.whatsdish.Allergies.allergyFile;
 
 
 public class AllergiesButton extends android.support.v7.widget.AppCompatImageButton {
@@ -42,10 +42,6 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
         return isSelect;
     }
 
-    private void changeAllergiesData(int allergiesNum) {
-
-    }
-
     public int changeAllergiesPicture() {
         int resID;
         if (isSelect) {
@@ -69,13 +65,7 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        isSelect = !isSelect;
-                        Log.d("weiwei", "63:" + allergiesName + ":" + isSelect);
-                        DataList.set(listID, new Data(allergiesName, isSelect));
-                        Log.d("weiwei", "一覧");
-                        for (Data l : DataList) {
-                            Log.d("weiwei",l.name + ":" + l.isSelect);
-                        }
+                        allergyFile.changeSelect(listID);
                         setImageResource(changeAllergiesPicture());
                     }
                 });

@@ -13,12 +13,4 @@ class Data {
         this.name = name;
         this.isSelect = isSelect;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public boolean isSelect() {
-        return isSelect;
-    }
 }

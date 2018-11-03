@@ -3,13 +3,12 @@ package com.example.shirokuma.whatsdish;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
-import static com.example.shirokuma.whatsdish.Religion.religionList;
+import static com.example.shirokuma.whatsdish.Religion.religionFile;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
 
@@ -41,10 +40,6 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
         return isSelect;
     }
 
-    private void changeReligionData(int religionNum) {
-        //religionList.set(0, new Data("buddhism", true));
-    }
-
     public int changeReligionPicture() {
         int resID;
         if (isSelect) {
@@ -68,14 +63,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                 post(new Runnable() {
                     @Override
                     public void run() {
-                        isSelect = !isSelect;
-                        Log.d("weiwei", "63:" + religionName + ":" + isSelect);
-                        religionList.set(listID, new Data(religionName, isSelect));
-                        Log.d("weiwei", "一覧");
-
-                        for (Data l : religionList) {
-                            Log.d("weiwei",l.name + ":" + l.isSelect);
-                        }
+                        religionFile.changeSelect(listID);
                         setImageResource(changeReligionPicture());
                     }
                 });

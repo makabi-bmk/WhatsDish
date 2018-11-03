@@ -53,13 +53,13 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.dairy_product;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.fruit;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.grain;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.meat;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.seafood;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.seasoning;
-import static com.example.shirokuma.whatsdish.IngredientListFormat.Category.vegetable;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.dairy_product;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.fruit;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.grain;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.meat;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.seafood;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.seasoning;
+import static com.example.shirokuma.whatsdish.IngredientData.Category.vegetable;
 import static java.sql.Types.NULL;
 
 public class MainActivity extends AppCompatActivity
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity
     //食材ファイルを開くための変数
     String fileName = "ingredient.json";
     private String jsonIngredientData = null;
-    static List<IngredientListFormat> ingredientList = new ArrayList<>();
+    static List<IngredientData> ingredientList = new ArrayList<>();
     Gson gson = new Gson();
 
     @Override
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        for(IngredientListFormat l: ingredientList) {
+        for(IngredientData l: ingredientList) {
             Log.d("weiwei", l.name + ":" + l.category + ":"+ l.isSelect);
         }
         saveData();
@@ -394,7 +394,7 @@ public class MainActivity extends AppCompatActivity
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonIngredientData = lineBuffer;
             }
-            ingredientList = gson.fromJson(jsonIngredientData, new TypeToken<List<IngredientListFormat>>(){}.getType());
+            ingredientList = gson.fromJson(jsonIngredientData, new TypeToken<List<IngredientData>>(){}.getType());
             Log.d("weiwei", "ファイル読み込みに成功したZE");
         } catch (FileNotFoundException e) {
             Log.d("weiwei", "ファイルが無かったから初期化するZE");
@@ -425,7 +425,7 @@ public class MainActivity extends AppCompatActivity
 
             int strID;
             int ingredientNum = 0;
-            IngredientListFormat.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
+            IngredientData.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
             String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
             final int categoryLength = categories.length;
 
@@ -436,12 +436,12 @@ public class MainActivity extends AppCompatActivity
                     if (strID == NULL || strID == 0) {
                         break;
                     }
-                    ingredientList.add(new IngredientListFormat(getResources().getString(strID), categories[i]));
+                    ingredientList.add(new IngredientData(getResources().getString(strID), categories[i]));
                     ingredientNum++;
                 }
             }
 
-            for (IngredientListFormat l : ingredientList) {
+            for (IngredientData l : ingredientList) {
                 Log.d("weiwei", "l = " + l.category + ", " + l.name + ", " + l.isSelect);
             }
             jsonIngredientData = gson.toJson(ingredientList);
