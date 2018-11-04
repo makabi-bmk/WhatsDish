@@ -1,8 +1,6 @@
 package com.example.shirokuma.whatsdish;
 
 public class IngredientData extends Data{
-    Category category;
-
     public enum Category {
         vegetable,
         fruit,
@@ -13,10 +11,12 @@ public class IngredientData extends Data{
         dairy_product
     };
 
+    Category category;
+
     static String[] categoryNames = {"vegetables", "fruits", "meats", "seafoods", "seasonings", "grains", "dairy_products"};
     static Category[] categories = {IngredientData.Category.vegetable, IngredientData.Category.fruit, IngredientData.Category.meat,
-            IngredientData.Category.seafood, IngredientData.Category.seasoning, IngredientData.Category.seasoning,
-            IngredientData.Category.grain, IngredientData.Category.dairy_product};
+            IngredientData.Category.seafood, IngredientData.Category.seasoning, IngredientData.Category.grain,
+            IngredientData.Category.dairy_product};
 
     IngredientData(String name, Category category, boolean isSelect) {
         super(name, isSelect);

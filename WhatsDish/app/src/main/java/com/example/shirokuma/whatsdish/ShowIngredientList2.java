@@ -5,12 +5,15 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import static com.example.shirokuma.whatsdish.IngredientData.categories;
 import static com.example.shirokuma.whatsdish.IngredientData.categoryNames;
+import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
 import static java.sql.Types.NULL;
 
 public class ShowIngredientList2 extends AppCompatActivity {
@@ -20,32 +23,28 @@ public class ShowIngredientList2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_ingredientlist2);
 
-        int categoryNum = getIntent().getIntExtra("categoryNum", -1);
+        int num = getIntent().getIntExtra("categoryNum", -1);
         final ListView listView = findViewById(R.id.ingredient_list2);
         ArrayList<IngredientData> list = new ArrayList<>();
 
-        int ingredientNum = 0;
+        int i = 0;
         while (true) {
-            int strID = getResources().getIdentifier( categoryNames[categoryNum] + "_ja_" + ingredientNum, "string", getPackageName());
+            int strID = getResources().getIdentifier( categoryNames[num] + "_ja_" + i, "string", getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
-            Log.d("weiwei", "strID = " + categoryNames[categoryNum] + "_ja_" + ingredientNum);
-            Log.d("weiwei", "str = " + getResources().getString(strID));
-            list.add(new IngredientData(getResources().getString(strID), categories[categoryNum]));
-            ingredientNum++;
+            list.add(new IngredientData(getResources().getString(strID), categories[num]));
+            i++;
         }
 
-        IngredientAdapter adapter = new IngredientAdapter(this, R.layout.ingredient_listview, list);
+        IngredientAdapter adapter = new IngredientAdapter(this, R.layout.ingredient_listview, list, File.firstElementNumbers[num]);
         listView.setAdapter(adapter);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                if (listView.getCheckedItemPositions().valueAt(position)) {
-//                    //TODO:チャックリストに追加する文を書く
-//                    Log.d("weiwei", "このアイテムが選択されたよ！→" + listView.getItemAtPosition(position));
-//                }
-//            }
-//        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ingredientFile.saveData();
     }
 
     @Override

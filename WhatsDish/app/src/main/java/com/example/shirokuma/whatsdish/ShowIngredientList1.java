@@ -39,6 +39,7 @@ public class ShowIngredientList1 extends AppCompatActivity {
 
                 Intent intent = new Intent(ShowIngredientList1.this, ShowIngredientList2.class);
                 intent.putExtra("categoryNum", position);
+
                 startActivity(intent);
             }
         });

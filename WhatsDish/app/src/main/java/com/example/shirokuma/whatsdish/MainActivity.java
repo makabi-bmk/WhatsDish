@@ -2,7 +2,6 @@ package com.example.shirokuma.whatsdish;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -38,29 +37,13 @@ import com.google.api.services.vision.v1.model.EntityAnnotation;
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
 import com.google.api.services.vision.v1.model.ImageContext;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import org.apache.lucene.search.spell.LevensteinDistance;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.shirokuma.whatsdish.IngredientData.Category.dairy_product;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.fruit;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.grain;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.meat;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.seafood;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.seasoning;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.vegetable;
-import static java.sql.Types.NULL;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -75,7 +58,7 @@ public class MainActivity extends AppCompatActivity
     String selectLang = "ja";
 
     //食材ファイルを開くための変数
-    File ingredientFile = new File();
+    public static File ingredientFile = new File();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

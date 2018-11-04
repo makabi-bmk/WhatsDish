@@ -15,21 +15,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.shirokuma.whatsdish.IngredientData.Category.dairy_product;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.fruit;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.grain;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.meat;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.seafood;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.seasoning;
-import static com.example.shirokuma.whatsdish.IngredientData.Category.vegetable;
+import static com.example.shirokuma.whatsdish.IngredientData.categories;
+import static com.example.shirokuma.whatsdish.IngredientData.categoryNames;
 import static java.sql.Types.NULL;
 
 public class File {
 
-    String fileName = null;
+    private String fileName = null;
     private String jsonData = null;
     private ArrayList<Data> list = new ArrayList<>();
-    private ArrayList<IngredientData> ingredientList = new ArrayList<>();
     private Context context = null;
     private Gson gson = new Gson();
 
@@ -37,44 +31,34 @@ public class File {
     private final String allergiesFileName = "allergies.json";
     private final String religionsFileName = "religion.json";
 
-    public void setFile(String fileName, Context context) {
+    //ingredientFile用の変数
+    private ArrayList<IngredientData> ingredientList = new ArrayList<>();
+    static int[] firstElementNumbers = {0, 71, 111, 122, 140, 169, 189};
+
+
+    void setFile(String fileName, Context context) {
         this.fileName = fileName;
         this.context = context;
         openFile();
     }
 
     // ファイルを読み出し
-    public void openFile() {
+    private void openFile() {
 
-        // try-with-resources
         try (FileInputStream fileInputStream = context.openFileInput(fileName);
              BufferedReader reader= new BufferedReader(
                      new InputStreamReader(fileInputStream, "UTF-8"))) {
-
             String lineBuffer;
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonData = lineBuffer;
             }
-
             if (fileName.equals(ingredientFileName)) {
+                Log.d("weiwei", "openFile:jsonData = " + jsonData);
                 ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>(){}.getType());
             } else {
                 list = gson.fromJson(jsonData, new TypeToken<List<Data>>(){}.getType());
             }
-
-            Log.d("weiwei", "62:jsonData =" + jsonData);
-            Log.d("weiwei", "ファイル読み込みに成功したZE");
-
         } catch (FileNotFoundException e) {
-            Log.d("weiwei", "ファイルが無かったから初期化するZE");
-
-            if (fileName.equals(ingredientFileName)) {
-                initData();
-            } else if (fileName.equals(religionsFileName)) {
-                initData("religion");
-            } else {
-                initData("allergies");
-            }
             switch(fileName) {
                 case religionsFileName:
                     initData("religion");
@@ -86,83 +70,79 @@ public class File {
                     initData("allergies");
                     break;
             }
-
         } catch (IOException e) {
-            Log.d("weiwei", "エラーだZE:" + e);
             e.printStackTrace();
         }
     }
 
-    public void saveData() {
-        // try-with-resources
+    void saveData() {
         try (FileOutputStream fileOutputstream = context.openFileOutput(fileName,
                 Context.MODE_PRIVATE)){
-
             if (fileName.equals(ingredientFileName)) {
                 jsonData = gson.toJson(ingredientList);
+                Log.d("weiwei", "saveData:jsonData = " + jsonData);
             } else {
                 jsonData = gson.toJson(list);
             }
-            Log.d("weiwei", "jsonData = " + jsonData);
             fileOutputstream.write(jsonData.getBytes());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void initData() {
-        //食材情報をセット
-        Log.d("weiwei", "初期化の関数だZE");
-
         int strID;
-        int ingredientNum = 0;
-        IngredientData.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
-        String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
-        final int categoryLength = categories.length;
+        final int categoryLength = categoryNames.length;
 
         for (int i = 0; i < categoryLength; i++) {
-            ingredientNum = 0;
+            int j = 0;
+            firstElementNumbers[i] = ingredientList.size();
             while (true) {
-                strID = context.getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "string", context.getPackageName());
+                strID = context.getResources().getIdentifier(categoryNames[i] + "_" + j, "string", context.getPackageName());
                 if (strID == NULL || strID == 0) {
                     break;
                 }
-                Log.d("weiwei", "new Data(" + context.getResources().getString(strID) + ", " + categories[i] + ")");
                 ingredientList.add(new IngredientData(context.getResources().getString(strID), categories[i]));
-                ingredientNum++;
+                j++;
             }
         }
-
-        for (IngredientData l : ingredientList) {
-            Log.d("weiwei", "l = " + l.category + ", " + l.name + ", " + l.isSelect);
-        }
         jsonData = gson.toJson(ingredientList);
-
-
+        Log.d("weiwei", "initData:jsonData = " + jsonData);
     }
     
     private void initData(String firstStr) {
-
         int i = 0;
         while (true) {
             int strID = context.getResources().getIdentifier( firstStr + "_" + i, "string", context.getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
-            Log.d("weiwei", "strID = " + firstStr + "_" + i);
-            Log.d("weiwei", "str = " + context.getResources().getString(strID));
             list.add(new Data(context.getResources().getString(strID)));
             i++;
         }
         jsonData = gson.toJson(list);
     }
 
-    public void changeSelect(int position) {
-        Data data = list.get(position);
-        data.isSelect = !data.isSelect;
-        Log.d("weiwei", "63:" + data.name + ":" + data.isSelect);
-        list.set(position, new Data(data.name, data.isSelect));
+    void changeSelect(int position) {
+        boolean isIngredientFile = fileName.equals(ingredientFileName);
+        int a = 0;
+        if (isIngredientFile) {
+            IngredientData data = ingredientList.get(position);
+            data.isSelect = !data.isSelect;
+            ingredientList.set(position, new IngredientData(data.name, data.category, data.isSelect));
+        } else {
+            Data data = list.get(position);
+            data.isSelect = !data.isSelect;
+            list.set(position, new Data(data.name, data.isSelect));
+        }
+    }
+
+    Data getData(int position) {
+        return list.get(position);
+    }
+
+    IngredientData getIngredientData(int position) {
+        return ingredientList.get(position);
     }
 
     public ArrayList<Data> getList() {

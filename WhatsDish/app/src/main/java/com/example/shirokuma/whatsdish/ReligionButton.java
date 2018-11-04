@@ -30,17 +30,17 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
 
     public void setValue(int position) {
         this.position = position;
-        this.name = religionFile.getList().get(position).name;
+        this.name = religionFile.getData(position).name;
         setImageResource(changeReligionPicture());
     }
 
     public boolean isSelect() {
-        return religionFile.getList().get(position).isSelect;
+        return religionFile.getData(position).isSelect;
     }
 
     public int changeReligionPicture() {
         int resID;
-        if (religionFile.getList().get(position).isSelect) {
+        if (religionFile.getData(position).isSelect) {
             resID = getResources().getIdentifier(name + "_check", "drawable", getContext().getPackageName());
         } else {
             resID = getResources().getIdentifier(name, "drawable", getContext().getPackageName());

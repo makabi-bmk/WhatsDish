@@ -31,17 +31,17 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
 
     public void setValue(int position) {
         this.position = position;
-        this.name = allergyFile.getList().get(position).name;
+        this.name = allergyFile.getData(position).name;
         setImageResource(changeAllergiesPicture());
     }
 
     public boolean isSelect() {
-        return allergyFile.getList().get(position).isSelect;
+        return allergyFile.getData(position).isSelect;
     }
 
     public int changeAllergiesPicture() {
         int resID;
-        if (allergyFile.getList().get(position).isSelect) {
+        if (allergyFile.getData(position).isSelect) {
             resID = getResources().getIdentifier(name + "_a", "drawable", getContext().getPackageName());
         } else {
             resID = getResources().getIdentifier(name + "_b", "drawable", getContext().getPackageName());
