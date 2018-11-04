@@ -91,12 +91,6 @@ public class MainActivity extends AppCompatActivity
         ingredientFile.setFile("ingredient.json", getApplicationContext());
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ingredientFile.saveData();
-    }
-
     //カメラが選択されたときの処理
     @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void startCamera() {
