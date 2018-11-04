@@ -33,15 +33,18 @@ public class IngredientAdapter extends ArrayAdapter<IngredientData> {
     public View getView(final int position, View convertView, ViewGroup parent) {
         convertView = layoutInflater.inflate(R.layout.ingredient_listview, null);
 
+        final int elementNum = firstElementNum + position;
+
         IngredientData ingredientData = ingredientList.get(position);
         TextView textView = convertView.findViewById(R.id.ingredient_name);
         textView.setText(ingredientData.name);
 
         Switch mSwitch = convertView.findViewById(R.id.ingredient_switch);
+        mSwitch.setChecked(ingredientFile.getIngredientData(elementNum).isSelect);
+
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                int elementNum = firstElementNum + position;
                 ingredientFile.changeSelect(elementNum);
             }
         });
