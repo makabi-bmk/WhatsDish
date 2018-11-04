@@ -75,10 +75,7 @@ public class MainActivity extends AppCompatActivity
     String selectLang = "ja";
 
     //食材ファイルを開くための変数
-    String fileName = "ingredient.json";
-    private String jsonIngredientData = null;
-    static List<IngredientData> ingredientList = new ArrayList<>();
-    Gson gson = new Gson();
+    File ingredientFile = new File();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,16 +105,13 @@ public class MainActivity extends AppCompatActivity
         });
 
         //食材リストファイルを開く
-        openIngredientDataFile();
+        ingredientFile.setFile("ingredient.json", getApplicationContext());
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        for(IngredientData l: ingredientList) {
-            Log.d("weiwei", l.name + ":" + l.category + ":"+ l.isSelect);
-        }
-        saveData();
+        ingredientFile.saveData();
     }
 
     //カメラが選択されたときの処理
@@ -380,72 +374,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    // ファイルを読み出し
-    public void openIngredientDataFile() {
-
-        // try-with-resources
-        try (FileInputStream fileInputStream = openFileInput(fileName);
-             BufferedReader reader= new BufferedReader(
-                     new InputStreamReader(fileInputStream, "UTF-8"))) {
-
-            String lineBuffer;
-            while( (lineBuffer = reader.readLine()) != null ) {
-                jsonIngredientData = lineBuffer;
-            }
-            ingredientList = gson.fromJson(jsonIngredientData, new TypeToken<List<IngredientData>>(){}.getType());
-            Log.d("weiwei", "ファイル読み込みに成功したZE");
-        } catch (FileNotFoundException e) {
-            Log.d("weiwei", "ファイルが無かったから初期化するZE");
-            initData();
-        } catch (IOException e) {
-            Log.d("weiwei", "エラーだZE:" + e);
-            e.printStackTrace();
-        }
-    }
-
-    public void saveData() {
-        // try-with-resources
-        try (FileOutputStream fileOutputstream = openFileOutput(fileName,
-                Context.MODE_PRIVATE)){
-
-            jsonIngredientData = gson.toJson(ingredientList);
-            fileOutputstream.write(jsonIngredientData.getBytes());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void initData() {
-        if (fileName.equals("ingredient.json")) {
-            //食材情報をセット
-            Gson gson = new Gson();
-
-            int strID;
-            int ingredientNum = 0;
-            IngredientData.Category[] categories = {vegetable, fruit, meat, seafood, seasoning, grain, dairy_product};
-            String[] categoriesName = {"vegetables","fruits", "meats", "seafoods", "seasonings", "grains", "dairy_prosucts"};
-            final int categoryLength = categories.length;
-
-            for (int i = 0; i < categoryLength; i++) {
-                ingredientNum = 0;
-                while (true) {
-                    strID = getResources().getIdentifier(categoriesName[i] + "_" + ingredientNum, "string", getPackageName());
-                    if (strID == NULL || strID == 0) {
-                        break;
-                    }
-                    ingredientList.add(new IngredientData(getResources().getString(strID), categories[i]));
-                    ingredientNum++;
-                }
-            }
-
-            for (IngredientData l : ingredientList) {
-                Log.d("weiwei", "l = " + l.category + ", " + l.name + ", " + l.isSelect);
-            }
-            jsonIngredientData = gson.toJson(ingredientList);
-        }
     }
 
 }

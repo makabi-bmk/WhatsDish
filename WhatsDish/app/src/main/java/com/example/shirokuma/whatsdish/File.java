@@ -28,8 +28,8 @@ public class File {
 
     String fileName = null;
     private String jsonData = null;
-    private ArrayList<IngredientData> ingredientList = new ArrayList<>();
     private ArrayList<Data> list = new ArrayList<>();
+    private ArrayList<IngredientData> ingredientList = new ArrayList<>();
     private Context context = null;
     private Gson gson = new Gson();
 
@@ -55,29 +55,32 @@ public class File {
             while( (lineBuffer = reader.readLine()) != null ) {
                 jsonData = lineBuffer;
             }
-            switch (fileName) {
-                case ingredientFileName:
-                    ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>(){}.getType());
-                    break;
-                default:
-                    list = gson.fromJson(jsonData, new TypeToken<List<Data>>(){}.getType());
-                    Log.d("weiwei", "62:jsonData =" + jsonData);
-                    break;
+
+            if (fileName.equals(ingredientFileName)) {
+                ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>(){}.getType());
+            } else {
+                list = gson.fromJson(jsonData, new TypeToken<List<Data>>(){}.getType());
             }
 
+            Log.d("weiwei", "62:jsonData =" + jsonData);
             Log.d("weiwei", "ファイル読み込みに成功したZE");
-            for (Data i : list) {
-                Log.d("weiwei", "list.name = " + i.name + "list.isSelect = " + i.isSelect);
-            }
+
         } catch (FileNotFoundException e) {
             Log.d("weiwei", "ファイルが無かったから初期化するZE");
 
+            if (fileName.equals(ingredientFileName)) {
+                initData();
+            } else if (fileName.equals(religionsFileName)) {
+                initData("religion");
+            } else {
+                initData("allergies");
+            }
             switch(fileName) {
                 case religionsFileName:
                     initData("religion");
                     break;
                 case ingredientFileName:
-                    initIngredientData();
+                    initData();
                     break;
                 case allergiesFileName:
                     initData("allergies");
@@ -108,9 +111,9 @@ public class File {
         }
     }
 
-    private void initIngredientData() {
+    private void initData() {
         //食材情報をセット
-        Gson gson = new Gson();
+        Log.d("weiwei", "初期化の関数だZE");
 
         int strID;
         int ingredientNum = 0;
@@ -125,6 +128,7 @@ public class File {
                 if (strID == NULL || strID == 0) {
                     break;
                 }
+                Log.d("weiwei", "new Data(" + context.getResources().getString(strID) + ", " + categories[i] + ")");
                 ingredientList.add(new IngredientData(context.getResources().getString(strID), categories[i]));
                 ingredientNum++;
             }
@@ -134,6 +138,8 @@ public class File {
             Log.d("weiwei", "l = " + l.category + ", " + l.name + ", " + l.isSelect);
         }
         jsonData = gson.toJson(ingredientList);
+
+
     }
     
     private void initData(String firstStr) {
@@ -162,6 +168,7 @@ public class File {
     public ArrayList<Data> getList() {
         return list;
     }
+
     public ArrayList<IngredientData> getIngredientList() {
         return ingredientList;
     }
