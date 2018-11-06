@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
+import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
+
 public class Allergies  extends AppCompatActivity {
 
     static File allergyFile = new File();
@@ -27,7 +29,7 @@ public class Allergies  extends AppCompatActivity {
             int resourseID = res.getIdentifier(allergiesName, "id", getPackageName());
 
             allergiesButtons[i] = findViewById(resourseID);
-            Log.d("weiwei", "name = " + allergyFile.getData(i).name + ", isSelect = " + allergyFile.getData(i).isSelect);
+            allergiesButtons[i].initData();
             allergiesButtons[i].setValue(i);
             allergiesButtons[i].setOnClickListener(new View.OnClickListener() { public void onClick(View v) {}});
         }
@@ -38,6 +40,7 @@ public class Allergies  extends AppCompatActivity {
         super.onDestroy();
         Log.d("weiwei", "onDestroy");
         allergyFile.saveData();
+        ingredientFile.saveData();
     }
 
     @Override

@@ -3,11 +3,18 @@ package com.example.shirokuma.whatsdish;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+
+import static com.example.shirokuma.whatsdish.Allergies.allergyFile;
+import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
 import static com.example.shirokuma.whatsdish.Religion.religionFile;
 
 public class ReligionButton extends android.support.v7.widget.AppCompatImageButton{
@@ -15,6 +22,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
     private String name;
     private int position;
     private OnClickListener listener;
+    HashMap<Integer, ArrayList<Integer>> categoryList = new HashMap<>();
 
     public ReligionButton(Context context) {
         super(context);
@@ -32,6 +40,7 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
         this.position = position;
         this.name = religionFile.getData(position).name;
         setImageResource(changeReligionPicture());
+        initData();
     }
 
     public boolean isSelect() {
@@ -62,6 +71,11 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
                     @Override
                     public void run() {
                         religionFile.changeSelect(position);
+                        if (religionFile.getData(position).isSelect) {
+                            changeSelectToTrue(position);
+                        } else {
+                            changeSelectToFalse(position);
+                        }
                         setImageResource(changeReligionPicture());
                     }
                 });
@@ -111,5 +125,31 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
         }
 
         super.setPressed(pressed);
+    }
+
+    void initData() {
+        categoryList.put(2, new ArrayList<Integer>());
+        for (int i = 111; i <= 139; i++) {
+            categoryList.get(2).add(i);
+        }
+        categoryList.get(2).add(189);
+        categoryList.put(3, new ArrayList<Integer>(Arrays.asList(113)));
+    }
+
+    void changeSelectToTrue(int elementNum) {
+        if (categoryList.containsKey(elementNum)) {
+            for (int i : categoryList.get(elementNum)) {
+                Log.d("weiwei", "num = " + i);
+                ingredientFile.changeSelectToTrue(i);
+            }
+        }
+    }
+
+    void changeSelectToFalse(int elementNum) {
+        if (categoryList.containsKey(elementNum)) {
+            for (int i : categoryList.get(elementNum)) {
+                ingredientFile.changeSelectToFalse(i);
+            }
+        }
     }
 }

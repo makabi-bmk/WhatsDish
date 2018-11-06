@@ -125,7 +125,6 @@ public class File {
 
     void changeSelect(int position) {
         boolean isIngredientFile = fileName.equals(ingredientFileName);
-        int a = 0;
         if (isIngredientFile) {
             IngredientData data = ingredientList.get(position);
             data.isSelect = !data.isSelect;
@@ -134,6 +133,40 @@ public class File {
             Data data = list.get(position);
             data.isSelect = !data.isSelect;
             list.set(position, new Data(data.name, data.isSelect));
+        }
+    }
+
+    void changeSelectToTrue(int elementNum) {
+        boolean isIngredientFile = fileName.equals(ingredientFileName);
+        if (isIngredientFile) {
+            IngredientData data = ingredientList.get(elementNum);
+            if (!data.isSelect) {
+                data.isSelect = true;
+                ingredientList.set(elementNum, new IngredientData(data.name, data.category, data.isSelect));
+            }
+        } else {
+            Data data = list.get(elementNum);
+            if (!data.isSelect) {
+                data.isSelect = true;
+                list.set(elementNum, new Data(data.name, data.isSelect));
+            }
+        }
+    }
+
+    void changeSelectToFalse(int elementNum) {
+        boolean isIngredientFile = fileName.equals(ingredientFileName);
+        if (isIngredientFile) {
+            IngredientData data = ingredientList.get(elementNum);
+            if (data.isSelect) {
+                data.isSelect = false;
+                ingredientList.set(elementNum, new IngredientData(data.name, data.category, data.isSelect));
+            }
+        } else {
+            Data data = list.get(elementNum);
+            if (data.isSelect) {
+                data.isSelect = false;
+                list.set(elementNum, new Data(data.name, data.isSelect));
+            }
         }
     }
 
