@@ -99,7 +99,7 @@ public class Religion extends AppCompatActivity {
                 }
             }
         });
-        ImageButton sinto = (ImageButton)findViewById(R.id.sinto);
+        ImageButton sinto = (ImageButton)findViewById(R.id.shinto);
 
         Button allergies = (Button)findViewById(R.id.allergy_question);
         Button religion = (Button)findViewById(R.id.religion_question);

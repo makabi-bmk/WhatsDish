@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <resources>
+
+        <!-- アプリケーション設定 -->
+        <string name="app_name">What\'s Dish</string>
+        <string name="navigation_drawer_open">Open navigation drawer</string>
+        <string name="navigation_drawer_close">Close navigation drawer</string>
+        <string name="nav_header_title">Menu</string>
+        <string name="nav_header_subtitle">android.studio@android.com</string>
+        <string name="nav_header_desc">Navigation header</string>
+        <string name="action_settings">Settings</string>
+        <string name="setAllergies">請選擇您的變應素。</string>
+
+        <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
+
+        <string name="button_next">下面</string>
+        <string name="button_before">返回前頁</string>
+        <string name="pageSkip">跳過</string>
+
+        <!-- 画面メッセージ -->
+        <string name="loading_message">画像を解析中です</string>
+        <string name="dialog_select_prompt">画像を選択してください</string>
+        <string name="dialog_select_camera">カメラ</string>
+
+        <!-- エラーメッセージ -->
+        <string name="call_api_error">Cloud Vision APIの呼び出しに失敗しました</string>
+        <string name="image_picker_error">イメージの読み込みに失敗しました</string>
+        <string name="text_detection_error">文字が含まれていません</string>
+
+        <!--説明文-->
+        <string name="explain1">
+        使用方法\n
+        請用手機拍照菜單。
+        </string>
+        <string name="explain2">
+        拍照的菜單中讀取菜名。\n然後根據您的過敏症及喜歡的口味，App將辨別您能吃或者不能吃的菜名提示給您。
+        </string>
+        <string name="explain3">
+        輕擊被提示的菜名，將提示詳細說明。
+        </string>
+
+
+        <string name="title_canEat">食べられるもの</string>
+        <string name="title_cannotEat">食べられないもの</string>
+        <string name="title_notifications">Notifications</string>
+        <string name="compete_parse">解析完了</string>
+        <string name="missing_parse">一致する料理データが\n見つかりませんでした</string>
+
+        <string name="religion_0">buddhism</string>
+        <string name="religion_1">christ</string>
+        <string name="religion_2">hinduism</string>
+        <string name="religion_3">islam</string>
+        <string name="religion_4">judaism</string>
+        <string name="religion_5">shinto</string>
+
+        <string name="allergies_0">shrimp</string>
+        <string name="allergies_1">crab</string>
+        <string name="allergies_2">buckwheat</string>
+        <string name="allergies_3">wheat</string>
+        <string name="allergies_4">egg</string>
+        <string name="allergies_5">milk</string>
+        <string name="allergies_6">peanuts</string>
+        <string name="allergies_7">squid</string>
+        <string name="allergies_8">salmon_roe</string>
+        <string name="allergies_9">orange</string>
+        <string name="allergies_10">cashewnuts</string>
+        <string name="allergies_11">kiwi</string>
+        <string name="allergies_12">cow</string>
+        <string name="allergies_13">walnut</string>
+        <string name="allergies_14">sesame</string>
+        <string name="allergies_15">fish</string>
+        <string name="allergies_16">soy</string>
+        <string name="allergies_17">chicken</string>
+        <string name="allergies_18">banana</string>
+        <string name="allergies_19">mushroom</string>
+        <string name="allergies_20">pig</string>
+        <string name="allergies_21">peach</string>
+        <string name="allergies_22">yam</string>
+        <string name="allergies_23">apple</string>
+        <string name="allergies_24">gelatin</string>
+
+        <string name="question_ja">
+        私には食物アレルギーがあります。\n
+        アレルゲンを食べることができません。\n
+        このメニューには、これらのアレルゲンが入っていますか?
+    </string>
+        <string name="question_en">
+        I have food allergies.\n
+        I must avoid allergens.\n
+        Does this dish contain any of these allergens?
+    </string>
+        <string name="question_cn">
+        我有食物过敏，不能吃变应素。\n
+        这个菜里有变应素成分吗？
+    </string>
+        <string name="question_tw">
+        我有食物過敏，不能吃變應素。\n
+        這個菜里有變應素嗎?
+    </string>
+
+        <!--回答1-->
+        <string name="answer1_ja">
+        アレルゲンは含まれていません。\n
+        食べることができます。
+    </string>
+        <string name="answer1_en">
+        allergies FREE.
+        You can eat.
+    </string>
+        <string name="answer1_cn">
+        菜中没有变应素成分。您可以吃。
+    </string>
+        <string name="answer1_tw">
+        菜中沒有變應素成分。您可以吃。
+    </string>
+
+        <!--回答2-->
+        <string name="answer2_ja">
+        申し訳ございません。\n
+        食べることができません。
+    </string>
+        <string name="answer2_en">
+        sorry.You can not eat.
+    </string>
+        <string name="answer2_cn">
+        真对不起，这个菜不能吃。
+    </string>
+        <string name="answer2_tw">
+        真對不起，這個菜不能吃。
+    </string>
+
+        <!--質問2-->
+        <string name="question2_ja">
+        どのメニューであれば食べることが\n
+        できますか？
+    </string>
+        <string name="question2_en">
+        Which menu can I eat?
+    </string>
+        <string name="question2_cn">
+        哪些菜可以吃？
+    </string>
+        <string name="question2_tw">
+        哪些菜可以吃哪些菜可以吃？
+    </string>
+
+    <string name="nav_allergies"></string>
+    <string name="nav_languages"></string>
+    <string name="nav_cant_eat"></string>
+    <string name="nav_religion"></string>
+
+    </resources>
+</resources>

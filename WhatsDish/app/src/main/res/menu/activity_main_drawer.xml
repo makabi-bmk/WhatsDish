@@ -6,16 +6,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_allergy"
-            android:title="アレルギー設定" />
+            android:title="Allergies" />
         <item
             android:id="@+id/nav_cannotEat"
             android:title="食べられないもの設定" />
         <item
             android:id="@+id/nav_religion"
-            android:title="宗教設定" />
+            android:title="Relligion" />
         <item
             android:id="@+id/nav_language"
-            android:title="言語設定" />
+            android:title="Languages" />
 
     </group>
 

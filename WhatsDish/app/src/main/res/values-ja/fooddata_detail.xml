@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fooddata_detail_0">
+        アーサは、沖縄の海で取れる海藻で、\n
+        アーサ汁はアーサと豆腐を使った汁物。
+    </string>
+    <string name="fooddata_detail_1">
+        白イカの墨で作る汁物。
+    </string>
+    <string name="fooddata_detail_2">
+        「イナ」はイノシシ、「ムドゥチ」はもどきという意味。\n
+        昔は猪の肉を使っていたが、今は代わりに豚肉が使われている。\n
+        白みそを使った汁物。\n
+        カステラカマボコは、魚のすり身に卵を多量に加え蒸し揚げた沖縄の伝統食材。
+    </string>
+    <string name="fooddata_detail_3">
+        昆布、豚肉、野菜を炒め煮した料理。\n
+        「クーブ」は昆布、「イリチー」は炒め物を指す。
+    </string>
+    <string name="fooddata_detail_4">
+        ゴーヤ、豆腐、野菜などを炒めた料理。\n
+        「チャンプルー」は「ごちゃ混ぜ」という意味。
+    </string>
+    <string name="fooddata_detail_5">
+        落花生を使った料理。\n
+        豆腐は大豆を使うが、ジーマーミ豆腐は大豆ではなく落花生を使う。\n
+        「ジーマーミ」は落花生を指す。
+    </string>
+    <string name="fooddata_detail_6">
+        「ジューシー」は炊き込みご飯を指す。\n
+        炊き込みご飯は、米を具と出汁と一緒に炊いた料理。\n
+    </string>
+    <string name="fooddata_detail_7">
+        メキシコ料理のタコスの具をご飯の上に乗せ、サルサソースをかけて食べる料理。
+    </string>
+    <string name="fooddata_detail_8">
+        テビチは豚足を煮込んで柔らかくし、味付けをしたもの。\n
+        豆腐や昆布、野菜と一緒に煮付ける。
+    </string>
+    <string name="fooddata_detail_9">
+        「ナーベラ」はヘチマのことを指す。\n
+        ヘチマと豚肉を味噌で煮込んだもの。豆腐を入れる場合もある。\n
+        「ンブシ－」は味噌煮込みのことを指す。
+    </string>
+    <string name="fooddata_detail_10">
+        パパイヤを野菜と炒め煮した料理。\n
+        「イリチー」は炒め煮を指す。
+    </string>
+    <string name="fooddata_detail_11">
+        小麦粉を水でといたものに、ニラやネギ、ツナ等を加えて
+        混ぜあわせフライパンで薄く焼き上げたもの。
+    </string>
+    <string name="fooddata_detail_12">
+        缶詰のポークと卵を使った料理。\n
+        ポークを薄切りにして炒め、これと玉子焼きに
+        ケチャップを付けて食べる。
+    </string>
+    <string name="fooddata_detail_13">
+        豚肉を黒ゴマで作ったタレに漬け、蒸した料理。
+    </string>
+    <string name="fooddata_detail_14">
+        「ミミガー」とは豚の耳のこと。\n
+        茹でるか蒸したものを細切りにし、酢や味噌、
+        ピーナッツバター等と和えて食べる。
+    </string>
+    <string name="fooddata_detail_15">
+        もずくは海藻で、もずく酢はもずくを酢漬けにしたもの。
+    </string>
+    <string name="fooddata_detail_16">
+        やぎ肉を野菜と煮込んで作る料理。
+    </string>
+    <string name="fooddata_detail_17">
+        ゆし豆腐とは、豆腐を型に入れて固める前の、
+        ふわふわした柔らかい状態の豆腐のこと。\n
+        汁物に入れて食べる。
+    </string>
+    <string name="fooddata_detail_18">
+        豚バラ肉を煮込んだ角煮。
+    </string>
+    <string name="fooddata_detail_19">
+        「そば」といっても麺に蕎麦粉は使っておらず、
+        小麦粉からできた麺を使う。\n
+        三枚肉、かまぼこ、ねぎをのせる。\n
+        出汁には豚骨、かつお節を使う。
+    </string>
+    <string name="fooddata_detail_20">
+        海ぶどうは沖縄の海で獲れる海藻の1種。\n
+        生のまま醤油、酢を付けて食べる。
+    </string>
+    <string name="fooddata_detail_21">
+        ご飯の上に具を載せ、汁をかけて食べる料理。
+    </string>
+    <string name="fooddata_detail_22">
+        中味とは、豚の胃袋や腸などのモツのころ。\n
+        丁寧に下ごしらえをした中味を、こんにゃく、
+        椎茸と一緒に煮た汁物。
+    </string>
+    <string name="fooddata_detail_23">
+        豆腐を紅麹と泡盛などを用いた汁に漬け込み、
+        発酵・熟成させた発酵食品。
+    </string>
+    <string name="fooddata_detail_24">
+        にんじんの千切りをツナ、卵と炒めた料理。\n
+        「シリシリ」とは「すりよる・こする」という意味で、
+        「ニンジンシリシリ」はおろし金で人参ですりおろすという事。
+    </string>
+
+</resources>

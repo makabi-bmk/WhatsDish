@@ -145,4 +145,9 @@
         哪些菜可以吃哪些菜可以吃？
     </string>
 
+    <string name="nav_allergies">设定具体过敏症</string>
+    <string name="nav_languages">设定语言</string>
+    <string name="nav_cant_eat">不可饮食的食物</string>
+    <string name="nav_religion">设定宗教信仰</string>
+
 </resources>

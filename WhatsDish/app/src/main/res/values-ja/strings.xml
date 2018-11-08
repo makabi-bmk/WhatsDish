@@ -148,5 +148,10 @@
         哪些菜可以吃哪些菜可以吃？
     </string>
 
+    <string name="nav_allergies">アレルギー設定</string>
+    <string name="nav_languages">言語設定</string>
+    <string name="nav_cant_eat">食べられないもの設定</string>
+    <string name="nav_religion">宗教設定</string>
+
 
 </resources>

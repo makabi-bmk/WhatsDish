@@ -12,9 +12,9 @@
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
-    <string name="button_next">次へ</string>
-    <string name="button_before">前へ</string>
-    <string name="pageSkip">スキップ</string>
+    <string name="button_next">next</string>
+    <string name="button_before">before</string>
+    <string name="pageSkip">skip</string>
 
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
@@ -146,5 +146,10 @@
     <string name="question2_tw">
         哪些菜可以吃哪些菜可以吃？
     </string>
+
+    <string name="nav_allergies">Allergies</string>
+    <string name="nav_languages">Languages</string>
+    <string name="nav_cant_eat"></string>
+    <string name="nav_religion">Religion</string>
 
 </resources>
