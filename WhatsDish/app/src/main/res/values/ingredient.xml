@@ -80,9 +80,7 @@
     <string name="vegetables_68">eryngii / trumpet mushroom</string>
     <string name="vegetables_69">kikurage / wood ear mushroom</string>
     <string name="vegetables_70">maitake mushroom</string>
-    <string name="vegetables_71">mushroom</string>
-    <string name="vegetables_72"></string>
-    <string name="vegetables_73"></string>
+
 
 
     <string name="fruits_0">mandarin orange</string>
@@ -125,7 +123,7 @@
     <string name="fruits_37">acerola</string>
     <string name="fruits_38">passion fruit</string>
     <string name="fruits_39">orange</string>
-    <string name="fruits_40"></string>
+
 
 
     <string name="meat_0">beef</string>
@@ -210,7 +208,6 @@
     <string name="grains_17">ginkgo nut</string>
     <string name="grains_18">hazelnut</string>
     <string name="grains_19">macadamia nut</string>
-    <string name="grains_20"></string>
 
     <string name="dairy_products_0">cheese</string>
     <string name="dairy_products_1">egg</string>

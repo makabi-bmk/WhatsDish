@@ -1,9 +1,7 @@
 package com.example.shirokuma.whatsdish;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.HashMap;
@@ -101,24 +99,24 @@ public class Religion extends AppCompatActivity {
         });
         ImageButton sinto = (ImageButton)findViewById(R.id.shinto);
 
-        Button allergies = (Button)findViewById(R.id.allergy_question);
-        Button religion = (Button)findViewById(R.id.religion_question);
-
-        allergies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Religion.this, QuestionAllergy.class);
-                startActivity(intent);
-            }
-        });
-
-        religion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Religion.this, QuestionReligion.class);
-                startActivity(intent);
-            }
-        });
+//        Button allergies = (Button)findViewById(R.id.allergy_question);
+//        Button religion = (Button)findViewById(R.id.religion_question);
+//
+//        allergies.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Religion.this, QuestionAllergy.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        religion.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Religion.this, QuestionReligion.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 }

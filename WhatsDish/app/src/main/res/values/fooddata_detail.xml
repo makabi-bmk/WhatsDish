@@ -1,97 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="fooddata_detail_0">
+    <string name="food_detail_0">
         Soup with Asa and tofu.\n
         Asa is green seaweed which harvested in Okinawan sea.
     </string>
-    <string name="fooddata_detail_1">
+    <string name="food_detail_1">
         Soup made from white squid\'s ink.
     </string>
-    <string name="fooddata_detail_2">
+    <string name="food_detail_2">
         Soup with white miso.\n
         "Ina" means boar, "muduchi" means fake.\n
         Although it used to made by boar meet, \nthesedays it\'s made by pork instead.
         Castilla kamaboko is Okinawan traditional food which is boiled and fried fish paste added amount of egg.
     </string>
-    <string name="fooddata_detail_3">
+    <string name="food_detail_3">
         Okinawan dish which fries kelp(seaweed), pork, and vegetables.\n
         "Kubu" means kep, "Irichi" means stir-fries.
     </string>
-    <string name="fooddata_detail_4">
+    <string name="food_detail_4">
         Okinawan dish which fries goya(bitter melon), tofu, and vegetables.\n
         "chanpuru" means mix/stir.
     </string>
-    <string name="fooddata_detail_5">
+    <string name="food_detail_5">
         Tofu made from peanut.\n
         Although tofu is usually made by soy,
         Jimami tofu is made by peanut instead. "Jimami" means peanut.
     </string>
-    <string name="fooddata_detail_6">
+    <string name="food_detail_6">
         Okinawan style seasoned rice.\n
         Seasoned rice is dish which cooks rice with ingredients and stock.
     </string>
-    <string name="fooddata_detail_7">
+    <string name="food_detail_7">
         Okinawan dish in which the ingredients of a Mexican taco are seved on warm rice, with salsa on top.
     </string>
-    <string name="fooddata_detail_8">
+    <string name="food_detail_8">
         Okinawan dish which simmers and seasons pig\'s leg with tofu, seaweed, and vegetable.
         "Tebichi" means pig\'s leg.
     </string>
-    <string name="fooddata_detail_9">
+    <string name="food_detail_9">
         Okinawan dish which simmers hechima and pork (or tofu) with miso.\n
         "Nabera" means hechima which is a vegetable.\n
         "N'bushi" means simmered with miso.
     </string>
-    <string name="fooddata_detail_10">
+    <string name="food_detail_10">
         Stir fry which has papaya as main vegetable.\n
         "Irichi"means stir-fries.
     </string>
-    <string name="fooddata_detail_11">
+    <string name="food_detail_11">
         Thin savor pan cake whixh mixes chive, leeks, tuna in flour and water.
     </string>
-    <string name="fooddata_detail_12">
+    <string name="food_detail_12">
         Dish which fries canned pork and egg with ketchup.
     </string>
-    <string name="fooddata_detail_13">
+    <string name="food_detail_13">
         Dish which marinates steamed pork in black sesame sauce.
     </string>
-    <string name="fooddata_detail_14">
+    <string name="food_detail_14">
         "Mimiga" means pig\'s ear.\n
         Chop up the boiled or steamed pig\'s ear and eaten with vinegar,
         miso, and peanut butter.
     </string>
-    <string name="fooddata_detail_15">
+    <string name="food_detail_15">
         Mozuku seaweed which seasoned with vinegar.
     </string>
-    <string name="fooddata_detail_16">
+    <string name="food_detail_16">
         Dish which simmers goat meat with vegetable.
     </string>
-    <string name="fooddata_detail_17">
+    <string name="food_detail_17">
         Yushi Tofu is fluffy soft tofu which is eaten in soup.
     </string>
-    <string name="fooddata_detail_18">
+    <string name="food_detail_18">
         Sweet and tender simmered pork.
     </string>
-    <string name="fooddata_detail_19">
+    <string name="food_detail_19">
         Noodle made from flour.\n
         Toppings are thick slice of stewed pork, kamaboko and leeks.\n
         Soup is made from pork and bonito stocks.
     </string>
-    <string name="fooddata_detail_20">
+    <string name="food_detail_20">
         Umibudo is a kind of seaweed which is harvested in Okinawan sea
         eaten by raw with soy sauce or vinegar.
     </string>
-    <string name="fooddata_detail_21">
+    <string name="food_detail_21">
         Dish which puts topping and soup broth on the rice.
     </string>
-    <string name="fooddata_detail_22">
+    <string name="food_detail_22">
         Soup simmers tripe, konnyaku, and shiitake mushroom.\n
         "Nakami" means pork\'s tripe.
     </string>
-    <string name="fooddata_detail_23">
+    <string name="food_detail_23">
         Farmented tofu using malted rice and Awamori.
     </string>
-    <string name="fooddata_detail_24">
+    <string name="food_detail_24">
         Stir fry  which has carrot strips, tuna and egg.\n
         "Ninjin" means carrot and "Shiri-shiri" means slice.\n
         "Ninjin sihiri-shiri" means to slice carrot.

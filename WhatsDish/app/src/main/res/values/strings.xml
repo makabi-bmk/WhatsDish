@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- アプリケーション設定 -->
     <string name="app_name">What\'s Dish</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,13 +7,14 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="setAllergies">アレルギー製品を選択してください。</string>
+    <string name="setAllergies">Please select allergen</string>
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
     <string name="button_next">next</string>
     <string name="button_before">before</string>
     <string name="pageSkip">skip</string>
+    <string name="start">start</string>
 
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
@@ -28,26 +28,21 @@
 
     <!--説明文-->
     <string name="explain1">
-        使い方\n
-        カメラで料理のメニューを撮影してください。
+        Please shoot the menu with the camera.
     </string>
     <string name="explain2">
-        撮影したメニューから、料理の名前を読み取り、\n
-        あなたのアレルギー、好みの設定に基づき、\n
-        食べられるもの、食べられないものを判別して\n
-        表示します。
+        Read the name of the dish from the menu you shot.\nAnd based on your settings, the app will distinguish what you can eat and what you can not eat
     </string>
     <string name="explain3">
-        表示された料理の名前をタップすると、\n
-        詳しい料理の説明を表示します。
+        Tap on the list of dishes to display a detailed explanation.
     </string>
 
 
-    <string name="title_canEat">食べられるもの</string>
-    <string name="title_cannotEat">食べられないもの</string>
+    <string name="title_canEat">can be eaten</string>
+    <string name="title_cannotEat">can not be eaten</string>
     <string name="title_notifications">Notifications</string>
-    <string name="compete_parse">解析完了</string>
-    <string name="missing_parse">一致する料理データが\n見つかりませんでした</string>
+    <string name="compete_parse">Analysis completed</string>
+    <string name="missing_parse">No matching data</string>
 
     <string name="religion_0">buddhism</string>
     <string name="religion_1">christ</string>
@@ -82,6 +77,40 @@
     <string name="allergies_23">apple</string>
     <string name="allergies_24">gelatin</string>
 
+    <string name="shrimp">shrimp</string>
+    <string name="crab">crab</string>
+    <string name="buckwheat">buckwheat</string>
+    <string name="wheat">wheat</string>
+    <string name="egg">egg</string>
+    <string name="milk">milk</string>
+    <string name="peanuts">peanuts</string>
+    <string name="squid">squid</string>
+    <string name="salmon_roe">salmon roe</string>
+    <string name="orange">orange</string>
+    <string name="cashewnuts">cashew nut</string>
+    <string name="kiwi">kiwi</string>
+    <string name="cow">cow</string>
+    <string name="walnut">walnut</string>
+    <string name="sesame">sesame</string>
+    <string name="fish">fish</string>
+    <string name="soy">soy</string>
+    <string name="chicken">chicken</string>
+    <string name="banana">banana</string>
+    <string name="mushroom">mushroom</string>
+    <string name="pig">pig</string>
+    <string name="peach">peach</string>
+    <string name="yam">yam</string>
+    <string name="apple">apple</string>
+    <string name="gelatin">gelatin</string>
+
+    <string name="buddhism">buddhism</string>
+    <string name="christ">christ</string>
+    <string name="hinduism">hinduism</string>
+    <string name="islam">islam</string>
+    <string name="judaism">judaism</string>
+    <string name="shinto">shinto</string>
+
+    <!--質問-->
     <string name="question_ja">
         私には食物アレルギーがあります。\n
         アレルゲンを食べることができません。\n
@@ -147,9 +176,20 @@
         哪些菜可以吃哪些菜可以吃？
     </string>
 
-    <string name="nav_allergies">Allergies</string>
+    <string name="yes_ja">はい</string>
+    <string name="yes_cn">是</string>
+    <string name="yes_en">yes</string>
+    <string name="yes_tw">是</string>
+
+    <string name="no_ja">いいえ</string>
+    <string name="no_cn">没有</string>
+    <string name="no_en">no</string>
+    <string name="no_tw">沒有</string>
+
+
+    <string name="nav_allergies">Allergen</string>
     <string name="nav_languages">Languages</string>
-    <string name="nav_cant_eat"></string>
+    <string name="nav_cant_eat">Can not be eaten</string>
     <string name="nav_religion">Religion</string>
 
 </resources>

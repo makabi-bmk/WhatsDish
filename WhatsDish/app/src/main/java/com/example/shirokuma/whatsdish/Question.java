@@ -32,6 +32,11 @@ public class Question extends AppCompatActivity {
         Resources res = getResources();
         int otherQuestion = res.getIdentifier("question_" + otherLan, "string", getPackageName());
         int myQuestion = res.getIdentifier("question_" + myLan, "string", getPackageName());
+        int yes = res.getIdentifier("yes_" + otherLan, "string", getPackageName());
+        int no = res.getIdentifier("no_" + otherLan, "string", getPackageName());
+
+        yesButton.setText(res.getString(yes));
+        noButton.setText(res.getString(no));
 
         questionOther.setText(res.getString(otherQuestion));
         questionMy.setText(res.getString(myQuestion));

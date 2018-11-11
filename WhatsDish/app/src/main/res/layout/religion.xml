@@ -22,7 +22,7 @@
         android:id="@+id/bukkyou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="仏教"
+        android:text="@string/buddhism"
         app:layout_constraintLeft_toLeftOf="@+id/buddhism"
         app:layout_constraintRight_toRightOf="@+id/buddhism"
         app:layout_constraintTop_toBottomOf="@+id/buddhism" />
@@ -44,7 +44,7 @@
         android:id="@+id/kirisuto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="キリスト教"
+        android:text="@string/christ"
         app:layout_constraintLeft_toLeftOf="@id/christ"
         app:layout_constraintRight_toRightOf="@+id/christ"
         app:layout_constraintTop_toBottomOf="@+id/christ" />
@@ -66,7 +66,7 @@
         android:id="@+id/hindo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ヒンドゥー教"
+        android:text="@string/hinduism"
         app:layout_constraintLeft_toLeftOf="@id/hinduism"
         app:layout_constraintRight_toRightOf="@id/hinduism"
         app:layout_constraintTop_toBottomOf="@+id/hinduism" />
@@ -88,7 +88,7 @@
         android:id="@+id/isuramu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="イスラム教"
+        android:text="@string/islam"
         app:layout_constraintTop_toBottomOf="@id/islam"
         app:layout_constraintRight_toRightOf="@id/islam"
         app:layout_constraintLeft_toLeftOf="@id/islam"/>
@@ -110,7 +110,7 @@
         android:id="@+id/yudaya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ユダヤ教"
+        android:text="@string/judaism"
         app:layout_constraintTop_toBottomOf="@+id/judaism"
         app:layout_constraintRight_toRightOf="@id/judaism"
         app:layout_constraintLeft_toLeftOf="@id/judaism"/>
@@ -133,30 +133,30 @@
         android:id="@+id/sindou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="神道"
+        android:text="@string/shinto"
         app:layout_constraintTop_toBottomOf="@id/shinto"
         app:layout_constraintRight_toRightOf="@id/shinto"
         app:layout_constraintLeft_toLeftOf="@id/shinto"/>
 
-    <Button
-        android:id="@+id/allergy_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:text="アレルギーの質問画面"
-        app:layout_constraintTop_toBottomOf="@+id/isuramu"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+    <!--<Button-->
+        <!--android:id="@+id/allergy_question"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:text="アレルギーの質問画面"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/isuramu"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--/>-->
 
-    <Button
-        android:id="@+id/religion_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:text="宗教質問画面"
-        app:layout_constraintTop_toBottomOf="@id/allergy_question"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <!--<Button-->
+        <!--android:id="@+id/religion_question"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginLeft="30dp"-->
+        <!--android:text="宗教質問画面"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/allergy_question"-->
+        <!--app:layout_constraintStart_toStartOf="parent"/>-->
 
 </android.support.constraint.ConstraintLayout>

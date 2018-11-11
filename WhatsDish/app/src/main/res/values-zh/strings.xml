@@ -14,6 +14,7 @@
     <string name="button_next">下面</string>
     <string name="button_before">返回前面</string>
     <string name="pageSkip">跳过</string>
+    <string name="start">start</string>
 
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
@@ -40,11 +41,11 @@
     </string>
 
 
-    <string name="title_canEat">食べられるもの</string>
-    <string name="title_cannotEat">食べられないもの</string>
+    <string name="title_canEat">什么可以吃</string>
+    <string name="title_cannotEat">什么不能吃</string>
     <string name="title_notifications">Notifications</string>
     <string name="compete_parse">解析完了</string>
-    <string name="missing_parse">一致する料理データが\n見つかりませんでした</string>
+    <string name="missing_parse">没有匹配的数据</string>
 
     <string name="religion_0">buddhism</string>
     <string name="religion_1">christ</string>
@@ -78,6 +79,40 @@
     <string name="allergies_22">yam</string>
     <string name="allergies_23">apple</string>
     <string name="allergies_24">gelatin</string>
+
+    <string name="shrimp">虾仁</string>
+    <string name="crab">螃蟹</string>
+    <string name="buckwheat">荞麦</string>
+    <string name="wheat">小麦</string>
+    <string name="egg">鸡蛋</string>
+    <string name="milk">牛奶</string>
+    <string name="peanuts">花生</string>
+    <string name="squid">乌贼</string>
+    <string name="salmon_roe">鲑鱼子</string>
+    <string name="orange">橙</string>
+    <string name="cashewnuts">腰果</string>
+    <string name="kiwi">猕猴桃</string>
+    <string name="cow">牛肉</string>
+    <string name="walnut">核桃</string>
+    <string name="sesame">芝麻</string>
+    <string name="fish">鱼</string>
+    <string name="soy">黄豆</string>
+    <string name="chicken">鸡肉</string>
+    <string name="banana">香蕉</string>
+    <string name="mushroom">洋蘑菇</string>
+    <string name="pig">猪肉</string>
+    <string name="peach">桃子</string>
+    <string name="yam">山药</string>
+    <string name="apple">苹果</string>
+    <string name="gelatin">明胶</string>
+
+    <string name="buddhism">佛教</string>
+    <string name="christ">基督教</string>
+    <string name="hinduism">印度教</string>
+    <string name="islam">伊斯兰教</string>
+    <string name="judaism">犹太教</string>
+    <string name="shinto">神道</string>
+
 
     <!--質問-->
     <string name="question_ja">
@@ -144,6 +179,16 @@
     <string name="question2_tw">
         哪些菜可以吃哪些菜可以吃？
     </string>
+
+    <string name="yes_ja">はい</string>
+    <string name="yes_cn">是</string>
+    <string name="yes_en">yes</string>
+    <string name="yes_tw">是</string>
+
+    <string name="no_ja">いいえ</string>
+    <string name="no_cn">没有</string>
+    <string name="no_en">no</string>
+    <string name="no_tw">沒有</string>
 
     <string name="nav_allergies">设定具体过敏症</string>
     <string name="nav_languages">设定语言</string>

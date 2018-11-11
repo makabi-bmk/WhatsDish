@@ -1,100 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="fooddata_detail_0">
+    <string name="food_detail_0">
         Asa在沖繩地方海邊生長的綠色海藻之一。\n
         Asa湯以豆腐與海藻一起煮的湯。
     </string>
-    <string name="fooddata_detail_1">
+    <string name="food_detail_1">
         用烏賊墨汁煮成的湯。
     </string>
-    <string name="fooddata_detail_2">
+    <string name="food_detail_2">
         「Ina」是指「野豬」，「muduchi」是「像、仿」的意思。\n
         過去做此湯之時，用野豬肉做湯。\n
         現在用豬肉代替野豬肉。\n
         湯裡還有以魚碎肉與雞蛋加在一起爾煮熟的卡斯特羅魚糕，是一種代表沖繩的傳統食品。\n
     </string>
-    <string name="fooddata_detail_3">
+    <string name="food_detail_3">
         用海帶、豬肉及蔬菜炒在一起的炒菜之一。\n
         「ku-bu」是指「海帶」，「irichi」是「炒」的意思。
     </string>
-    <string name="fooddata_detail_4">
+    <string name="food_detail_4">
         用苦瓜、豆腐及蔬菜等放在一起的炒菜之一。\n
         「Champuru」是「混雜」的意思。
     </string>
-    <string name="fooddata_detail_5">
+    <string name="food_detail_5">
         用花生做的豆腐。\n
         「Ji-ma-mi」是指「花生」。
     </string>
-    <string name="fooddata_detail_6">
+    <string name="food_detail_6">
         「Jyu-shi」是指燴飯。\n
         燴飯一般以大米與各種蔬菜及肉放在一起煮熟的飯菜。
     </string>
-    <string name="fooddata_detail_7">
+    <string name="food_detail_7">
         代表墨西哥菜的墨西哥夾肉餅的餡兒放在米飯上，其上面還加上薩爾薩辣醬就可以吃的特色菜。
     </string>
-    <string name="fooddata_detail_8">
+    <string name="food_detail_8">
         「Tebichi」是把豬蹄燉好後，用醬油等調料調味的菜。\n
         與豆腐、海帶及蔬菜一起煮熟。
     </string>
-    <string name="fooddata_detail_9">
+    <string name="food_detail_9">
         「Nabera」是指絲瓜。\n
         把絲瓜與豬肉炒熟之後，加上味噌煮。\n
         也有些人把豆腐也放在一起炒的。\n
         「Nbushi」是「用味噌煮熟」的意思。
     </string>
-    <string name="fooddata_detail_10">
+    <string name="food_detail_10">
         把青木瓜作為一種蔬菜的炒菜。\n
         「Irichi」是炒的意思。
     </string>
-    <string name="fooddata_detail_11">
+    <string name="food_detail_11">
         用水和麵之後，把韭菜、蔥及金槍魚罐頭等材料放在一起，然後用平底鍋煎好的菜。
     </string>
-    <string name="fooddata_detail_12">
+    <string name="food_detail_12">
         使用午餐肉與雞蛋的家常菜。\n
         把午餐肉切成片後煎好。\n
         然後與煎蛋放在一起，用番茄醬吃。
     </string>
-    <string name="fooddata_detail_13">
+    <string name="food_detail_13">
         把豬肉泡在黑芝麻汁里後蒸熟的菜。
     </string>
-    <string name="fooddata_detail_14">
+    <string name="food_detail_14">
         「Mimiga」是指豬耳朵。\n
         把豬耳朵煮好(或者蒸好)後切成絲，然後用醋、味噌或者花生醬等調料涼拌就可以吃。
     </string>
-    <string name="fooddata_detail_15">
+    <string name="food_detail_15">
         「Mozuku」是指海薀(又稱水雲)。\n
         「Mozuku-su」是把海薀泡在調料之後食用的菜。
     </string>
-    <string name="fooddata_detail_16">
+    <string name="food_detail_16">
         把山羊肉與蔬菜一起煮好的菜。
     </string>
-    <string name="fooddata_detail_17">
+    <string name="food_detail_17">
         「Yushi豆腐」是把豆漿里加鹵水之後不加以定型，在固化前保持柔軟狀態的豆腐。做湯類食用。
     </string>
-    <string name="fooddata_detail_18">
+    <string name="food_detail_18">
         把豬五花肉煮熟的傳統菜。\n
         因把豬肉切成方形，稱為角煮。
     </string>
-    <string name="fooddata_detail_19">
+    <string name="food_detail_19">
         沖繩的「Soba(麵條)」並不包含蕎麥粉，用麵粉來做麵條。\n
         五花肉、魚糕及蔥等材料放在上面。湯汁一般用豬骨、鰹魚干來煮出。
     </string>
-    <string name="fooddata_detail_20">
+    <string name="food_detail_20">
         海葡萄在沖繩地方生長的海藻之一。\n
         用醬油、醋等佐料直接可以吃。
     </string>
-    <string name="fooddata_detail_21">
+    <string name="food_detail_21">
         把各種配料放在米飯上面，然後把做好的湯汁澆上米飯就可以吃。
     </string>
-    <string name="fooddata_detail_22">
+    <string name="food_detail_22">
         中味是指豬的腸胃等內臟的總稱。\n
         把豬內臟重複洗乾淨後，與蒟蒻、香菇等配料一起煮。
     </string>
-    <string name="fooddata_detail_23">
+    <string name="food_detail_23">
         豆腐糕是把豆腐泡在紅曲及泡盛酒等佐料中，讓它發酵爾醃製的發酵食品。
     </string>
-    <string name="fooddata_detail_24">
+    <string name="food_detail_24">
         把胡蘿蔔切成絲之後，金槍魚罐頭、雞蛋等材料一起炒的一種家常菜。\n
         「shirishiri」是「擦，蹭」的意思。\n
         「Ninjin shirishiri」就是「把胡蘿蔔用礤床兒擦成絲」的意思。
