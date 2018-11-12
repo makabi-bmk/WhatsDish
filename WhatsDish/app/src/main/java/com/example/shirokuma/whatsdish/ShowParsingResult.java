@@ -2,67 +2,54 @@ package com.example.shirokuma.whatsdish;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 public class ShowParsingResult extends AppCompatActivity  {
 
-    private TextView mTextMessage;
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_can_eat:
-                    mTextMessage.setText(R.string.title_canEat);
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_cannotEat);
-                    return true;
-            }
-            return false;
-        }
-    };
+    private boolean isCanEat = true;
+    private ArrayList<FoodData2> canEatList;
+    private ArrayList<FoodData2> cannotEatList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_parsing_result);
 
-        Intent intent = getIntent();
-        String[] foodName = intent.getStringExtra("foodName").split(",", 0);
-        final ListView listView = findViewById(R.id.list_viewa);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        initData();
+        setViews();
+    }
 
-        for(String i : foodName) {
-            adapter.add(i);
+    private void initData() {
+        canEatList = new ArrayList<>();
+        cannotEatList = new ArrayList<>();
+
+        Intent intent = getIntent();
+        ArrayList<Integer> foodID = intent.getIntegerArrayListExtra("foodID");
+
+        for (int ID : foodID) {
+            FoodData2 foodData2 = new FoodData2(ID, "ja", getApplicationContext());
+            foodData2.setCannotEatIgredientList();
+            if (foodData2.canEat) {
+                canEatList.add(foodData2);
+            } else {
+                cannotEatList.add(foodData2);
+            }
         }
 
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ShowParsingResult.this, ShowFoodInfo.class);
-                intent.putExtra("foodName", (String)listView.getItemAtPosition(position));
-                startActivity(intent);
-            }
-        });
+    }
 
-        mTextMessage = findViewById(R.id.message);
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+    private void setViews() {
+        FragmentManager manager = getSupportFragmentManager();
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        ShowParsingResultPagerAdapter adapter = new ShowParsingResultPagerAdapter(manager, canEatList, cannotEatList, getApplicationContext());
+        viewPager.setAdapter(adapter);
+        TabLayout tabLayout = findViewById(R.id.tablayout);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override

@@ -10,12 +10,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class ShowFoodInfo extends AppCompatActivity {
 
     TextView foodTitle;
     TextView foodMat;
     TextView foodInfo;
-    FoodData foodData = new FoodData();
+    FoodData2 foodData2;
+    ArrayList<String> ingredientDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +26,22 @@ public class ShowFoodInfo extends AppCompatActivity {
         setContentView(R.layout.show_food_info);
 
         Intent intent = getIntent();
-        String foodName = intent.getStringExtra("foodName");
+        int taiyaki = intent.getIntExtra("foodData", -1);
+        foodData2 = new FoodData2(taiyaki, "ja", getApplicationContext());
 
         foodTitle = findViewById(R.id.food_title);
         foodMat = findViewById(R.id.food_mat);
         foodInfo = findViewById(R.id.food_info);
 
-        foodTitle.setText(foodName);
-        foodMat.setText(foodData.foodMat.get(foodName));
-        foodInfo.setText(foodData.foodInfo.get(foodName));
+        foodTitle.setText(foodData2.getFoodName());
+
+        ArrayList<String> ingredientDetail = foodData2.getIngredientDetail();
+        StringBuilder ss = new StringBuilder();
+        for (String s : ingredientDetail) {
+            ss.append("・" + s + "\n");
+        }
+        foodMat.setText(ss.toString());
+        foodInfo.setText(foodData2.getDetail());
 
     }
 

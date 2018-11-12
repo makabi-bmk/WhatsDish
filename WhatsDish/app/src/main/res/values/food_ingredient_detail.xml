@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="アーサ_0">-1</string>
+    <string name="豆腐_0">175</string>
+    <string name="カツオ出汁_0">122</string>
+    <string name="塩_0">146</string>
+    <string name="醤油_0">146</string>
+    <string name="醤油_1">175</string>
+    <string name="醤油_2">171</string>
+
+    <string name="イカ_0">126</string>
+    <string name="イカ墨_0">126</string>
+    <string name="豚肉_0">112</string>
+    <string name="苦菜_0">-1</string>
+
+    <string name="しいたけ_0">13</string>
+    <string name="こんにゃく_0">-1</string>
+    <string name="カステラかまぼこ_0">190</string>
+    <string name="カステラかまぼこ_1">122</string>
+    <string name="豚出汁_0">112</string>
+    <string name="味噌_0">175</string>
+    <string name="味噌_1">171</string>
+    <string name="味噌_2">140</string>
+    <string name="味噌_3">146</string>
+
+    <string name="昆布_0">-1</string>
+    <string name="かまぼこ_0">122</string>
+    <string name="かまぼこ_1">145</string>
+    <string name="かまぼこ_2">146</string>
+    <string name="かまぼこ_3">126</string>
+    <string name="油揚げ_0">175</string>
+    <string name="油揚げ_1">-1</string>
+    <string name="にんじん_0">48</string>
+    <string name="酒_0">-1</string>
+    <string name="みりん_0">-1</string>
+
+    <string name="ゴーヤ_0">53</string>
+    <string name="卵_0">190</string>
+    <string name="胡椒_0">157</string>
+
+    <string name="落花生_0">177</string>
+    <string name="芋くず粉_0">-1</string>
+    <string name="水_0">-1</string>
+    <string name="砂糖_0">145</string>
+
+    <string name="米_0">140</string>
+    <string name="青ネギ_0">-1</string>
+
+    <string name="レタス_0">40</string>
+    <string name="トマト_0">24</string>
+    <string name="チーズ_0">189</string>
+    <string name="合いびき肉_0">112</string>
+    <string name="合いびき肉_1">111</string>
+    <string name="にんにく_0">29</string>
+    <string name="チリパウダー_0">-1</string>
+    <string name="クミン_0">166</string>
+    <string name="ケチャップ_0">-1</string>
+    <string name="ガラムマサラ_0">-1</string>
+    <string name="チリソース_0">-1</string>
+
+    <string name="ヘチマ_0">60</string>
+    <string name="豚汁_0">112</string>
+
+    <string name="パパイヤ_0">32</string>
+    <string name="にら_0">28</string>
+
+    <string name="小麦粉_0">171</string>
+    <string name="ツナ_0">122</string>
+    <string name="ツナ_1">-1</string>
+
+    <string name="ポーク_0">112</string>
+    <string name="ゴマ_0">185</string>
+
+    <string name="豚の耳皮_0">112</string>
+    <string name="ピーナッツバター_0">177</string>
+    <string name="ピーナッツバター_1">146</string>
+    <string name="ピーナッツバター_2">191</string>
+    <string name="酢_0">147</string>
+
+    <string name="もずく_0">-1</string>
+
+    <string name="ヤギ肉">ヤギ肉</string>
+    <string name="泡盛_0">酒</string>
+    <string name="よもぎ_0">よもぎ</string>
+    <string name="しょうが_0">しょうが</string>
+
+    <string name="ゆし豆腐_0">175</string>
+    <string name="ネギ_0">ネギ</string>
+
+    <string name="片栗粉_0">じゃがいも</string>
+    <string name="コーンスターチ_0">コーン</string>
+
+    <string name="海ぶどう_0">-1</string>
+
+    <string name="たけのこ_0">たけのこ</string>
+    <string name="からし菜_0">からし菜</string>
+    <string name="鶏出汁_0">鶏肉</string>
+
+    <string name="豚の内臓_0">112</string>
+
+    <string name="米麹_0">-1</string>
+    <string name="紅麹_0">-1</string>
+
+
+</resources>

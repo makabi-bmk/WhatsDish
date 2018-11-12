@@ -21,16 +21,16 @@ public class ShowIngredientList1 extends AppCompatActivity {
 
         final ListView listView = findViewById(R.id.ingredient_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        int ingredientNum;
+        int i;
 
-        ingredientNum = 0;
+        i = 0;
         while (true) {
-            int strID = getResources().getIdentifier("category_" + ingredientNum, "string", getPackageName());
+            int strID = getResources().getIdentifier("category_" + i, "string", getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
             adapter.add(getResources().getString(strID));
-            ingredientNum++;
+            i++;
         }
 
         listView.setAdapter(adapter);

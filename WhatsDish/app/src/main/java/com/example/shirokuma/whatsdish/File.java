@@ -46,20 +46,22 @@ public class File {
     private void openFile() {
 
         try (FileInputStream fileInputStream = context.openFileInput(fileName);
-             BufferedReader reader= new BufferedReader(
+             BufferedReader reader = new BufferedReader(
                      new InputStreamReader(fileInputStream, "UTF-8"))) {
             String lineBuffer;
-            while( (lineBuffer = reader.readLine()) != null ) {
+            while ((lineBuffer = reader.readLine()) != null) {
                 jsonData = lineBuffer;
             }
             if (fileName.equals(ingredientFileName)) {
                 Log.d("weiwei", "openFile:jsonData = " + jsonData);
-                ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>(){}.getType());
+                ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>() {
+                }.getType());
             } else {
-                list = gson.fromJson(jsonData, new TypeToken<List<Data>>(){}.getType());
+                list = gson.fromJson(jsonData, new TypeToken<List<Data>>() {
+                }.getType());
             }
         } catch (FileNotFoundException e) {
-            switch(fileName) {
+            switch (fileName) {
                 case religionsFileName:
                     initData("religion");
                     break;
@@ -77,7 +79,7 @@ public class File {
 
     void saveData() {
         try (FileOutputStream fileOutputstream = context.openFileOutput(fileName,
-                Context.MODE_PRIVATE)){
+                Context.MODE_PRIVATE)) {
             if (fileName.equals(ingredientFileName)) {
                 jsonData = gson.toJson(ingredientList);
                 Log.d("weiwei", "saveData:jsonData = " + jsonData);
@@ -109,11 +111,11 @@ public class File {
         jsonData = gson.toJson(ingredientList);
         Log.d("weiwei", "initData:jsonData = " + jsonData);
     }
-    
+
     private void initData(String firstStr) {
         int i = 0;
         while (true) {
-            int strID = context.getResources().getIdentifier( firstStr + "_" + i, "string", context.getPackageName());
+            int strID = context.getResources().getIdentifier(firstStr + "_" + i, "string", context.getPackageName());
             if (strID == NULL || strID == 0) {
                 break;
             }
@@ -185,4 +187,5 @@ public class File {
     public ArrayList<IngredientData> getIngredientList() {
         return ingredientList;
     }
+
 }

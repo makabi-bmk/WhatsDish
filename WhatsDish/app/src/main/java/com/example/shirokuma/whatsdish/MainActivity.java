@@ -247,21 +247,29 @@ public class MainActivity extends AppCompatActivity
                 //Loadingのダイアログを閉じる
                 loadingDialog.dismiss();
 
-                String[] receivedFoodName = result.split("\n", 0);
+                //String[] receivedData = result.split("\n", 0);
+                //TODO:ここ後で直す
+                String[] receivedData = {"沖縄そば", "アーサ汁"};
                 //食事データの呼び出し
-                FoodData foodData = new FoodData();
+                String[] foodName = new String[25];
+                for (int i = 0; i < 25; i++) {
+                    int strID;
+                    strID = getResources().getIdentifier("food_name_ja_" + i, "string", getPackageName());
+                    foodName[i] = getResources().getString(strID);
+                }
 
-                LevensteinDistance levensteinDistance = new LevensteinDistance();
+                LevensteinDistance distance = new LevensteinDistance();
                 ArrayList<String> storeFoodname = new ArrayList<>();
-                StringBuilder showFoodname = new StringBuilder();
+                ArrayList<Integer> foodID = new ArrayList<>();
                 boolean existsSimilarString = false;
 
-                for(String foodName : (foodData.foodInfo).keySet()) {
-                    for(String receivedName : receivedFoodName) {
-                        if (storeFoodname.indexOf(foodName) == -1) {
-                            if(levensteinDistance.getDistance(foodName, receivedName) > 0.3) {
-                                showFoodname.append(foodName + ",");
-                                storeFoodname.add(foodName);
+                for(int i = 0; i < 25; i++) {
+                    for(String receivedName : receivedData) {
+                        String name = foodName[i];
+                        if (storeFoodname.indexOf(name) == -1) {
+                            if(distance.getDistance(name, receivedName) > 0.3) {
+                                foodID.add(i);
+                                storeFoodname.add(name);
                                 existsSimilarString = true;
                             }
                         }
@@ -283,7 +291,7 @@ public class MainActivity extends AppCompatActivity
                     completeDialog.setCancelable(false);
                     Bundle args = new Bundle();
                     args.putString("message", getResources().getString(R.string.compete_parse));
-                    args.putString("showFoodName", showFoodname.toString());
+                    args.putIntegerArrayList("foodID", foodID);
                     completeDialog.setArguments(args);
                     completeDialog.show(getSupportFragmentManager(), "dialog");
                 }
