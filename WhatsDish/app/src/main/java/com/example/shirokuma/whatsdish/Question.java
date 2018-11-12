@@ -12,7 +12,8 @@ import static com.example.shirokuma.whatsdish.Allergies.allergiesDataFormatList;
 
 public class Question extends AppCompatActivity {
 
-    private String allergiesList;
+    private StringBuilder allergiesList;
+    private String otherLan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class Question extends AppCompatActivity {
         Button noButton = findViewById(R.id.no_button);
 
         Intent intent = getIntent();
-        final String otherLan = intent.getStringExtra("otherLan");
+        otherLan = intent.getStringExtra("otherLan");
         final String myLan = intent.getStringExtra("myLan");
 
 
@@ -48,9 +49,10 @@ public class Question extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Question.this, AnswerNo.class);
+                Intent intent = new Intent(Question.this, AnswerYes.class);
                 intent.putExtra("otherLan", otherLan);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -61,6 +63,7 @@ public class Question extends AppCompatActivity {
                 intent.putExtra("otherLan", otherLan);
                 intent.putExtra("myLan", myLan);
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -68,14 +71,12 @@ public class Question extends AppCompatActivity {
 
 
     public void setAllergiesList() {
+        allergiesList = new StringBuilder();
+        Resources res = getResources();
         for (AllergiesDataFormat l : allergiesDataFormatList) {
             if (l.isSelect) {
-                if (allergiesList == null) {
-                    allergiesList = "・" + l.allergiesName + "\n";
-                }
-                else {
-                    allergiesList += "・" + l.allergiesName + "\n";
-                }
+                int allergen = res.getIdentifier(l.allergiesName + "_" + otherLan, "string", getPackageName());
+                allergiesList.append("・" + res.getString(allergen) + "\n");
             }
         }
     }

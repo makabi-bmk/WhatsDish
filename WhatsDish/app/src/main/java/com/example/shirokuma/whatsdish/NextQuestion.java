@@ -12,10 +12,11 @@ import static com.example.shirokuma.whatsdish.Allergies.allergiesDataFormatList;
 
 public class NextQuestion extends AppCompatActivity {
 
-    private String allergiesList;
+    private StringBuilder allergiesList;
+    private String otherLan;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.next_question);
 
@@ -25,7 +26,7 @@ public class NextQuestion extends AppCompatActivity {
 
         //言語を受け取って質問をsetText
         Intent intent = getIntent();
-        String otherLan = intent.getStringExtra("otherLan");
+        otherLan = intent.getStringExtra("otherLan");
 
         Resources res = getResources();
         int otherQuestion = res.getIdentifier("question2_" + otherLan, "string", getPackageName());
@@ -46,14 +47,13 @@ public class NextQuestion extends AppCompatActivity {
     }
 
     public void setAllergiesList() {
+
+        Resources res = getResources();
+        allergiesList = new StringBuilder();
         for (AllergiesDataFormat l : allergiesDataFormatList) {
             if (l.isSelect) {
-                if (allergiesList == null) {
-                    allergiesList = "・" + l.allergiesName + "\n";
-                }
-                else {
-                    allergiesList += "・" + l.allergiesName + "\n";
-                }
+                    int allergen = res.getIdentifier(l.allergiesName + "_" + otherLan, "string", getPackageName());
+                    allergiesList.append("・" + res.getString(allergen) + "\n");
             }
         }
     }

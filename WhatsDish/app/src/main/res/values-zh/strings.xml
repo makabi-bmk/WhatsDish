@@ -14,7 +14,8 @@
     <string name="button_next">下面</string>
     <string name="button_before">返回前面</string>
     <string name="pageSkip">跳过</string>
-    <string name="start">start</string>
+    <string name="start">开始</string>
+    <string name="close">关闭</string>
 
     <!-- 画面メッセージ -->
     <string name="loading_message">画像を解析中です</string>
@@ -39,6 +40,27 @@
     <string name="explain3">
         轻击被提示的菜名，将提示详细说明。
     </string>
+
+    <!--アレルギー設定-->
+    <string name="set_allergies">
+        请选择您的变应素。
+    </string>
+    <!--宗教設定-->
+    <string name="set_religion">
+        请选择您的宗教信仰。
+    </string>
+    <!--食べられないもの設定-->
+    <string name="set_cantEat">
+        请选择您不能吃的具体食物。
+    </string>
+    <!--質問言語設定-->
+    <string name="otherLan">
+        请选择对方的语言。
+    </string>
+    <string name="myLan">
+        请选择您的语言。
+    </string>
+
 
 
     <string name="title_canEat">什么可以吃</string>
@@ -80,6 +102,110 @@
     <string name="allergies_23">apple</string>
     <string name="allergies_24">gelatin</string>
 
+    <string name="shrimp_en">shrimp</string>
+    <string name="crab_en">crab</string>
+    <string name="buckwheat_en">buckwheat</string>
+    <string name="wheat_en">wheat</string>
+    <string name="egg_en">egg</string>
+    <string name="milk_en">milk</string>
+    <string name="peanuts_en">peanuts</string>
+    <string name="squid_en">squid</string>
+    <string name="salmon_roe_en">salmon roe</string>
+    <string name="orange_en">orange</string>
+    <string name="cashewnuts_en">cashew nut</string>
+    <string name="kiwi_en">kiwi</string>
+    <string name="cow_en">cow</string>
+    <string name="walnut_en">walnut</string>
+    <string name="sesame_en">sesame</string>
+    <string name="fish_en">fish</string>
+    <string name="soy_en">soy</string>
+    <string name="chicken_en">chicken</string>
+    <string name="banana_en">banana</string>
+    <string name="mushroom_en">mushroom</string>
+    <string name="pig_en">pig</string>
+    <string name="peach_en">peach</string>
+    <string name="yam_en">yam</string>
+    <string name="apple_en">apple</string>
+    <string name="gelatin_en">gelatin</string>
+
+    <string name="shrimp_ja">エビ</string>
+    <string name="crab_ja">カニ</string>
+    <string name="buckwheat_ja">そば</string>
+    <string name="wheat_ja">小麦</string>
+    <string name="egg_ja">卵</string>
+    <string name="milk_ja">牛乳</string>
+    <string name="peanuts_ja">ピーナッツ</string>
+    <string name="squid_ja">イカ</string>
+    <string name="salmon_roe_ja">いくら</string>
+    <string name="orange_ja">オレンジ</string>
+    <string name="cashewnuts_ja">カシューナッツ</string>
+    <string name="kiwi_ja">キウイ</string>
+    <string name="cow_ja">牛</string>
+    <string name="walnut_ja">くるみ</string>
+    <string name="sesame_ja">ごま</string>
+    <string name="fish_ja">魚</string>
+    <string name="soy_ja">大豆</string>
+    <string name="chicken_ja">鶏</string>
+    <string name="banana_ja">バナナ</string>
+    <string name="mushroom_ja">きのこ</string>
+    <string name="pig_ja">豚</string>
+    <string name="peach_ja">もも</string>
+    <string name="yam_ja">やまいも</string>
+    <string name="apple_ja">りんご</string>
+    <string name="gelatin_ja">ゼラチン</string>
+
+    <string name="shrimp_tw">蝦仁</string>
+    <string name="crab_tw">螃蟹</string>
+    <string name="buckwheat_tw">蕎麥</string>
+    <string name="wheat_tw">小麥</string>
+    <string name="egg_tw">雞蛋</string>
+    <string name="milk_tw">牛奶</string>
+    <string name="peanuts_tw">花生</string>
+    <string name="squid_tw">烏賊</string>
+    <string name="salmon_roe_tw">鮭魚子</string>
+    <string name="orange_tw">橙</string>
+    <string name="cashewnuts_tw">腰果</string>
+    <string name="kiwi_tw">獼猴桃</string>
+    <string name="cow_tw">牛肉</string>
+    <string name="walnut_tw">核桃</string>
+    <string name="sesame_tw">芝麻</string>
+    <string name="fish_tw">魚</string>
+    <string name="soy_tw">黃豆</string>
+    <string name="chicken_tw">雞肉</string>
+    <string name="banana_tw">香蕉</string>
+    <string name="mushroom_tw">洋蘑菇</string>
+    <string name="pig_tw">豬肉</string>
+    <string name="peach_tw">桃子</string>
+    <string name="yam_tw">山藥</string>
+    <string name="apple_tw">蘋果</string>
+    <string name="gelatin_tw">明膠</string>
+
+    <string name="shrimp_cn">虾仁</string>
+    <string name="crab_cn">螃蟹</string>
+    <string name="buckwheat_cn">荞麦</string>
+    <string name="wheat_cn">小麦</string>
+    <string name="egg_cn">鸡蛋</string>
+    <string name="milk_cn">牛奶</string>
+    <string name="peanuts_cn">花生</string>
+    <string name="squid_cn">乌贼</string>
+    <string name="salmon_roe_cn">鲑鱼子</string>
+    <string name="orange_cn">橙</string>
+    <string name="cashewnuts_cn">腰果</string>
+    <string name="kiwi_cn">猕猴桃</string>
+    <string name="cow_cn">牛肉</string>
+    <string name="walnut_cn">核桃</string>
+    <string name="sesame_cn">芝麻</string>
+    <string name="fish_cn">鱼</string>
+    <string name="soy_cn">黄豆</string>
+    <string name="chicken_cn">鸡肉</string>
+    <string name="banana_cn">香蕉</string>
+    <string name="mushroom_cn">洋蘑菇</string>
+    <string name="pig_cn">猪肉</string>
+    <string name="peach_cn">桃子</string>
+    <string name="yam_cn">山药</string>
+    <string name="apple_cn">苹果</string>
+    <string name="gelatin_cn">明胶</string>
+
     <string name="shrimp">虾仁</string>
     <string name="crab">螃蟹</string>
     <string name="buckwheat">荞麦</string>
@@ -105,6 +231,7 @@
     <string name="yam">山药</string>
     <string name="apple">苹果</string>
     <string name="gelatin">明胶</string>
+
 
     <string name="buddhism">佛教</string>
     <string name="christ">基督教</string>

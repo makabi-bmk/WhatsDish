@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 public class AnswerNo extends AppCompatActivity {
 
+    private String otherLan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +20,7 @@ public class AnswerNo extends AppCompatActivity {
         TextView answer = findViewById(R.id.answer_no);
 
         Intent intent = getIntent();
-        final String otherLan = intent.getStringExtra("otherLan");
+        otherLan = intent.getStringExtra("otherLan");
 
         Resources res = getResources();
         int otherAnswer = res.getIdentifier("answer2_" + otherLan, "string", getPackageName());
@@ -31,7 +33,9 @@ public class AnswerNo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(AnswerNo.this, NextQuestion.class);
+                intent.putExtra("otherLan", otherLan);
                 startActivity(intent);
+                finish();
             }
         });
     }

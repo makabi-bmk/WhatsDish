@@ -31,6 +31,7 @@ public class AnswerYes extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AnswerYes.this, Allergies.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

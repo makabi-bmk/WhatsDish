@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/image"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="example"/>
+        android:text="@string/otherLan"/>
 
     <ListView
         android:id="@+id/listView"
