@@ -10,42 +10,47 @@ import java.util.HashMap;
 import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
 import static java.sql.Types.NULL;
 
-public class FoodData2 {
+public class DishData {
+
     private int ID;
     private String language;
-    private String foodName;
-    private ArrayList<String> ingredientDetail = new ArrayList<>();
+    private String name;
     private String detail;
-    Bitmap picture;
-    private Context context;
-    boolean canEat = true;
 
-    HashMap<String, ArrayList<String>> cannotEatIngredientList = new HashMap<>();
+    private Bitmap picture;
+    private Context mContext;
+    private boolean canEat = true;
 
-    FoodData2(int ID, String language, Context context) {
+    private ArrayList<String> ingredientDetail = new ArrayList<>();
+    private HashMap<String, ArrayList<String>> cannotEatIngredientList = new HashMap<>();
+
+    DishData(int ID, String language, Context context) {
         this.ID = ID;
         this.language = language;
-        this.context = context;
+        this.mContext = context;
         initData();
         setCannotEatIgredientList();
     }
 
-    void initData() {
+    private void initData() {
+        //TODO あとで写真を配置する
 //        bitmap = BitmapFactory.
         int strID;
-        strID = context.getResources().getIdentifier("food_name_" + language + "_" + ID, "string", context.getPackageName());
-        foodName = context.getResources().getString(strID);
-        strID = context.getResources().getIdentifier("food_detail_" + language + "_" + ID, "string", context.getPackageName());
-        detail = context.getResources().getString(strID);
+
+        strID = mContext.getResources().getIdentifier("food_name_" + language + "_" + ID, "string", mContext.getPackageName());
+        name = mContext.getResources().getString(strID);
+
+        strID = mContext.getResources().getIdentifier("food_detail_" + language + "_" + ID, "string", mContext.getPackageName());
+        detail = mContext.getResources().getString(strID);
 
         int i = 0;
         while (true) {
-            String strName = "food_ingredient_detail_" + language + "_" + ID + "_" + i;
-            strID = context.getResources().getIdentifier(strName, "string", context.getPackageName());
-            if (strID == NULL || strID == 0) {
+            String resName = "food_ingredient_detail_" + language + "_" + ID + "_" + i;
+            strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
+            if (strID == 0) {
                 break;
             }
-            ingredientDetail.add(context.getString(strID));
+            ingredientDetail.add(mContext.getString(strID));
             i++;
         }
     }
@@ -55,12 +60,11 @@ public class FoodData2 {
         int i = 0;
         for(String name : ingredientDetail) {
             //材料に含まれる食材の情報を呼び出す
-            Log.d("weiwei", "材料名 = " + name);
-            int strID = context.getResources().getIdentifier(name + "_" + i, "string", context.getPackageName());
-            if (strID == NULL || strID == 0) {
+            int strID = mContext.getResources().getIdentifier(name + "_" + i, "string", mContext.getPackageName());
+            if (strID == 0) {
                 break;
             }
-            int ingredientID = Integer.valueOf(context.getString(strID));
+            int ingredientID = Integer.valueOf(mContext.getString(strID));
 
             //食材が食べられないものリストとして選択されていないか確かめる
             if (ingredientID == -1) {
@@ -82,19 +86,23 @@ public class FoodData2 {
         }
     }
 
-    public String getFoodName() {
-        return foodName;
+    public String getName() {
+        return name;
     }
 
     public int getID() {
         return ID;
     }
 
-    public String getDetail() {
+    String getDetail() {
         return detail;
     }
 
-    public ArrayList<String> getIngredientDetail() {
+    ArrayList<String> getIngredientDetail() {
         return ingredientDetail;
+    }
+
+    public boolean isCanEat() {
+        return canEat;
     }
 }

@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 public class ShowParsingResultPagerAdapter extends FragmentPagerAdapter {
 
-    private ArrayList<FoodData2> canEatList, cannotEatList;
+    private ArrayList<DishData> canEatList, cannotEatList;
     private Context mContext;
 
-    ShowParsingResultPagerAdapter(FragmentManager fm, ArrayList<FoodData2> canEatList,ArrayList<FoodData2> cannotEatList, Context context) {
+    ShowParsingResultPagerAdapter(FragmentManager fm, ArrayList<DishData> canEatList, ArrayList<DishData> cannotEatList, Context context) {
         super(fm);
         this.canEatList = canEatList;
         this.cannotEatList = cannotEatList;

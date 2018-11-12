@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class ShowParsingResult extends AppCompatActivity  {
 
     private boolean isCanEat = true;
-    private ArrayList<FoodData2> canEatList;
-    private ArrayList<FoodData2> cannotEatList;
+    private ArrayList<DishData> canEatList;
+    private ArrayList<DishData> cannotEatList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,12 @@ public class ShowParsingResult extends AppCompatActivity  {
         ArrayList<Integer> foodID = intent.getIntegerArrayListExtra("foodID");
 
         for (int ID : foodID) {
-            FoodData2 foodData2 = new FoodData2(ID, "ja", getApplicationContext());
-            foodData2.setCannotEatIgredientList();
-            if (foodData2.canEat) {
-                canEatList.add(foodData2);
+            DishData dishData = new DishData(ID, "ja", getApplicationContext());
+            dishData.setCannotEatIgredientList();
+            if (dishData.isCanEat()) {
+                canEatList.add(dishData);
             } else {
-                cannotEatList.add(foodData2);
+                cannotEatList.add(dishData);
             }
         }
 

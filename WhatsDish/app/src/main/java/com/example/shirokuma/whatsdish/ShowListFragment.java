@@ -20,13 +20,13 @@ import java.util.ArrayList;
 public class ShowListFragment extends Fragment {
 
     Context mContext;
-    ArrayList<FoodData2> foodData2s;
+    ArrayList<DishData> dishData;
     ArrayList<Integer> amazon;
 
-    public static ShowListFragment newInstance(Context context, ArrayList<FoodData2> foodData2s) {
+    public static ShowListFragment newInstance(Context context, ArrayList<DishData> dishData) {
         ShowListFragment fragment = new ShowListFragment();
         fragment.mContext = context;
-        fragment.foodData2s = foodData2s;
+        fragment.dishData = dishData;
         return fragment;
     }
 
@@ -45,9 +45,9 @@ public class ShowListFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1);
         amazon = new ArrayList<>();
 
-        for(FoodData2 f : foodData2s) {
-            Log.d("weiwei", "onCreateView:foodData = " + f.getFoodName());
-            adapter.add(f.getFoodName());
+        for(DishData f : dishData) {
+            Log.d("weiwei", "onCreateView:foodData = " + f.getName());
+            adapter.add(f.getName());
             amazon.add(f.getID());
         }
 

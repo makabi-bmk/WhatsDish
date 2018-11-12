@@ -3,17 +3,10 @@ package com.example.shirokuma.whatsdish;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -21,7 +14,7 @@ import java.util.ArrayList;
 
 public class ShowParsingResult2 extends AppCompatActivity
 {
-    ArrayList<FoodData2> foodData2s;
+    ArrayList<DishData> dishData;
     Context mContext;
 
     @Override
@@ -29,17 +22,17 @@ public class ShowParsingResult2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
     }
 
-    public void setFoodData2s(ArrayList<FoodData2> foodData2s) {
-        this.foodData2s = foodData2s;
+    public void setDishData(ArrayList<DishData> dishData) {
+        this.dishData = dishData;
     }
 
     public void setInfo() {
         final ListView listView = findViewById(R.id.list_view2);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1);
 
-        for(FoodData2 f : foodData2s) {
-            Log.d("weiwei", "onCreateView:foodData = " + f.getFoodName());
-            adapter.add(f.getFoodName());
+        for(DishData f : dishData) {
+            Log.d("weiwei", "onCreateView:foodData = " + f.getName());
+            adapter.add(f.getName());
         }
 
         listView.setAdapter(adapter);
