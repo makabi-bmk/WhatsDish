@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //カメラを選択するボタン
-        Button selectImg = findViewById(R.id.select_photo);
+        FloatingActionButton selectImg = findViewById(R.id.camera_fab);
         selectImg.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
             @Override
