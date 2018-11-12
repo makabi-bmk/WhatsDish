@@ -11,6 +11,8 @@ import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ButtonDialogFragment extends DialogFragment {
@@ -21,14 +23,14 @@ public class ButtonDialogFragment extends DialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         final String dialogMessage = getArguments().getString("message");
-        final String showFoodname = getArguments().getString("showFoodName");
+        final ArrayList<Integer> foodID = getArguments().getIntegerArrayList("foodID");
 
         builder.setMessage(dialogMessage)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (dialogMessage.equals(getResources().getString(R.string.compete_parse))) {
                             Intent intent = new Intent(ButtonDialogFragment.this.getActivity(), ShowParsingResult.class);
-                            intent.putExtra("foodName", showFoodname.toString());
+                            intent.putExtra("foodID", foodID);
                             startActivity(intent);
                         }
                         dismiss();

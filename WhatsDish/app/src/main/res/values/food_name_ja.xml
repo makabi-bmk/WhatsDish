@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="food_name_ja_0">アーサ汁</string>
+    <string name="food_name_ja_1">いかすみ汁</string>
+    <string name="food_name_ja_2">イナムドゥチ</string>
+    <string name="food_name_ja_3">クーブイリチー</string>
+    <string name="food_name_ja_4">ゴーヤチャンプルー</string>
+    <string name="food_name_ja_5">ジーマーミー豆腐</string>
+    <string name="food_name_ja_6">ジューシー</string>
+    <string name="food_name_ja_7">タコライス</string>
+    <string name="food_name_ja_8">テビチの煮つけ</string>
+    <string name="food_name_ja_9">ナーベランブシー</string>
+    <string name="food_name_ja_10">パパイヤイリチー</string>
+    <string name="food_name_ja_11">ヒラヤ―チー</string>
+    <string name="food_name_ja_12">ポーク卵</string>
+    <string name="food_name_ja_13">ミヌダル</string>
+    <string name="food_name_ja_14">ミミガ―</string>
+    <string name="food_name_ja_15">もずく酢</string>
+    <string name="food_name_ja_16">ヤギ汁</string>
+    <string name="food_name_ja_17">ゆし豆腐</string>
+    <string name="food_name_ja_18">ラフティー</string>
+    <string name="food_name_ja_19">沖縄そば(ソーキそば)</string>
+    <string name="food_name_ja_20">海ぶどう</string>
+    <string name="food_name_ja_21">菜飯</string>
+    <string name="food_name_ja_22">中身汁</string>
+    <string name="food_name_ja_23">豆腐よう</string>
+    <string name="food_name_ja_24">ニンジンシリシリ</string>
+</resources>
