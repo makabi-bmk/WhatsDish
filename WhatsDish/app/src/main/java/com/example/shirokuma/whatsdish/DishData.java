@@ -2,6 +2,7 @@ package com.example.shirokuma.whatsdish;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -33,8 +34,8 @@ public class DishData {
     }
 
     private void initData() {
-        //TODO あとで写真を配置する
-//        bitmap = BitmapFactory.
+        //TODO あとで写真、沖縄そば以外にも対応させる
+        picture = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.okinawasoba);
         int strID;
 
         strID = mContext.getResources().getIdentifier("food_name_" + language + "_" + ID, "string", mContext.getPackageName());
@@ -104,5 +105,9 @@ public class DishData {
 
     public boolean isCanEat() {
         return canEat;
+    }
+
+    public Bitmap getPicture() {
+        return picture;
     }
 }
