@@ -1,10 +1,14 @@
 package com.example.shirokuma.whatsdish;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
@@ -19,7 +23,20 @@ public class Allergies  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allergies);
 
+<<<<<<< HEAD
         allergyFile.setFile("allergies.json", getApplicationContext());
+=======
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        openAllergiesDataFile();
+
+//        for (AllergiesDataFormat l : allergiesDataFormatList) {
+//            if (l.isSelect) {
+//                l.allergiesName;
+//            }
+//        }
+>>>>>>> origin/question
 
         AllergiesButton[] allergiesButtons = new AllergiesButton[allergiesNum];
         for (int i = 0; i < allergiesNum; i++) {
@@ -41,6 +58,22 @@ public class Allergies  extends AppCompatActivity {
         Log.d("weiwei", "onDestroy");
         allergyFile.saveData();
         ingredientFile.saveData();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.call_icon, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.icon) {
+            Intent intent = new Intent(Allergies.this, SetLanguage1.class);
+            startActivity(intent);
+        }
+        return true;
     }
 
     @Override

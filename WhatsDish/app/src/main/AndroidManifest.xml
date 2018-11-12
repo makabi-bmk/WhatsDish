@@ -35,10 +35,11 @@
             android:name=".ShowFoodInfo"
             android:label="@string/app_name">
         </activity>
-        <activity android:name=".Allergies"
+        <activity android:name=".Allergies" />
             android:label="@string/app_name"/>
         <activity android:name=".Religion"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name"
+            android:theme="@style/CustomToolbar"/>
         <activity android:name=".Explain1"
             android:label="@string/app_name">
             <intent-filter>
@@ -56,6 +57,10 @@
             android:label="@string/app_name" />
         <activity android:name=".ShowIngredientList2"
             android:label="@string/app_name" />
+        <activity android:name=".SetLanguage1"/>
+        <activity android:name=".SetLanguage2"/>
+        <activity android:name=".Question"/>
+
     </application>
 
 </manifest>
