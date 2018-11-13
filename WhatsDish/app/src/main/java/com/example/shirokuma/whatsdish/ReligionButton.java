@@ -127,12 +127,14 @@ public class ReligionButton extends android.support.v7.widget.AppCompatImageButt
     }
 
     void initData() {
+        //ヒンドゥー教, 肉全般, 魚介類全般, 卵
         categoryList.put(2, new ArrayList<Integer>());
         for (int i = 111; i <= 139; i++) {
             categoryList.get(2).add(i);
         }
-        categoryList.get(2).add(189);
-        categoryList.put(3, new ArrayList<Integer>(Arrays.asList(113)));
+        categoryList.get(2).add(192);
+        //イスラム教, 豚肉, みりん, 料理酒
+        categoryList.put(3, new ArrayList<Integer>(Arrays.asList(112, 169, 170)));
     }
 
     void changeSelectToTrue(int elementNum) {
