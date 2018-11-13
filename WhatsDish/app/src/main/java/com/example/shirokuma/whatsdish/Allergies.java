@@ -22,11 +22,7 @@ public class Allergies  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.allergies);
-
-        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         allergyFile.setFile("allergies.json", getApplicationContext());
-
 
         AllergiesButton[] allergiesButtons = new AllergiesButton[allergiesNum];
         for (int i = 0; i < allergiesNum; i++) {
