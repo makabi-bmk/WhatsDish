@@ -241,21 +241,17 @@
 
     <!--質問-->
     <string name="question_ja">
-        私には食物アレルギーがあります。\n
-        アレルゲンを食べることができません。\n
-        このメニューには、これらのアレルゲンが入っていますか?
+        私には食物アレルギーがあります。アレルゲンを食べることができません。このメニューには、これらのアレルゲンが入っていますか?
     </string>
     <string name="question_en">
-        I have food allergies.\n
-        I must avoid allergens.\n
-        Does this dish contain any of these allergens?
+        I have food allergies.I must avoid allergens.Does this dish contain any of these allergens?
     </string>
     <string name="question_cn">
-        我有食物过敏，不能吃变应素。\n
+        我有食物过敏，不能吃变应素。
         这个菜里有变应素成分吗？
     </string>
     <string name="question_tw">
-        我有食物過敏，不能吃變應素。\n
+        我有食物過敏，不能吃變應素。
         這個菜里有變應素嗎?
     </string>
 
@@ -277,7 +273,7 @@
 
     <!--回答2-->
     <string name="answer2_ja">
-        申し訳ございません。\n
+        申し訳ございません。
         食べることができません。
     </string>
     <string name="answer2_en">
@@ -292,8 +288,7 @@
 
     <!--質問2-->
     <string name="question2_ja">
-        どのメニューであれば食べることが\n
-        できますか？
+        どのメニューであれば食べることができますか？
     </string>
     <string name="question2_en">
         Which menu can I eat?
