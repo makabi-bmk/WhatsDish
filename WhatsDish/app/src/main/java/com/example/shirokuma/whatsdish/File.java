@@ -118,12 +118,12 @@ public class File {
 
         for (int i = 0; i < categoryLength; i++) {
             int j = 0;
+            Log.d("weiwei", "category = " + categoryNames[i]);
             while (true) {
                 strID = context.getResources().getIdentifier(categoryNames[i] + "_var_" + j, "string", context.getPackageName());
                 if (strID == 0) {
                     break;
                 }
-
                 ingredientList.add(new IngredientData(context.getResources().getString(strID), categories[i]));
                 j++;
             }

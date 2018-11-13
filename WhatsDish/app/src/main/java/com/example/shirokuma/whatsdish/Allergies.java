@@ -1,6 +1,5 @@
 package com.example.shirokuma.whatsdish;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
