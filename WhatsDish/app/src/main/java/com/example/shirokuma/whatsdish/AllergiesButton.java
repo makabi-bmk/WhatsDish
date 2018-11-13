@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import static com.example.shirokuma.whatsdish.Allergies.allergyFile;
+import static com.example.shirokuma.whatsdish.MainActivity.allergyFile;
 import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
 
 

@@ -7,10 +7,25 @@
     android:layout_height="match_parent"
     tools:mContext=".Allergies">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/colortext1"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:background="?attr/colorPrimary"
+        >
+
+    </android.support.v7.widget.Toolbar>
+
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -20,10 +35,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:text="@string/setAllergies"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/touch"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/touch"
+                app:layout_constraintTop_toBottomOf="@id/textView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
 
             <!--1行目(えび、かに、そば)-->
             <com.example.shirokuma.whatsdish.AllergiesButton
@@ -37,12 +62,12 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/touch" />
             <TextView
                 android:id="@+id/ebi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="えび"
+                android:text="@string/shrimp"
                 app:layout_constraintTop_toBottomOf="@+id/shrimp"
                 app:layout_constraintLeft_toLeftOf="@+id/shrimp"
                 app:layout_constraintRight_toRightOf="@+id/shrimp"/>
@@ -57,12 +82,12 @@
                 app:layout_constraintEnd_toStartOf="@id/buckwheat"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/shrimp"
-                app:layout_constraintTop_toBottomOf="@id/textView" />
+                app:layout_constraintTop_toBottomOf="@id/touch" />
             <TextView
                 android:id="@+id/kani"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="かに"
+                android:text="@string/crab"
                 app:layout_constraintTop_toBottomOf="@+id/crab"
                 app:layout_constraintLeft_toLeftOf="@id/crab"
                 app:layout_constraintRight_toRightOf="@id/crab"/>
@@ -77,12 +102,12 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@id/crab"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/touch" />
             <TextView
                 android:id="@+id/soba"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="そば"
+                android:text="@string/buckwheat"
                 app:layout_constraintTop_toBottomOf="@+id/buckwheat"
                 app:layout_constraintLeft_toLeftOf="@id/buckwheat"
                 app:layout_constraintRight_toRightOf="@id/buckwheat"/>
@@ -104,7 +129,7 @@
                 android:id="@+id/komugi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="小麦"
+                android:text="@string/wheat"
                 app:layout_constraintTop_toBottomOf="@+id/wheat"
                 app:layout_constraintLeft_toLeftOf="@id/wheat"
                 app:layout_constraintRight_toRightOf="@id/wheat"/>
@@ -124,7 +149,7 @@
                 android:id="@+id/tamago"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="卵"
+                android:text="@string/egg"
                 app:layout_constraintTop_toBottomOf="@+id/egg"
                 app:layout_constraintLeft_toLeftOf="@id/egg"
                 app:layout_constraintRight_toRightOf="@id/egg"/>
@@ -144,7 +169,7 @@
                 android:id="@+id/nyu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="牛乳"
+                android:text="@string/milk"
                 app:layout_constraintLeft_toLeftOf="@id/milk"
                 app:layout_constraintRight_toRightOf="@id/milk"
                 app:layout_constraintTop_toBottomOf="@+id/milk" />
@@ -166,7 +191,7 @@
                 android:id="@+id/pnuts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="落花生"
+                android:text="@string/peanuts"
                 app:layout_constraintLeft_toLeftOf="@id/peanuts"
                 app:layout_constraintRight_toRightOf="@id/peanuts"
                 app:layout_constraintTop_toBottomOf="@+id/peanuts" />
@@ -185,7 +210,7 @@
                 android:id="@+id/ika"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="イカ"
+                android:text="@string/squid"
                 app:layout_constraintLeft_toLeftOf="@id/squid"
                 app:layout_constraintRight_toRightOf="@id/squid"
                 app:layout_constraintTop_toBottomOf="@+id/squid" />
@@ -205,7 +230,7 @@
                 android:id="@+id/ikura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="いくら"
+                android:text="@string/salmon_roe"
                 app:layout_constraintLeft_toLeftOf="@id/salmon_roe"
                 app:layout_constraintRight_toRightOf="@id/salmon_roe"
                 app:layout_constraintTop_toBottomOf="@+id/salmon_roe" />
@@ -227,7 +252,7 @@
                 android:id="@+id/mikan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="オレンジ"
+                android:text="@string/orange"
                 app:layout_constraintLeft_toLeftOf="@id/orange"
                 app:layout_constraintRight_toRightOf="@id/orange"
                 app:layout_constraintTop_toBottomOf="@+id/orange" />
@@ -246,7 +271,7 @@
                 android:id="@+id/cashew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="カシューナッツ"
+                android:text="@string/cashewnuts"
                 app:layout_constraintLeft_toLeftOf="@id/cashewnuts"
                 app:layout_constraintRight_toRightOf="@id/cashewnuts"
                 app:layout_constraintTop_toBottomOf="@+id/cashewnuts" />
@@ -266,7 +291,7 @@
                 android:id="@+id/kiui"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="キウイ"
+                android:text="kiwi"
                 app:layout_constraintLeft_toLeftOf="@id/kiwi"
                 app:layout_constraintRight_toRightOf="@id/kiwi"
                 app:layout_constraintTop_toBottomOf="@+id/kiwi" />
@@ -288,7 +313,7 @@
                 android:id="@+id/usi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="牛肉"
+                android:text="@string/cow"
                 app:layout_constraintLeft_toLeftOf="@id/cow"
                 app:layout_constraintRight_toRightOf="@id/cow"
                 app:layout_constraintTop_toBottomOf="@+id/cow" />
@@ -307,7 +332,7 @@
                 android:id="@+id/kurumi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="くるみ"
+                android:text="@string/walnut"
                 app:layout_constraintLeft_toLeftOf="@id/walnut"
                 app:layout_constraintRight_toRightOf="@id/walnut"
                 app:layout_constraintTop_toBottomOf="@+id/walnut" />
@@ -327,7 +352,7 @@
                 android:id="@+id/goma"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ごま"
+                android:text="@string/sesame"
                 app:layout_constraintLeft_toLeftOf="@id/sesame"
                 app:layout_constraintRight_toRightOf="@id/sesame"
                 app:layout_constraintTop_toBottomOf="@+id/sesame" />
@@ -349,7 +374,7 @@
                 android:id="@+id/sakana"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="魚"
+                android:text="@string/fish"
                 app:layout_constraintLeft_toLeftOf="@id/fish"
                 app:layout_constraintRight_toRightOf="@id/fish"
                 app:layout_constraintTop_toBottomOf="@+id/fish" />
@@ -369,7 +394,7 @@
                 android:id="@+id/daizu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="大豆"
+                android:text="@string/soy"
                 app:layout_constraintLeft_toLeftOf="@id/soy"
                 app:layout_constraintRight_toRightOf="@id/soy"
                 app:layout_constraintTop_toBottomOf="@+id/soy" />
@@ -389,7 +414,7 @@
                 android:id="@+id/tori"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="鶏肉"
+                android:text="@string/chicken"
                 app:layout_constraintLeft_toLeftOf="@id/chicken"
                 app:layout_constraintRight_toRightOf="@id/chicken"
                 app:layout_constraintTop_toBottomOf="@+id/chicken" />
@@ -412,7 +437,7 @@
                 android:id="@+id/banana_t"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="バナナ"
+                android:text="@string/banana"
                 app:layout_constraintLeft_toLeftOf="@id/banana"
                 app:layout_constraintRight_toRightOf="@id/banana"
                 app:layout_constraintTop_toBottomOf="@+id/banana" />
@@ -432,7 +457,7 @@
                 android:id="@+id/kinoko"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="きのこ"
+                android:text="@string/mushroom"
                 app:layout_constraintLeft_toLeftOf="@id/mushroom"
                 app:layout_constraintRight_toRightOf="@id/mushroom"
                 app:layout_constraintTop_toBottomOf="@+id/mushroom" />
@@ -451,7 +476,7 @@
                 android:id="@+id/buta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="豚肉"
+                android:text="@string/pig"
                 app:layout_constraintLeft_toLeftOf="@id/pig"
                 app:layout_constraintRight_toRightOf="@id/pig"
                 app:layout_constraintTop_toBottomOf="@+id/pig" />
@@ -475,7 +500,7 @@
                 android:id="@+id/momo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="もも"
+                android:text="@string/peach"
                 app:layout_constraintLeft_toLeftOf="@id/peach"
                 app:layout_constraintRight_toRightOf="@id/peach"
                 app:layout_constraintTop_toBottomOf="@+id/peach" />
@@ -495,7 +520,7 @@
                 android:id="@+id/yamaimo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="やまいも"
+                android:text="@string/yam"
                 app:layout_constraintLeft_toLeftOf="@id/yam"
                 app:layout_constraintRight_toRightOf="@id/yam"
                 app:layout_constraintTop_toBottomOf="@+id/yam" />
@@ -516,7 +541,7 @@
                 android:id="@+id/ringo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="りんご"
+                android:text="@string/apple"
                 app:layout_constraintLeft_toLeftOf="@id/apple"
                 app:layout_constraintRight_toRightOf="@id/apple"
                 app:layout_constraintTop_toBottomOf="@+id/apple" />
@@ -538,7 +563,7 @@
                 android:id="@+id/zeratin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ゼラチン"
+                android:text="@string/gelatin"
                 app:layout_constraintLeft_toLeftOf="@id/gelatin"
                 app:layout_constraintRight_toRightOf="@id/gelatin"
                 app:layout_constraintTop_toBottomOf="@+id/gelatin" />

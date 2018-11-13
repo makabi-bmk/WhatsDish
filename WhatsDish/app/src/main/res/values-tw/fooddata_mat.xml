@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="food_ingredient_detail_0_0">Asa</string>
+    <string name="food_ingredient_detail_0_1">豆腐</string>
+    <string name="food_ingredient_detail_0_2">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_0_3">鹽</string>
+    <string name="food_ingredient_detail_0_4">醬油</string>
+
+    <string name="food_ingredient_detail_1_0">烏賊</string>
+    <string name="food_ingredient_detail_1_1">烏賊墨汁</string>
+    <string name="food_ingredient_detail_1_2">豬肉</string>
+    <string name="food_ingredient_detail_1_3">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_1_4">鹽</string>
+    <string name="food_ingredient_detail_1_5">苦菜(具有苦味的野菜)</string>
+
+    <string name="food_ingredient_detail_2_0">豬肉</string>
+    <string name="food_ingredient_detail_2_1">香菇</string>
+    <string name="food_ingredient_detail_2_2">蒟蒻</string>
+    <string name="food_ingredient_detail_2_3">卡斯特羅魚糕</string>
+    <string name="food_ingredient_detail_2_4">豬肉湯汁</string>
+    <string name="food_ingredient_detail_2_5">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_2_6">白味噌</string>
+
+    <string name="food_ingredient_detail_3_0">海帶</string>
+    <string name="food_ingredient_detail_3_1">豬肉</string>
+    <string name="food_ingredient_detail_3_2">蒟蒻</string>
+    <string name="food_ingredient_detail_3_3">魚糕</string>
+    <string name="food_ingredient_detail_3_4">油炸豆腐</string>
+    <string name="food_ingredient_detail_3_5">胡蘿蔔</string>
+    <string name="food_ingredient_detail_3_6">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_3_7">醬油</string>
+    <string name="food_ingredient_detail_3_8">酒</string>
+    <string name="food_ingredient_detail_3_9">味淋</string>
+
+    <string name="food_ingredient_detail_4_0">苦瓜</string>
+    <string name="food_ingredient_detail_4_1">硬豆腐</string>
+    <string name="food_ingredient_detail_4_2">雞蛋</string>
+    <string name="food_ingredient_detail_4_3">豬肉</string>
+    <string name="food_ingredient_detail_4_4">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_4_5">鹽</string>
+    <string name="food_ingredient_detail_4_6">胡椒粉</string>
+    <string name="food_ingredient_detail_4_7">醬油</string>
+
+    <string name="food_ingredient_detail_5_0">花生</string>
+    <string name="food_ingredient_detail_5_1">薯葛粉</string>
+    <string name="food_ingredient_detail_5_2">水</string>
+    <string name="food_ingredient_detail_5_3">白砂糖</string>
+    <string name="food_ingredient_detail_5_4">鹽</string>
+    <string name="food_ingredient_detail_5_5">酒</string>
+
+    <string name="food_ingredient_detail_6_0">大米</string>
+    <string name="food_ingredient_detail_6_1">豬肉湯汁</string>
+    <string name="food_ingredient_detail_6_2">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_6_3">豬肉</string>
+    <string name="food_ingredient_detail_6_4">香菇</string>
+    <string name="food_ingredient_detail_6_5">胡蘿蔔</string>
+    <string name="food_ingredient_detail_6_6">鹽</string>
+    <string name="food_ingredient_detail_6_7">醬油</string>
+    <string name="food_ingredient_detail_6_8">蔥</string>
+
+    <string name="food_ingredient_detail_7_0">大米</string>
+    <string name="food_ingredient_detail_7_1">生菜</string>
+    <string name="food_ingredient_detail_7_2">西紅柿</string>
+    <string name="food_ingredient_detail_7_3">奶酪</string>
+    <string name="food_ingredient_detail_7_4">肉末(豬肉與牛肉混合)</string>
+    <string name="food_ingredient_detail_7_5">蒜</string>
+    <string name="food_ingredient_detail_7_6">辣椒粉</string>
+    <string name="food_ingredient_detail_7_7">孜然粉</string>
+    <string name="food_ingredient_detail_7_8">番茄醬</string>
+    <string name="food_ingredient_detail_7_9">酒</string>
+    <string name="food_ingredient_detail_7_10">白砂糖</string>
+    <string name="food_ingredient_detail_7_11">醬油</string>
+    <string name="food_ingredient_detail_7_12">葛拉姆馬薩拉</string>
+    <string name="food_ingredient_detail_7_13">辣椒醬</string>
+
+    <string name="food_ingredient_detail_8_0">豬蹄</string>
+    <string name="food_ingredient_detail_8_1">白蘿蔔</string>
+    <string name="food_ingredient_detail_8_2">海帶</string>
+    <string name="food_ingredient_detail_8_3">豆角</string>
+    <string name="food_ingredient_detail_8_4">白砂糖</string>
+    <string name="food_ingredient_detail_8_5">醬油</string>
+    <string name="food_ingredient_detail_8_6">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_8_7">泡盛酒</string>
+
+    <string name="food_ingredient_detail_9_0">絲瓜</string>
+    <string name="food_ingredient_detail_9_1">豬肉</string>
+    <string name="food_ingredient_detail_9_2">豆腐</string>
+    <string name="food_ingredient_detail_9_3">豬肉湯汁</string>
+    <string name="food_ingredient_detail_9_4">味噌</string>
+
+    <string name="fooddaa_mat_10_0">青木瓜</string>
+    <string name="fooddaa_mat_10_1">胡蘿蔔</string>
+    <string name="fooddaa_mat_10_2">韭菜</string>
+    <string name="fooddaa_mat_10_3">豬肉</string>
+    <string name="fooddaa_mat_10_4">鹽</string>
+    <string name="fooddaa_mat_10_5">鰹魚干湯汁</string>
+    <string name="fooddaa_mat_10_6">醬油</string>
+
+    <string name="food_ingredient_detail_11_0">麵粉</string>
+    <string name="food_ingredient_detail_11_1">水</string>
+    <string name="food_ingredient_detail_11_2">雞蛋</string>
+    <string name="food_ingredient_detail_11_3">韭菜</string>
+    <string name="food_ingredient_detail_11_4">金槍魚罐頭</string>
+    <string name="food_ingredient_detail_11_5">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_11_6">蔥</string>
+
+    <string name="food_ingredient_detail_12_0">雞蛋</string>
+    <string name="food_ingredient_detail_12_1">午餐肉</string>
+
+    <string name="food_ingredient_detail_13_0">豬肉</string>
+    <string name="food_ingredient_detail_13_1">黑芝麻</string>
+    <string name="food_ingredient_detail_13_2">醬油</string>
+    <string name="food_ingredient_detail_13_3">味淋</string>
+    <string name="food_ingredient_detail_13_4">白砂糖</string>
+
+    <string name="food_ingredient_detail_14_0">豬耳朵</string>
+    <string name="food_ingredient_detail_14_1">花生醬</string>
+    <string name="food_ingredient_detail_14_2">白砂糖</string>
+    <string name="food_ingredient_detail_14_3">味噌</string>
+    <string name="food_ingredient_detail_14_4">鹽</string>
+    <string name="food_ingredient_detail_14_5">醋</string>
+
+    <string name="food_ingredient_detail_15_0">海薀</string>
+    <string name="food_ingredient_detail_15_1">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_15_2">醋</string>
+    <string name="food_ingredient_detail_15_3">鹽</string>
+    <string name="food_ingredient_detail_15_4">醬油</string>
+
+    <string name="food_ingredient_detail_16_0">山羊肉</string>
+    <string name="food_ingredient_detail_16_1">泡盛酒</string>
+    <string name="food_ingredient_detail_16_2">鹽</string>
+    <string name="food_ingredient_detail_16_3">艾蒿</string>
+    <string name="food_ingredient_detail_16_4">生姜</string>
+
+    <string name="food_ingredient_detail_17_0">Yushi豆腐</string>
+    <string name="food_ingredient_detail_17_1">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_17_2">蔥</string>
+    <string name="food_ingredient_detail_17_3">鹽盐</string>
+
+    <string name="food_ingredient_detail_18_0">豬肉</string>
+    <string name="food_ingredient_detail_18_1">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_18_2">泡盛酒</string>
+    <string name="food_ingredient_detail_18_3">白砂糖</string>
+    <string name="food_ingredient_detail_18_4">醬油</string>
+    <string name="food_ingredient_detail_18_5">生姜</string>
+
+    <string name="food_ingredient_detail_19_0">麵粉</string>
+    <string name="food_ingredient_detail_19_1">雞蛋</string>
+    <string name="food_ingredient_detail_19_2">鹽</string>
+    <string name="food_ingredient_detail_19_3">澱粉</string>
+    <string name="food_ingredient_detail_19_4">玉米澱粉</string>
+    <string name="food_ingredient_detail_19_5">豬肉</string>
+    <string name="food_ingredient_detail_19_6">魚糕</string>
+    <string name="food_ingredient_detail_19_7">豬肉湯汁</string>
+    <string name="food_ingredient_detail_19_8">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_19_9">白砂糖</string>
+    <string name="food_ingredient_detail_19_10">味淋</string>
+    <string name="food_ingredient_detail_19_11">醬油</string>
+    <string name="food_ingredient_detail_19_12">泡盛酒</string>
+
+    <string name="food_ingredient_detail_20_0">海葡萄</string>
+    <string name="food_ingredient_detail_20_1">醬油</string>
+    <string name="food_ingredient_detail_20_2">醋</string>
+
+
+    <string name="food_ingredient_detail_21_0">大米</string>
+    <string name="food_ingredient_detail_21_1">胡蘿蔔</string>
+    <string name="food_ingredient_detail_21_2">筍</string>
+    <string name="food_ingredient_detail_21_3">香菇</string>
+    <string name="food_ingredient_detail_21_4">芥菜</string>
+    <string name="food_ingredient_detail_21_5">雞蛋</string>
+    <string name="food_ingredient_detail_21_6">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_21_7">白砂糖</string>
+    <string name="food_ingredient_detail_21_8">鹽</string>
+    <string name="food_ingredient_detail_21_9">醬油</string>
+    <string name="food_ingredient_detail_21_10">生姜</string>
+    <string name="food_ingredient_detail_21_11">雞湯汁</string>
+
+    <string name="food_ingredient_detail_22_0">煮內臟</string>
+    <string name="food_ingredient_detail_22_1">香菇</string>
+    <string name="food_ingredient_detail_22_2">豬肉</string>
+    <string name="food_ingredient_detail_22_3">蒟蒻</string>
+    <string name="food_ingredient_detail_22_4">豬湯汁</string>
+    <string name="food_ingredient_detail_22_5">鰹魚干湯汁</string>
+    <string name="food_ingredient_detail_22_6">鹽</string>
+    <string name="food_ingredient_detail_22_7">醬油</string>
+    <string name="food_ingredient_detail_22_8">生姜</string>
+
+    <string name="food_ingredient_detail_23_0">豆腐</string>
+    <string name="food_ingredient_detail_23_1">鹽</string>
+    <string name="food_ingredient_detail_23_2">泡盛酒</string>
+    <string name="food_ingredient_detail_23_3">曲子</string>
+    <string name="food_ingredient_detail_23_4">紅曲</string>
+    <string name="food_ingredient_detail_23_5">白砂糖</string>
+
+    <string name="food_ingredient_detail_24_0">胡蘿蔔</string>
+    <string name="food_ingredient_detail_24_1">金槍魚罐頭</string>
+    <string name="food_ingredient_detail_24_2">雞蛋</string>
+    <string name="food_ingredient_detail_24_3">鹽</string>
+    <string name="food_ingredient_detail_24_4">鹽</string>
+    <string name="food_ingredient_detail_24_5">醬油</string>
+    <string name="food_ingredient_detail_24_6">鰹魚干湯汁</string>
+
+</resources>

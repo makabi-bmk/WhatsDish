@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+             tools:ignore="MissingTranslation">
+
     <string name="food_name_ja_0">アーサ汁</string>
     <string name="food_name_ja_1">いかすみ汁</string>
     <string name="food_name_ja_2">イナムドゥチ</string>

@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity
 
     //食材ファイルを開くための変数
     public static File ingredientFile = new File();
+    public static File allergyFile = new File();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,14 +91,66 @@ public class MainActivity extends AppCompatActivity
 
         //食材リストファイルを開く
         ingredientFile.setFile("ingredient.json", getApplicationContext());
+        allergyFile.setFile("allergies.json", getApplicationContext());
     }
 
     //カメラが選択されたときの処理
     @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public void startCamera() {
-        Intent intent = new Intent();
-        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, CAMERA_IMAGE_REQUEST);
+//        Intent intent = new Intent();
+//        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+//        startActivityForResult(intent, CAMERA_IMAGE_REQUEST);
+        wei();
+    }
+
+    void wei() {
+        //TODO:ここ後で直す
+        String[] receivedData = {"沖縄そば", "アーサ汁"};
+        //食事データの呼び出し
+        String[] foodName = new String[25];
+        for (int i = 0; i < 25; i++) {
+            int strID;
+            strID = getResources().getIdentifier("food_name_ja_" + i, "string", getPackageName());
+            foodName[i] = getResources().getString(strID);
+        }
+
+        LevensteinDistance distance = new LevensteinDistance();
+        ArrayList<String> storeFoodname = new ArrayList<>();
+        ArrayList<Integer> foodID = new ArrayList<>();
+        boolean existsSimilarString = false;
+
+        for(int i = 0; i < 25; i++) {
+            for(String receivedName : receivedData) {
+                String name = foodName[i];
+                if (storeFoodname.indexOf(name) == -1) {
+                    if(distance.getDistance(name, receivedName) > 0.3) {
+                        foodID.add(i);
+                        storeFoodname.add(name);
+                        existsSimilarString = true;
+                    }
+                }
+            }
+        }
+
+        //一致する食事データが見つからなかった場合
+        if (!existsSimilarString) {
+            //失敗のダイアログを表示
+            DialogFragment missingDialog = new ButtonDialogFragment();
+            missingDialog.setCancelable(false);
+            Bundle args = new Bundle();
+            args.putString("message", getResources().getString(R.string.missing_parse));
+            missingDialog.setArguments(args);
+            missingDialog.show(getSupportFragmentManager(), "dialog");
+        } else {
+            //成功のダイアログを表示
+            DialogFragment completeDialog = new ButtonDialogFragment();
+            completeDialog.setCancelable(false);
+            Bundle args = new Bundle();
+            args.putString("message", getResources().getString(R.string.compete_parse));
+            args.putIntegerArrayList("foodID", foodID);
+            completeDialog.setArguments(args);
+            completeDialog.show(getSupportFragmentManager(), "dialog");
+        }
     }
 
     // 画像ファイルの選択ができたときの処理

@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="category_0">野菜</string>
-    <string name="category_1">果物</string>
-    <string name="category_2">肉</string>
-    <string name="category_3">魚介類</string>
-    <string name="category_4">調味料・スパイス</string>
-    <string name="category_5">穀類</string>
-    <string name="category_6">卵・乳製品</string>
+<resources xmlns:tools="http://schemas.android.com/tools"
+                    tools:ignore="MissingTranslation">
 
     <string name="vegetables_ja_0">アスパラガス</string>
     <string name="vegetables_ja_1">いんげん</string>
@@ -182,6 +175,7 @@
     <string name="seasonings_ja_26">クミン</string>
     <string name="seasonings_ja_27">ローリエ</string>
     <string name="seasonings_ja_28">ラベンダー</string>
+    <string name="seasonings_ja_29"></string>
 
     <string name="grains_ja_0">米</string>
     <string name="grains_ja_1">とうもろこし</string>

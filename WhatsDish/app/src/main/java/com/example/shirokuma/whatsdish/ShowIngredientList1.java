@@ -26,7 +26,7 @@ public class ShowIngredientList1 extends AppCompatActivity {
         i = 0;
         while (true) {
             int strID = getResources().getIdentifier("category_" + i, "string", getPackageName());
-            if (strID == NULL || strID == 0) {
+            if (strID == 0) {
                 break;
             }
             adapter.add(getResources().getString(strID));

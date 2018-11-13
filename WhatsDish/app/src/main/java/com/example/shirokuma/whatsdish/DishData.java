@@ -72,6 +72,7 @@ public class DishData {
                 Log.d("weiwei", "食材リストにその食材はないYO");
                 continue;
             } else {
+                Log.d("weiwei", "ingredientID =" +  ingredientID);
                  if (ingredientFile.getIngredientData(ingredientID).isSelect) {
                      Log.d("weiwei", ingredientFile.getIngredientData(ingredientID).name + "は食べられません！");
                      canEat = false;

@@ -17,7 +17,6 @@ import java.util.List;
 
 import static com.example.shirokuma.whatsdish.IngredientData.categories;
 import static com.example.shirokuma.whatsdish.IngredientData.categoryNames;
-import static java.sql.Types.NULL;
 
 public class File {
 
@@ -32,14 +31,18 @@ public class File {
     private final String religionsFileName = "religion.json";
 
     //ingredientFile用の変数
-    private ArrayList<IngredientData> ingredientList = new ArrayList<>();
-    static int[] firstElementNumbers = {0, 71, 111, 122, 140, 169, 189};
-
+    private ArrayList<IngredientData> ingredientList;
+    static int[] firstElementNumbers;
 
     void setFile(String fileName, Context context) {
         this.fileName = fileName;
         this.context = context;
+        ingredientList = new ArrayList<>();
         openFile();
+        if (fileName.equals(ingredientFileName)) {
+            firstElementNumbers = new int[categories.length];
+            setFirstElementNum();
+        }
     }
 
     // ファイルを読み出し
@@ -56,6 +59,8 @@ public class File {
                 Log.d("weiwei", "openFile:jsonData = " + jsonData);
                 ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>() {
                 }.getType());
+                //TODO; 後でこのinit外す
+                initData();
             } else {
                 list = gson.fromJson(jsonData, new TypeToken<List<Data>>() {
                 }.getType());
@@ -92,18 +97,35 @@ public class File {
         }
     }
 
+    private void setFirstElementNum(){
+        int i = 0;
+        int cnt = 0;
+        firstElementNumbers[0] = 0;
+        for (IngredientData data : ingredientList) {
+            if (data.category != categories[i]) {
+                if (++i >= categories.length) {
+                    break;
+                } else {
+                    Log.d("weiwei", categories[i] +" = " + cnt);
+                    firstElementNumbers[i] = cnt;
+                }
+            }
+            cnt++;
+        }
+    }
+
     private void initData() {
         int strID;
         final int categoryLength = categoryNames.length;
 
         for (int i = 0; i < categoryLength; i++) {
             int j = 0;
-            firstElementNumbers[i] = ingredientList.size();
             while (true) {
-                strID = context.getResources().getIdentifier(categoryNames[i] + "_" + j, "string", context.getPackageName());
-                if (strID == NULL || strID == 0) {
+                strID = context.getResources().getIdentifier(categoryNames[i] + "_var_" + j, "string", context.getPackageName());
+                if (strID == 0) {
                     break;
                 }
+
                 ingredientList.add(new IngredientData(context.getResources().getString(strID), categories[i]));
                 j++;
             }
@@ -116,7 +138,7 @@ public class File {
         int i = 0;
         while (true) {
             int strID = context.getResources().getIdentifier(firstStr + "_" + i, "string", context.getPackageName());
-            if (strID == NULL || strID == 0) {
+            if (strID == 0) {
                 break;
             }
             list.add(new Data(context.getResources().getString(strID)));
@@ -143,14 +165,12 @@ public class File {
         if (isIngredientFile) {
             IngredientData data = ingredientList.get(elementNum);
             if (!data.isSelect) {
-                data.isSelect = true;
-                ingredientList.set(elementNum, new IngredientData(data.name, data.category, data.isSelect));
+                ingredientList.set(elementNum, new IngredientData(data.name, data.category, true));
             }
         } else {
             Data data = list.get(elementNum);
             if (!data.isSelect) {
-                data.isSelect = true;
-                list.set(elementNum, new Data(data.name, data.isSelect));
+                list.set(elementNum, new Data(data.name, true));
             }
         }
     }
@@ -160,14 +180,12 @@ public class File {
         if (isIngredientFile) {
             IngredientData data = ingredientList.get(elementNum);
             if (data.isSelect) {
-                data.isSelect = false;
-                ingredientList.set(elementNum, new IngredientData(data.name, data.category, data.isSelect));
+                ingredientList.set(elementNum, new IngredientData(data.name, data.category, false));
             }
         } else {
             Data data = list.get(elementNum);
             if (data.isSelect) {
-                data.isSelect = false;
-                list.set(elementNum, new Data(data.name, data.isSelect));
+                list.set(elementNum, new Data(data.name, false));
             }
         }
     }

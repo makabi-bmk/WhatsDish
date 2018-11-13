@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+             tools:ignore="MissingTranslation">
+
     <string name="food_detail_ja_0">アーサは、沖縄の海で取れる海藻で、\nアーサ汁はアーサと豆腐を使った汁物。</string>
     <string name="food_detail_ja_1">白イカの墨で作る汁物。</string>
     <string name="food_detail_ja_2">「イナ」はイノシシ、「ムドゥチ」はもどきという意味。\n昔は猪の肉を使っていたが、今は代わりに豚肉が使われている。\n白みそを使った汁物。\nカステラカマボコは、魚のすり身に卵を多量に加え蒸し揚げた沖縄の伝統食材。</string>

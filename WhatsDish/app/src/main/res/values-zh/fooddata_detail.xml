@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="food_detail_0">
+        Asa在冲绳地方海边生长的绿色海藻之一。\n
+        Asa汤以豆腐与海藻一起煮的汤。
+    </string>
+    <string name="food_detail_1">
+        用乌贼墨汁煮成的汤。
+    </string>
+    <string name="food_detail_2">
+        「Ina」是指「野猪」，「muduchi」是「像、仿」的意思。\n
+        过去做此汤之时，用野猪肉做汤。现在用猪肉代替野猪肉。\n
+        汤里还有以鱼碎肉与鸡蛋加在一起而蒸熟的卡斯提拉鱼糕，是一种代表冲绳的传统食品。
+    </string>
+    <string name="food_detail_3">
+        用海带、猪肉及蔬菜炒在一起的炒菜之一。\n
+        「ku-bu」是指「海带」，「irichi」是「炒」的意思。
+    </string>
+    <string name="food_detail_4">
+        用苦瓜、豆腐及蔬菜等加在一起的炒菜之一。\n
+        「Champuru」是「混杂」的意思。
+    </string>
+    <string name="food_detail_5">
+        用花生做的豆腐。\n
+        「Ji-ma-mi」是指「花生」。
+    </string>
+    <string name="food_detail_6">
+        「Jyu-shi」是指烩饭。\n
+        烩饭一般以大米与各种蔬菜及肉放在一起煮熟的饭菜。
+    </string>
+    <string name="food_detail_7">
+        代表墨西哥菜的墨西哥夹肉饼的馅儿放在米饭上，其上面还加上萨尔萨辣酱就可以吃的特色菜。
+    </string>
+    <string name="food_detail_8">
+        「Tebichi」是把猪蹄炖好后,用酱油等调料调味的菜。\n
+        与豆腐、海带及蔬菜一起煮熟。
+    </string>
+    <string name="food_detail_9">
+        「Nabera」是指丝瓜。\n
+        把丝瓜与猪肉炒熟之后，加上味噌煮。\n
+        也有些人把豆腐也放在一起炒的。\n
+        「Nbushi」是「用味噌煮熟」的意思。
+    </string>
+    <string name="food_detail_10">
+        把青木瓜作为一种蔬菜的炒菜。\n
+        「Irichi」是炒的意思。
+    </string>
+    <string name="food_detail_11">
+        用水和面之后，把韭菜、葱及金枪鱼罐头等材料放在一起，然后用平底锅烧好。
+    </string>
+    <string name="food_detail_12">
+        使用午餐肉罐头与鸡蛋的家常菜。\n
+        把午餐肉切成片后煎好。\n
+        然后与煎蛋放在一起。\n
+        用蕃茄酱吃。
+    </string>
+    <string name="food_detail_13">
+        把猪肉泡在黑芝麻汁里之后，蒸熟的菜。
+    </string>
+    <string name="food_detail_14">
+        「Mimiga」是指猪耳朵。\n
+        把猪耳朵煮好(或者蒸好)后切成丝，用醋、味噌或者花生酱等调料凉拌就可以吃。
+    </string>
+    <string name="food_detail_15">
+        「Mozuku」是指海蕴(又称水云)。\n
+        「Mozuku-su」是把海蕴泡在调料的菜。
+    </string>
+    <string name="food_detail_16">
+        把山羊肉与蔬菜一起煮好的菜。
+    </string>
+    <string name="food_detail_17">
+        「Yushi豆腐」是把豆浆里加卤水之后不加以定型，在固化前保持柔软状态的豆腐。\n
+        放在汤类吃。
+    </string>
+    <string name="food_detail_18">
+        把猪五花肉煮熟的传统菜。\n
+        因把猪肉切成方形，称为角煮。
+    </string>
+    <string name="food_detail_19">
+        冲绳的「Soba(面条)」并不包含荞麦面粉，用面粉来做面条。\n
+        五花肉、鱼糕及葱等材料放在上面。汤汁一般用猪骨、鲣鱼干来煮出。
+    </string>
+    <string name="food_detail_20">
+        海葡萄在冲绳地方生长的海藻之一。\n
+        用酱油、醋等佐料直接可以吃。
+    </string>
+    <string name="food_detail_21">
+        把各种配料放在米饭上面，然后把做好的汤汁浇上米饭就可以吃。
+    </string>
+    <string name="food_detail_22">
+        中味是指猪的肠胃等内脏的总称。\n
+        把猪内脏花时间洗干净后,与蒟蒻、香菇等配料一起煮。
+    </string>
+    <string name="food_detail_23">
+        豆腐糕是把豆腐泡在红曲及泡盛酒等佐料中，让它发酵而腌制的发酵食品。
+    </string>
+    <string name="food_detail_24">
+        把胡萝卜切成丝之后，金枪鱼罐头、鸡蛋等材料一起炒的一种家常菜。\n
+        「shirishiri」是「擦，蹭」的意思。\n
+        「Ninjin shirishiri」就是「把胡萝卜用礤床儿擦成丝」的意思。
+    </string>
+
+</resources>
