@@ -59,8 +59,6 @@ public class File {
                 Log.d("weiwei", "openFile:jsonData = " + jsonData);
                 ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>() {
                 }.getType());
-                //TODO; 後でこのinit外す
-                initData();
             } else {
                 list = gson.fromJson(jsonData, new TypeToken<List<Data>>() {
                 }.getType());
