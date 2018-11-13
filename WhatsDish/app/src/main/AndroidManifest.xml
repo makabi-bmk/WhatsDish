@@ -36,8 +36,7 @@
             android:label="@string/app_name">
         </activity>
         <activity android:name=".Allergies"
-            android:label="@string/app_name"
-            android:theme="@style/CustomToolbar"/>
+            android:label="@string/app_name"/>
         <activity android:name=".Religion"
             android:label="@string/app_name"
             android:theme="@style/CustomToolbar"/>

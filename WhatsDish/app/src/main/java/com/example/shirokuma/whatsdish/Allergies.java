@@ -27,6 +27,7 @@ public class Allergies  extends AppCompatActivity {
         setSupportActionBar(toolbar);
         allergyFile.setFile("allergies.json", getApplicationContext());
 
+
         AllergiesButton[] allergiesButtons = new AllergiesButton[allergiesNum];
         for (int i = 0; i < allergiesNum; i++) {
             Resources res = getResources();
