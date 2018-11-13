@@ -13,7 +13,7 @@ public class IngredientData extends Data{
 
     Category category;
 
-    static String[] categoryNames = {"vegetables", "fruits", "meats", "seafoods", "seasonings", "grains", "dairy_products"};
+    static String[] categoryNames = {"vegetables", "fruits", "meat", "seafoods", "seasoning", "grains", "dairy_products"};
     static Category[] categories = {IngredientData.Category.vegetable, IngredientData.Category.fruit, IngredientData.Category.meat,
             IngredientData.Category.seafood, IngredientData.Category.seasoning, IngredientData.Category.grain,
             IngredientData.Category.dairy_product};

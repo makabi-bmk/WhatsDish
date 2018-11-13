@@ -3,6 +3,7 @@ package com.example.shirokuma.whatsdish;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.ListView;
 
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import static com.example.shirokuma.whatsdish.IngredientData.categories;
 import static com.example.shirokuma.whatsdish.IngredientData.categoryNames;
 import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
-import static java.sql.Types.NULL;
 
 public class ShowIngredientList2 extends AppCompatActivity {
 
@@ -27,7 +27,8 @@ public class ShowIngredientList2 extends AppCompatActivity {
         int i = 0;
         while (true) {
             int strID = getResources().getIdentifier( categoryNames[num] + "_" + i, "string", getPackageName());
-            if (strID == NULL || strID == 0) {
+            Log.d("weiwei", "name = " + categoryNames[num] + "_" + i + ", strID = " + strID);
+            if (strID == 0) {
                 break;
             }
             list.add(new IngredientData(getResources().getString(strID), categories[num]));
