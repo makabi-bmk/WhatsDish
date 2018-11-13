@@ -157,7 +157,7 @@ public class AllergiesButton extends android.support.v7.widget.AppCompatImageBut
     void changeSelectToTrue(int elementNum) {
         if (categoryList.containsKey(elementNum)) {
             for (int i : categoryList.get(elementNum)) {
-                Log.d("weiwei", "num = " + i);
+                Log.d("weiwei", "num = " + i + ", name = " + ingredientFile.getIngredientData(i).name);
                 ingredientFile.changeSelectToTrue(i);
             }
         }
