@@ -3,6 +3,7 @@ package com.example.shirokuma.whatsdish;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -32,13 +33,13 @@ public class DishData {
     }
 
     private void initData() {
-        //TODO あとで写真、沖縄そば以外にも対応させる
-        picture = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.okinawasoba);
         int strID;
 
+        //料理名の設定
         strID = mContext.getResources().getIdentifier("food_name_" + ID, "string", mContext.getPackageName());
         name = mContext.getResources().getString(strID);
 
+        //料理の詳細の設定
         strID = mContext.getResources().getIdentifier("food_detail_" + ID, "string", mContext.getPackageName());
         detail = mContext.getResources().getString(strID);
 
@@ -52,7 +53,7 @@ public class DishData {
             }
             matVar.add(mContext.getResources().getString(strID));
 
-            //表示用の材料名を格納
+            //表示用の材料名を設定
             resName = "fooddata_mat_" + ID + "_" + i;
             strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
             if (strID == 0) {
@@ -61,6 +62,16 @@ public class DishData {
             mat.add(mContext.getResources().getString(strID));
             i++;
         }
+    }
+
+    void setBitmap() {
+        int strID;
+
+        //写真の設定
+        strID = mContext.getResources().getIdentifier("food_" + ID, "drawable", mContext.getPackageName());
+        Log.d("weiwei", "1:name = food_" + ID + ", ID = " + strID);
+        //TODO あとで写真、沖縄そば以外にも対応させる
+        picture = BitmapFactory.decodeResource(mContext.getResources(), strID);
     }
 
     void setCannotEatIngredientList() {

@@ -33,6 +33,7 @@ public class ShowFoodInfo extends AppCompatActivity {
         foodPicture = findViewById(R.id.food_picture);
 
         foodTitle.setText(dishData.getName());
+        dishData.setBitmap();
         foodPicture.setImageBitmap(dishData.getPicture());
 
         ArrayList<String> ingredientDetail = dishData.getMat();

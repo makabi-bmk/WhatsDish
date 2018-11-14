@@ -60,5 +60,4 @@ public class ShowParsingResult extends AppCompatActivity  {
         }
         return false;
     }
-
 }
