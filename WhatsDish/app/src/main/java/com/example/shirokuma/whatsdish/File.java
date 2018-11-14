@@ -188,6 +188,18 @@ public class File {
         }
     }
 
+    String getResName(int elementNum) {
+        int categoryLength = categories.length;
+        for (int i = 0; i < categoryLength; i++) {
+            int j = firstElementNumbers[i];
+            if (elementNum < firstElementNumbers[i]) {
+                int diff = elementNum - firstElementNumbers[i - 1];
+                return categoryNames[i - 1] + "_" + diff;
+            }
+        }
+        return "Not a formal value.";
+    }
+
     Data getData(int position) {
         return list.get(position);
     }

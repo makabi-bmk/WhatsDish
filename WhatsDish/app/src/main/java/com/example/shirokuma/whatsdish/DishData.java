@@ -9,12 +9,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.shirokuma.whatsdish.MainActivity.ingredientFile;
-import static java.sql.Types.NULL;
 
 public class DishData {
 
     private int ID;
-    private String language;
     private String name;
     private String detail;
 
@@ -22,12 +20,12 @@ public class DishData {
     private Context mContext;
     private boolean canEat = true;
 
-    private ArrayList<String> ingredientDetail = new ArrayList<>();
+    private ArrayList<String> mat = new ArrayList<>();
+    private ArrayList<String> matVar = new ArrayList<>();
     private HashMap<String, ArrayList<String>> cannotEatIngredientList = new HashMap<>();
 
-    DishData(int ID, String language, Context context) {
+    DishData(int ID, Context context) {
         this.ID = ID;
-        this.language = language;
         this.mContext = context;
         initData();
         setCannotEatIgredientList();
@@ -47,12 +45,20 @@ public class DishData {
         int i = 0;
         while (true) {
             //内部処理に使っているxml,多言語対応の必要なし
-            String resName = "food_ingredient_detail_" + language + "_" + ID + "_" + i;
+            String resName = "fooddata_mat_var_" + ID + "_" + i;
             strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
             if (strID == 0) {
                 break;
             }
-            ingredientDetail.add(mContext.getString(strID));
+            matVar.add(mContext.getResources().getString(strID));
+
+            //表示用の材料名を格納
+            resName = "fooddata_mat_" + ID + "_" + i;
+            strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
+            if (strID == 0) {
+                break;
+            }
+            mat.add(mContext.getResources().getString(strID));
             i++;
         }
     }
@@ -60,7 +66,10 @@ public class DishData {
     void setCannotEatIgredientList() {
 
         int i = 0;
-        for(String name : ingredientDetail) {
+        int matLength = matVar.size();
+        for(int j = 0; j < matLength; j++) {
+            String name = matVar.get(j);
+            String matName = mat.get(j);
             //材料に含まれる食材の情報を呼び出す
             int strID = mContext.getResources().getIdentifier(name + "_" + i, "string", mContext.getPackageName());
             if (strID == 0) {
@@ -75,14 +84,16 @@ public class DishData {
             } else {
                 Log.d("weiwei", "ingredientID =" +  ingredientID);
                  if (ingredientFile.getIngredientData(ingredientID).isSelect) {
-                     Log.d("weiwei", ingredientFile.getIngredientData(ingredientID).name + "は食べられません！");
+                     strID = mContext.getResources().getIdentifier(ingredientFile.getResName(ingredientID), "string", mContext.getPackageName());
+                     Log.d("weiwei", mContext.getString(strID) + "は食べられません！");
                      canEat = false;
-                     if (!cannotEatIngredientList.containsKey(name)) {
-                         cannotEatIngredientList.put(name, new ArrayList<String>());
+                     if (!cannotEatIngredientList.containsKey(matName)) {
+                         cannotEatIngredientList.put(matName, new ArrayList<String>());
                      }
-                     cannotEatIngredientList.get(name).add(ingredientFile.getIngredientData(ingredientID).name);
+                     cannotEatIngredientList.get(matName).add(ingredientFile.getIngredientData(ingredientID).name);
                  } else {
-                     Log.d("weiwei", ingredientFile.getIngredientData(ingredientID).name + "は食べれる！");
+                     strID = mContext.getResources().getIdentifier(ingredientFile.getResName(ingredientID), "string", mContext.getPackageName());
+                     Log.d("weiwei", mContext.getString(strID) + "は食べれる！");
                  }
             }
             i++;
@@ -101,8 +112,8 @@ public class DishData {
         return detail;
     }
 
-    ArrayList<String> getIngredientDetail() {
-        return ingredientDetail;
+    ArrayList<String> getMat() {
+        return mat;
     }
 
     public boolean isCanEat() {
