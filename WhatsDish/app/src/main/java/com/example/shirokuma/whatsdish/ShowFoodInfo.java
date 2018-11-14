@@ -1,9 +1,13 @@
 package com.example.shirokuma.whatsdish;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -38,11 +42,41 @@ public class ShowFoodInfo extends AppCompatActivity {
         foodPicture.setImageBitmap(dishData.getPicture());
 
         ArrayList<String> foodMat = dishData.getMat();
-        for (String s : foodMat) {
-            TextView textView = new TextView(this);
-            textView.setText("・" + s);
-            this.foodMat.addView(textView);
+        if (dishData.isCanEat()) {
+            for (String s : foodMat) {
+                TextView textView = new TextView(this);
+                textView.setText("・" + s);
+                this.foodMat.addView(textView);
+            }
+        } else {
+            for (final String s : foodMat) {
+                TextView textView = new TextView(this);
+                textView.setText("・" + s);
+                if (dishData.getCannotEatIngredientList().containsKey(s)) {
+                    textView.setTextColor(getResources().getColor(R.color.colorAccent));
+                    textView.setClickable(true);
+                    textView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            StringBuilder message = new StringBuilder();
+                            ArrayList<String> cannotIngredient = dishData.getCannotEatIngredientList().get(s);
+                            for (String ss : cannotIngredient) {
+                                message.append("・" + ss + "\n");
+                            }
+                            DialogFragment completeDialog = new ButtonDialogFragment();
+                            completeDialog.setCancelable(false);
+                            Bundle args = new Bundle();
+                            args.putString("message", getResources().getString(R.string.alertDialog));
+                            args.putString("cannotEatIngredientsList", message.toString());
+                            completeDialog.setArguments(args);
+                            completeDialog.show(getSupportFragmentManager(), "dialog");
+                        }
+                    });
+                }
+                this.foodMat.addView(textView);
+            }
         }
+
 
         foodInfo.setText(dishData.getDetail());
     }

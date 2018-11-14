@@ -24,18 +24,31 @@ public class ButtonDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
         final String dialogMessage = getArguments().getString("message");
         final ArrayList<Integer> foodID = getArguments().getIntegerArrayList("foodID");
+        final String a = getArguments().getString("cannotEatIngredientsList", "No");
 
-        builder.setMessage(dialogMessage)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        if (dialogMessage.equals(getResources().getString(R.string.compete_parse))) {
-                            Intent intent = new Intent(ButtonDialogFragment.this.getActivity(), ShowParsingResult.class);
-                            intent.putExtra("foodID", foodID);
-                            startActivity(intent);
+
+        if (dialogMessage.equals(getResources().getString(R.string.alertDialog))) {
+            builder.setMessage(dialogMessage + "\n" + a)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dismiss();
                         }
-                        dismiss();
-                    }
-                });
+                    });
+        }
+        else {
+            builder.setMessage(dialogMessage)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            if (dialogMessage.equals(getResources().getString(R.string.compete_parse))) {
+                                Intent intent = new Intent(ButtonDialogFragment.this.getActivity(), ShowParsingResult.class);
+                                intent.putExtra("foodID", foodID);
+                                startActivity(intent);
+                            }
+                            dismiss();
+                        }
+                    });
+        }
         return builder.create();
     }
 

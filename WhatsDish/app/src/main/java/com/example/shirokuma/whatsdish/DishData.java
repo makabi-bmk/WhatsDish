@@ -101,7 +101,7 @@ public class DishData {
                      if (!cannotEatIngredientList.containsKey(matName)) {
                          cannotEatIngredientList.put(matName, new ArrayList<String>());
                      }
-                     cannotEatIngredientList.get(matName).add(ingredientFile.getIngredientData(ingredientID).name);
+                     cannotEatIngredientList.get(matName).add(mContext.getString(strID));
                  } else {
                      strID = mContext.getResources().getIdentifier(ingredientFile.getResName(ingredientID), "string", mContext.getPackageName());
                      Log.d("weiwei", mContext.getString(strID) + "は食べれる！");
@@ -133,5 +133,9 @@ public class DishData {
 
     public Bitmap getPicture() {
         return picture;
+    }
+
+    public HashMap<String, ArrayList<String>> getCannotEatIngredientList() {
+        return cannotEatIngredientList;
     }
 }
