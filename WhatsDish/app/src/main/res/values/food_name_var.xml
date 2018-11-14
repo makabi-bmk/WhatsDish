@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
+    <string name="food_name_var_0">アーサ汁</string>
+    <string name="food_name_var_1">いかすみ汁</string>
+    <string name="food_name_var_2">イナムドゥチ</string>
+    <string name="food_name_var_3">クーブイリチー</string>
+    <string name="food_name_var_4">ゴーヤーチャンプルー</string>
+    <string name="food_name_var_5">ジーマーミー豆腐</string>
+    <string name="food_name_var_6">ジューシー</string>
+    <string name="food_name_var_7">タコライス</string>
+    <string name="food_name_var_8">テビチの煮つけ</string>
+    <string name="food_name_var_9">ナーベランブシー</string>
+    <string name="food_name_var_10">パパイヤイリチー</string>
+    <string name="food_name_var_11">ヒラヤ―チー</string>
+    <string name="food_name_var_12">ポーク卵</string>
+    <string name="food_name_var_13">ミヌダル</string>
+    <string name="food_name_var_14">ミミガ―</string>
+    <string name="food_name_var_15">もずく酢</string>
+    <string name="food_name_var_16">ヤギ汁</string>
+    <string name="food_name_var_17">ゆし豆腐</string>
+    <string name="food_name_var_18">ラフティー</string>
+    <string name="food_name_var_19">沖縄そば(ソーキそば)</string>
+    <string name="food_name_var_20">海ぶどう</string>
+    <string name="food_name_var_21">菜飯</string>
+    <string name="food_name_var_22">中味汁</string>
+    <string name="food_name_var_23">豆腐よう</string>
+    <string name="food_name_var_24">ニンジンシリシリ</string>
+</resources>

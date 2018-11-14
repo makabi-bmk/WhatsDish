@@ -1,0 +1,18 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   WhatsDish/app/src/main/java/com/example/shirokuma/whatsdish/DishData.java
+#	modified:   WhatsDish/app/src/main/java/com/example/shirokuma/whatsdish/MainActivity.java
+#	modified:   WhatsDish/app/src/main/java/com/example/shirokuma/whatsdish/ShowParsingResult.java
+#	deleted:    WhatsDish/app/src/main/res/values/food_detail_ja.xml
+#	modified:   WhatsDish/app/src/main/res/values/ingredient_var.xml
+#
+# Untracked files:
+#	WhatsDish/.idea/assetWizardSettings.xml
+#	WhatsDish/app/src/main/res/values/food_name_var.xml
+#
+

@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity
                 int i = 0;
                 while (true) {
                     int strID;
-                    strID = getResources().getIdentifier("food_name_" + i, "string", getPackageName());
+                    strID = getResources().getIdentifier("food_name_var_" + i, "string", getPackageName());
                     if (strID == 0) {
                         break;
                     }

@@ -28,7 +28,7 @@ public class DishData {
         this.ID = ID;
         this.mContext = context;
         initData();
-        setCannotEatIgredientList();
+        setCannotEatIngredientList();
     }
 
     private void initData() {
@@ -63,7 +63,7 @@ public class DishData {
         }
     }
 
-    void setCannotEatIgredientList() {
+    void setCannotEatIngredientList() {
 
         int i = 0;
         int matLength = matVar.size();

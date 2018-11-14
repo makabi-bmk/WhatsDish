@@ -33,7 +33,7 @@ public class ShowParsingResult extends AppCompatActivity  {
 
         for (int ID : foodID) {
             DishData dishData = new DishData(ID, getApplicationContext());
-            dishData.setCannotEatIgredientList();
+            dishData.setCannotEatIngredientList();
             if (dishData.isCanEat()) {
                 canEatList.add(dishData);
             } else {
