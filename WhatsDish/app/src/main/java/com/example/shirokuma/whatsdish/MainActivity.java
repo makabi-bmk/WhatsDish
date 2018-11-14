@@ -252,13 +252,18 @@ public class MainActivity extends AppCompatActivity
 
                 //String[] receivedData = result.split("\n", 0);
                 //TODO:ここ後で直す
-                String[] receivedData = {"沖縄そば", "アーサ汁"};
+                String[] receivedData = {"沖縄そば", "アーサ汁", "豆腐よう", "テビチの煮つけ"};
                 //食事データの呼び出し
-                String[] foodName = new String[25];
-                for (int i = 0; i < 25; i++) {
+                ArrayList<String> foodName = new ArrayList<>();
+                int i = 0;
+                while (true) {
                     int strID;
-                    strID = getResources().getIdentifier("food_name_ja_" + i, "string", getPackageName());
-                    foodName[i] = getResources().getString(strID);
+                    strID = getResources().getIdentifier("food_name_" + i, "string", getPackageName());
+                    if (strID == 0) {
+                        break;
+                    }
+                    foodName.add(getResources().getString(strID));
+                    i++;
                 }
 
                 LevensteinDistance distance = new LevensteinDistance();
@@ -266,19 +271,19 @@ public class MainActivity extends AppCompatActivity
                 ArrayList<Integer> foodID = new ArrayList<>();
                 boolean existsSimilarString = false;
 
-                for(int i = 0; i < 25; i++) {
+                int foodNameLength = foodName.size();
+                for(int j = 0; j < foodNameLength; j++) {
                     for(String receivedName : receivedData) {
-                        String name = foodName[i];
+                        String name = foodName.get(j);
                         if (storeFoodname.indexOf(name) == -1) {
                             if(distance.getDistance(name, receivedName) > 0.3) {
-                                foodID.add(i);
+                                foodID.add(j);
                                 storeFoodname.add(name);
                                 existsSimilarString = true;
                             }
                         }
                     }
                 }
-
                 //一致する食事データが見つからなかった場合
                 if (!existsSimilarString) {
                     //失敗のダイアログを表示

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="food_name_0">Asa Soup</string>
+    <string name="food_name_1">Squid ink Soup</string>
+    <string name="food_name_2">Inamuduchi</string>
+    <string name="food_name_3">Kubu Irichi</string>
+    <string name="food_name_4">Goya Chanpuru</string>
+    <string name="food_name_5">Jimami Tofu</string>
+    <string name="food_name_6">Jushi</string>
+    <string name="food_name_7">Taco rice</string>
+    <string name="food_name_8">Simmered Tebichi</string>
+    <string name="food_name_9">Nabera N\'bushi</string>
+    <string name="food_name_10">Papaya Irichi</string>
+    <string name="food_name_11">Hirayachi</string>
+    <string name="food_name_12">Pork and Egg</string>
+    <string name="food_name_13">Minudaru</string>
+    <string name="food_name_14">Mimiga</string>
+    <string name="food_name_15">Vinegared Mozuku</string>
+    <string name="food_name_16">Yagi(Goat) Soup</string>
+    <string name="food_name_17">Yushi Tofu</string>
+    <string name="food_name_18">Rahute</string>
+    <string name="food_name_19">Okinawan noodle</string>
+    <string name="food_name_20">Umibudo</string>
+    <string name="food_name_21">Nameshi</string>
+    <string name="food_name_22">Nakami Soup</string>
+    <string name="food_name_23">Tofuyo</string>
+    <string name="food_name_24">Ninjin shiri-shiri</string>
+</resources>

@@ -38,14 +38,15 @@ public class DishData {
         picture = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.okinawasoba);
         int strID;
 
-        strID = mContext.getResources().getIdentifier("food_name_" + language + "_" + ID, "string", mContext.getPackageName());
+        strID = mContext.getResources().getIdentifier("food_name_" + ID, "string", mContext.getPackageName());
         name = mContext.getResources().getString(strID);
 
-        strID = mContext.getResources().getIdentifier("food_detail_" + language + "_" + ID, "string", mContext.getPackageName());
+        strID = mContext.getResources().getIdentifier("food_detail_" + ID, "string", mContext.getPackageName());
         detail = mContext.getResources().getString(strID);
 
         int i = 0;
         while (true) {
+            //内部処理に使っているxml,多言語対応の必要なし
             String resName = "food_ingredient_detail_" + language + "_" + ID + "_" + i;
             strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
             if (strID == 0) {

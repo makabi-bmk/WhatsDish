@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="food_name_0">Asa湯</string>
+    <string name="food_name_1">烏賊墨汁湯</string>
+    <string name="food_name_2">Inamuduchi(白味噌湯)</string>
+    <string name="food_name_3">肉炒海帶絲(ku-bu Irichi)</string>
+    <string name="food_name_4">什錦炒苦瓜（Goya Champuru）</string>
+    <string name="food_name_5">花生豆腐(Ji-ma-mi doufu)</string>
+    <string name="food_name_6">沖繩燴飯(Jyu-shi)</string>
+    <string name="food_name_7">墨西哥肉飯(Taco rice)</string>
+    <string name="food_name_8">燉豬蹄(Tebichi no Nituke)</string>
+    <string name="food_name_9">味噌炒絲瓜(Nabera-Nbushi)</string>
+    <string name="food_name_10">炒青木瓜絲(Papaya Irichi)</string>
+    <string name="food_name_11">Hirayachi(沖繩煎餅)</string>
+    <string name="food_name_12">午餐肉煎蛋</string>
+    <string name="food_name_13">Minudaru(黑芝麻蒸豬里肌)</string>
+    <string name="food_name_14">Mimiga(涼拌豬耳朵絲)</string>
+    <string name="food_name_15">醋拌海薀(Mozuku-su)</string>
+    <string name="food_name_16">山羊湯</string>
+    <string name="food_name_17">Yushi豆腐</string>
+    <string name="food_name_18">Rafute(煮五花肉)</string>
+    <string name="food_name_19">沖繩麵條(排骨麵條)</string>
+    <string name="food_name_20">海葡萄</string>
+    <string name="food_name_21">菜飯(Se-fan)</string>
+    <string name="food_name_22">中味汁(豬內臟湯)</string>
+    <string name="food_name_23">豆腐糕</string>
+    <string name="food_name_24">胡蘿蔔絲炒雞蛋(Ninjin shirishiri)</string>
+</resources>
