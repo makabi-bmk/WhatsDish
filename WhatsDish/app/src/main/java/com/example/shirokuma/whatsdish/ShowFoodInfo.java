@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public class ShowFoodInfo extends AppCompatActivity {
 
     TextView foodTitle;
-    TextView foodMat;
+    LinearLayout foodMat;
     TextView foodInfo;
     DishData dishData;
     ImageView foodPicture;
@@ -36,14 +37,14 @@ public class ShowFoodInfo extends AppCompatActivity {
         dishData.setBitmap();
         foodPicture.setImageBitmap(dishData.getPicture());
 
-        ArrayList<String> ingredientDetail = dishData.getMat();
-        StringBuilder ss = new StringBuilder();
-        for (String s : ingredientDetail) {
-            ss.append("・" + s + "\n");
+        ArrayList<String> foodMat = dishData.getMat();
+        for (String s : foodMat) {
+            TextView textView = new TextView(this);
+            textView.setText("・" + s);
+            this.foodMat.addView(textView);
         }
-        foodMat.setText(ss.toString());
-        foodInfo.setText(dishData.getDetail());
 
+        foodInfo.setText(dishData.getDetail());
     }
 
     @Override

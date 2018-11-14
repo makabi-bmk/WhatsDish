@@ -41,13 +41,13 @@
             android:text="材料"
             app:layout_constraintTop_toBottomOf="@+id/food_picture"/>
 
-        <TextView
+        <LinearLayout
             android:id="@+id/food_mat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/mat"
             android:layout_margin="10dp"
-            android:textSize="15sp"
-            app:layout_constraintTop_toBottomOf="@+id/mat"/>
+            android:orientation="vertical" />
 
         <TextView
             android:id="@+id/info"
