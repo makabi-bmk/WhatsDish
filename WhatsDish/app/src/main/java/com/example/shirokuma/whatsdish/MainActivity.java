@@ -16,6 +16,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -250,9 +251,9 @@ public class MainActivity extends AppCompatActivity
                 //Loadingのダイアログを閉じる
                 loadingDialog.dismiss();
 
-                //String[] receivedData = result.split("\n", 0);
+//                String[] receivedData = result.split("\n", 0);
                 //TODO:ここ後で直す
-                String[] receivedData = {"沖縄そば", "アーサ汁", "豆腐よう", "テビチの煮つけ"};
+                String[] receivedData = {"沖縄そば"};
                 //食事データの呼び出し
                 ArrayList<String> foodName = new ArrayList<>();
                 int i = 0;

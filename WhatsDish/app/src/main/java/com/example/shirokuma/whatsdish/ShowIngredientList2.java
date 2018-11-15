@@ -27,7 +27,6 @@ public class ShowIngredientList2 extends AppCompatActivity {
         int i = 0;
         while (true) {
             int strID = getResources().getIdentifier( categoryNames[num] + "_" + i, "string", getPackageName());
-            Log.d("weiwei", "name = " + categoryNames[num] + "_" + i + ", strID = " + strID);
             if (strID == 0) {
                 break;
             }

@@ -56,7 +56,6 @@ public class File {
                 jsonData = lineBuffer;
             }
             if (fileName.equals(ingredientFileName)) {
-                Log.d("weiwei", "openFile:jsonData = " + jsonData);
                 ingredientList = gson.fromJson(jsonData, new TypeToken<List<IngredientData>>() {
                 }.getType());
             } else {
@@ -85,7 +84,6 @@ public class File {
                 Context.MODE_PRIVATE)) {
             if (fileName.equals(ingredientFileName)) {
                 jsonData = gson.toJson(ingredientList);
-                Log.d("weiwei", "saveData:jsonData = " + jsonData);
             } else {
                 jsonData = gson.toJson(list);
             }
@@ -104,7 +102,6 @@ public class File {
                 if (++i >= categories.length) {
                     break;
                 } else {
-                    Log.d("weiwei", categories[i] +" = " + cnt);
                     firstElementNumbers[i] = cnt;
                 }
             }
@@ -118,7 +115,6 @@ public class File {
 
         for (int i = 0; i < categoryLength; i++) {
             int j = 0;
-            Log.d("weiwei", "category = " + categoryNames[i]);
             while (true) {
                 strID = context.getResources().getIdentifier(categoryNames[i] + "_var_" + j, "string", context.getPackageName());
                 if (strID == 0) {
@@ -129,7 +125,6 @@ public class File {
             }
         }
         jsonData = gson.toJson(ingredientList);
-        Log.d("weiwei", "initData:jsonData = " + jsonData);
     }
 
     private void initData(String firstStr) {
@@ -188,14 +183,26 @@ public class File {
         }
     }
 
-    String getResName(int elementNum) {
+    String getIngredientName(int elementNum) {
+        Log.d("weiwei", "elementNum = " + elementNum);
         int categoryLength = categories.length;
-        for (int i = 0; i < categoryLength; i++) {
+        int i;
+        for (i = 0; i < categoryLength; i++) {
             int j = firstElementNumbers[i];
             if (elementNum < firstElementNumbers[i]) {
                 int diff = elementNum - firstElementNumbers[i - 1];
-                return categoryNames[i - 1] + "_" + diff;
+                int strID = context.getResources().getIdentifier(categoryNames[i - 1] + "_" + diff, "string", context.getPackageName());
+                if (strID != 0) {
+                    return context.getString(strID);
+                } else {
+                    break;
+                }
             }
+        }
+        if (elementNum <= ingredientList.size()) {
+            int diff = ingredientList.size() - elementNum - 1;
+            int strID = context.getResources().getIdentifier(categoryNames[i - 1] + "_" + diff, "string", context.getPackageName());
+            return context.getString(strID);
         }
         return "Not a formal value.";
     }

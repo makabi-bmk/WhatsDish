@@ -46,7 +46,6 @@ public class ShowListFragment extends Fragment {
         amazon = new ArrayList<>();
 
         for(DishData f : dishData) {
-            Log.d("weiwei", "onCreateView:foodData = " + f.getName());
             adapter.add(f.getName());
             amazon.add(f.getID());
         }
