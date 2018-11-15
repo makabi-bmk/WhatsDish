@@ -1,12 +1,12 @@
 package com.example.shirokuma.whatsdish;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +21,7 @@ public class ShowListFragment extends Fragment {
 
     Context mContext;
     ArrayList<DishData> dishData;
-    ArrayList<Integer> amazon;
+    ArrayList<Integer> foodID;
 
     public static ShowListFragment newInstance(Context context, ArrayList<DishData> dishData) {
         ShowListFragment fragment = new ShowListFragment();
@@ -43,18 +43,19 @@ public class ShowListFragment extends Fragment {
 
         final ListView listView = view.findViewById(R.id.list_view2);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mContext, android.R.layout.simple_list_item_1);
-        amazon = new ArrayList<>();
+        foodID = new ArrayList<>();
 
         for(DishData f : dishData) {
-            adapter.add(f.getName());
-            amazon.add(f.getID());
+            int strID = getResources().getIdentifier("food_name_var_" + f.getID(), "string", getActivity().getPackageName());
+            adapter.add(getResources().getString(strID));
+            foodID.add(f.getID());
         }
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(mContext, ShowFoodInfo.class);
-                intent.putExtra("foodData", amazon.get(position));
+                intent.putExtra("foodData", foodID.get(position));
                 mContext.startActivity(intent);
             }
         });
