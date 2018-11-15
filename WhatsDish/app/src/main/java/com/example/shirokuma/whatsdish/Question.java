@@ -49,8 +49,9 @@ public class Question extends AppCompatActivity {
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Question.this, AnswerYes.class);
+                Intent intent = new Intent(Question.this, AnswerNo.class);
                 intent.putExtra("otherLan", otherLan);
+                intent.putExtra("myLan", myLan);
                 startActivity(intent);
                 finish();
             }
@@ -59,12 +60,10 @@ public class Question extends AppCompatActivity {
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Question.this, AnswerNo.class);
+                Intent intent = new Intent(Question.this, AnswerYes.class);
                 intent.putExtra("otherLan", otherLan);
-                intent.putExtra("myLan", myLan);
                 startActivity(intent);
                 finish();
-
             }
         });
     }
