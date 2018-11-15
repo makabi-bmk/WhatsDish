@@ -1,6 +1,8 @@
 package com.example.shirokuma.whatsdish;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -30,8 +32,9 @@ public class ShowJpnIngredientDetail2 extends AppCompatActivity {
         String title = getResources().getString(strID);
         ingredientName.setText(title);
         //TODO: あとで写真設定する
-//        strID = getResources().getIdentifier("")
-//        ingredientPicture.setImageBitmap(dishData.getPicture());
+        strID = getResources().getIdentifier("jpn_ingredient_pic_" + jpnIngredientID, "drawable", getPackageName());
+        Bitmap picture = BitmapFactory.decodeResource(getResources(), strID);
+        ingredientPicture.setImageBitmap(picture);
 
         strID = getResources().getIdentifier("jpn_ingredient_detail_" + jpnIngredientID, "string", getPackageName());
         String detail = getResources().getString(strID);
