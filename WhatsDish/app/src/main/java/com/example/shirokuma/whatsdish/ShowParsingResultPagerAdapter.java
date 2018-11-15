@@ -1,5 +1,6 @@
 package com.example.shirokuma.whatsdish;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +39,7 @@ public class ShowParsingResultPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
+            //TODO: ここ多言語化する
             return "食べられるもの";
         }
         return "食べられないもの";

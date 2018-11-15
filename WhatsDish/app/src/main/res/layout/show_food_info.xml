@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textSize="20sp"
-            android:text="材料"
+            android:text="@string/mat"
             app:layout_constraintTop_toBottomOf="@+id/food_picture"/>
 
         <LinearLayout
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="詳細"
+            android:text="@string/detail"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@+id/food_mat"/>
 

@@ -29,6 +29,14 @@
     <string name="image_picker_error">イメージの読み込みに失敗しました</string>
     <string name="text_detection_error">文字が含まれていません</string>
 
+    <!--解析結果-->
+    <string name="can_eat_food">Can eat</string>
+    <string name="cannot_eat_food">Cannot eat</string>
+
+    <!--料理の詳細画面-->
+    <string name="mat">Mat</string>
+    <string name="detail">Detail</string>
+
     <!--説明文-->
     <string name="explain1">
         Please shoot the menu with the camera.
