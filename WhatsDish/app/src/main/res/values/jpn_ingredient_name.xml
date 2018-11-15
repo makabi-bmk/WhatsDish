@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="ingredient_name_0">Miso</string>
+    <string name="ingredient_name_1">Aburaage</string>
+    <string name="ingredient_name_2">Tofu</string>
+    <string name="ingredient_name_3">Atsuage</string>
+    <string name="ingredient_name_4">Dired bonito flakes</string>
+    <string name="ingredient_name_5">Kamaboko(boiled fish paste)</string>
+    <string name="ingredient_name_6">Konnyaku</string>
+    <string name="ingredient_name_7">soy sauce</string>
+    <string name="ingredient_name_8">Soba noodles</string>
+    <string name="ingredient_name_9">soup stock</string>
+    <string name="ingredient_name_10">Nattou(fermented soybeans)</string>
+    <string name="ingredient_name_11">Nori(Seaweed)</string>
+    <string name="ingredient_name_12">Mirin(cooking sake)</string>
+</resources>

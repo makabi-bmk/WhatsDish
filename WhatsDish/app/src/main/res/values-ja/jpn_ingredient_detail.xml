@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ingredient_detail_0">大豆や米、麦などの穀物に、塩と麹を加えて発酵させて作る発酵食品。</string>
+    <string name="ingredient_detail_1">薄切りにした豆腐を油で揚げた食品。</string>
+    <string name="ingredient_detail_2">大豆の搾り汁を凝固剤(にがり)によって固めた加工食品。</string>
+    <string name="ingredient_detail_3">豆腐を厚めに切り油で揚げた食品。\n油揚げとは違い、内部が豆腐の状態を保つように十分には揚げない。</string>
+    <string name="ingredient_detail_4">カツオの肉を蒸して干し固め、日干しを繰り返したものを削った食品。</string>
+    <string name="ingredient_detail_5">白身の魚肉をすりつぶして味をつけ、練りあげたあと、蒸し上げた食品。</string>
+    <string name="ingredient_detail_6">コンニャクイモをすりおろし、練りながら煮た後、凝固剤を加えて\n冷やし固めた食品。</string>
+    <string name="ingredient_detail_7">日本料理に欠かせない調味料の一つ。\n大豆と小麦を原料として作った醤油麹に、食塩水を加え、\n約1年間熟成発酵させたもの。</string>
+    <string name="ingredient_detail_8">ソバの実を原料とする蕎麦粉を用いて加工した麺。</string>
+    <string name="ingredient_detail_9">食品を煮て出した汁。使われる食品には昆布、カツオなどの魚介、椎茸、鶏などがある。\n出汁は日本料理において味の基礎となる。</string>
+    <string name="ingredient_detail_10">大豆を納豆菌で発酵させた食品。ねばねばした糸を引くのが特徴。</string>
+    <string name="ingredient_detail_11">食用の藻類の総称。漉いて紙状に乾燥させた加工食品。</string>
+    <string name="ingredient_detail_12">日本料理に欠かせない調味料の一つ。\n焼酎にもち米、麹を加えて醸造した酒。</string>
+</resources>

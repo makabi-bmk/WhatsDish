@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity
 
 //                String[] receivedData = result.split("\n", 0);
                 //TODO:ここ後で直す
-                String[] receivedData = {"沖縄そば"};
+                String[] receivedData = {"沖縄そば", "テビチの煮つけ", "アーサ汁"};
                 //食事データの呼び出し
                 ArrayList<String> foodName = new ArrayList<>();
                 int i = 0;

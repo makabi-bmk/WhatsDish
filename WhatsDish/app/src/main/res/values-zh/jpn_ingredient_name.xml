@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="ingredient_name_0">味噌</string>
+    <string name="ingredient_name_1">油炸豆腐</string>
+    <string name="ingredient_name_2">豆腐</string>
+    <string name="ingredient_name_3">油炸厚豆腐</string>
+    <string name="ingredient_name_4">鲣鱼干</string>
+    <string name="ingredient_name_5">鱼糕</string>
+    <string name="ingredient_name_6">蒟蒻</string>
+    <string name="ingredient_name_7">酱油</string>
+    <string name="ingredient_name_8">荞麦面</string>
+    <string name="ingredient_name_9">汤汁</string>
+    <string name="ingredient_name_10">纳豆</string>
+    <string name="ingredient_name_11">海苔(紫菜)</string>
+    <string name="ingredient_name_12">味淋</string>
+</resources>
