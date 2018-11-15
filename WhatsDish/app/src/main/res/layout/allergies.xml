@@ -277,7 +277,7 @@
                 android:id="@+id/kiui"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kiwi"
+                android:text="@string/kiwi"
                 app:layout_constraintLeft_toLeftOf="@id/kiwi"
                 app:layout_constraintRight_toRightOf="@id/kiwi"
                 app:layout_constraintTop_toBottomOf="@+id/kiwi" />
