@@ -14,8 +14,8 @@
             android:id="@+id/nav_religion"
             android:title="@string/nav_religion" />
         <item
-            android:id="@+id/nav_language"
-            android:title="@string/nav_languages" />
+            android:id="@+id/nav_jpn_ingredient_list"
+            android:title="@string/nav_jpn_ingredient_list" />
 
     </group>
 

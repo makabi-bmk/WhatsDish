@@ -62,6 +62,10 @@
         <activity android:name=".AnswerNo"/>
         <activity android:name=".AnswerYes"/>
         <activity android:name=".NextQuestion"/>
+        <activity android:name=".ShowJpnIngredientDetail1"
+            android:label="@string/app_name" />
+        <activity android:name=".ShowJpnIngredientDetail2"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

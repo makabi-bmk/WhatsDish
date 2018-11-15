@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ingredient_detail_0">对黄豆、大米以及小麦等谷物类材料，加上盐和曲子等调料发酵而成的食品。</string>
-    <string name="ingredient_detail_1">把豆腐切成薄片后，油炸而完成的食品。</string>
-    <string name="ingredient_detail_2">对豆浆加上卤水之后加以定型的加工食品。</string>
-    <string name="ingredient_detail_3">把豆腐切成厚片后油炸而完成的食品。</string>
-    <string name="ingredient_detail_4">把鲣鱼肉蒸好后加以干燥鱼肉固定，然后重复晒干后把鱼肉削成薄片的食品。</string>
-    <string name="ingredient_detail_5">把白肉鱼的鱼肉碎末，加上调料揉和之后蒸熟的食品。</string>
-    <string name="ingredient_detail_6">把蒟蒻芋用擦床儿擦成泥，然后把蒟蒻泥边揉和边煮熟，最后加凝固剂定型的食品。</string>
-    <string name="ingredient_detail_7">日本料理中不可缺少的调料之一。对以黄豆与小麦为原料而。</string>
-    <string name="ingredient_detail_8">用荞麦粉制造的面条。</string>
-    <string name="ingredient_detail_9">用各种食品煮出的汁。一般使用海带、鲣鱼干、香菇以及鸡等食品。「汤汁」在日本菜当中最基本而重要的味道因素。</string>
-    <string name="ingredient_detail_10">把煮好的黄豆用纳豆菌发酵而做的食品。有独特的黏性。</string>
-    <string name="ingredient_detail_11">藻类食品的总称。</string>
-    <string name="ingredient_detail_12">日本料理中却不可少的调料之一。对烧酒加上糯米及曲子而酿造的酒。</string>
+    <string name="jpn_ingredient_detail_0">对黄豆、大米以及小麦等谷物类材料，加上盐和曲子等调料发酵而成的食品。</string>
+    <string name="jpn_ingredient_detail_1">把豆腐切成薄片后，油炸而完成的食品。</string>
+    <string name="jpn_ingredient_detail_2">对豆浆加上卤水之后加以定型的加工食品。</string>
+    <string name="jpn_ingredient_detail_3">把豆腐切成厚片后油炸而完成的食品。</string>
+    <string name="jpn_ingredient_detail_4">把鲣鱼肉蒸好后加以干燥鱼肉固定，然后重复晒干后把鱼肉削成薄片的食品。</string>
+    <string name="jpn_ingredient_detail_5">把白肉鱼的鱼肉碎末，加上调料揉和之后蒸熟的食品。</string>
+    <string name="jpn_ingredient_detail_6">把蒟蒻芋用擦床儿擦成泥，然后把蒟蒻泥边揉和边煮熟，最后加凝固剂定型的食品。</string>
+    <string name="jpn_ingredient_detail_7">日本料理中不可缺少的调料之一。对以黄豆与小麦为原料而。</string>
+    <string name="jpn_ingredient_detail_8">用荞麦粉制造的面条。</string>
+    <string name="jpn_ingredient_detail_9">用各种食品煮出的汁。一般使用海带、鲣鱼干、香菇以及鸡等食品。「汤汁」在日本菜当中最基本而重要的味道因素。</string>
+    <string name="jpn_ingredient_detail_10">把煮好的黄豆用纳豆菌发酵而做的食品。有独特的黏性。</string>
+    <string name="jpn_ingredient_detail_11">藻类食品的总称。</string>
+    <string name="jpn_ingredient_detail_12">日本料理中却不可少的调料之一。对烧酒加上糯米及曲子而酿造的酒。</string>
 </resources>

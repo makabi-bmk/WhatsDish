@@ -322,7 +322,7 @@
     <string name="no_tw">沒有</string>
 
     <string name="nav_allergies">アレルギー設定</string>
-    <string name="nav_languages">言語設定</string>
+    <string name="nav_jpn_ingredient_list">言語設定</string>
     <string name="nav_cant_eat">食べられないもの設定</string>
     <string name="nav_religion">宗教設定</string>
 

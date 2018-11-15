@@ -16,13 +16,11 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -362,8 +360,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_religion) {
             Intent intent = new Intent(MainActivity.this, Religion.class);
             startActivity(intent);
-        } else if (id == R.id.nav_language) {
-
+        } else if (id == R.id.nav_jpn_ingredient_list) {
+            Intent intent = new Intent(MainActivity.this, ShowJpnIngredientDetail1.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

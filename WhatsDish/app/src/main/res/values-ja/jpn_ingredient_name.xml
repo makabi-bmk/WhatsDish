@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ingredient_name_0">味噌</string>
-    <string name="ingredient_name_1">油揚げ</string>
-    <string name="ingredient_name_2">豆腐</string>
-    <string name="ingredient_name_3">厚揚げ</string>
-    <string name="ingredient_name_4">かつお節</string>
-    <string name="ingredient_name_5">かまぼこ</string>
-    <string name="ingredient_name_6">こんにゃく</string>
-    <string name="ingredient_name_7">醤油</string>
-    <string name="ingredient_name_8">そば</string>
-    <string name="ingredient_name_9">出汁</string>
-    <string name="ingredient_name_10">納豆</string>
-    <string name="ingredient_name_11">海苔</string>
-    <string name="ingredient_name_12">みりん</string>
+    <string name="jpn_ingredient_name_0">味噌</string>
+    <string name="jpn_ingredient_name_1">油揚げ</string>
+    <string name="jpn_ingredient_name_2">豆腐</string>
+    <string name="jpn_ingredient_name_3">厚揚げ</string>
+    <string name="jpn_ingredient_name_4">かつお節</string>
+    <string name="jpn_ingredient_name_5">かまぼこ</string>
+    <string name="jpn_ingredient_name_6">こんにゃく</string>
+    <string name="jpn_ingredient_name_7">醤油</string>
+    <string name="jpn_ingredient_name_8">そば</string>
+    <string name="jpn_ingredient_name_9">出汁</string>
+    <string name="jpn_ingredient_name_10">納豆</string>
+    <string name="jpn_ingredient_name_11">海苔</string>
+    <string name="jpn_ingredient_name_12">みりん</string>
 </resources>
