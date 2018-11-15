@@ -12,12 +12,15 @@ public class ShowParsingResultPagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<DishData> canEatList, cannotEatList;
     private Context mContext;
+    private String tab1, tab2;
 
-    ShowParsingResultPagerAdapter(FragmentManager fm, ArrayList<DishData> canEatList, ArrayList<DishData> cannotEatList, Context context) {
+    ShowParsingResultPagerAdapter(FragmentManager fm, ArrayList<DishData> canEatList, ArrayList<DishData> cannotEatList, Context context, String tab1, String tab2) {
         super(fm);
         this.canEatList = canEatList;
         this.cannotEatList = cannotEatList;
         mContext = context;
+        this.tab1 = tab1;
+        this.tab2 = tab2;
     }
 
     @Override
@@ -40,8 +43,8 @@ public class ShowParsingResultPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
             //TODO: ここ多言語化する
-            return "食べられるもの";
+            return tab1;
         }
-        return "食べられないもの";
+        return tab2;
     }
 }

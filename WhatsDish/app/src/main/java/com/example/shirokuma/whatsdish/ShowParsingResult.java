@@ -46,7 +46,9 @@ public class ShowParsingResult extends AppCompatActivity  {
     private void setViews() {
         FragmentManager manager = getSupportFragmentManager();
         ViewPager viewPager = findViewById(R.id.view_pager);
-        ShowParsingResultPagerAdapter adapter = new ShowParsingResultPagerAdapter(manager, canEatList, cannotEatList, getApplicationContext());
+        String tab1 = getResources().getString(R.string.can_eat_food);
+        String tab2 = getResources().getString(R.string.cannot_eat_food);
+        ShowParsingResultPagerAdapter adapter = new ShowParsingResultPagerAdapter(manager, canEatList, cannotEatList, getApplicationContext(), tab1, tab2);
         viewPager.setAdapter(adapter);
         TabLayout tabLayout = findViewById(R.id.tablayout);
         tabLayout.setupWithViewPager(viewPager);
