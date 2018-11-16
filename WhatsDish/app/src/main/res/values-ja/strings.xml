@@ -32,7 +32,7 @@
 
     <!--解析結果-->
     <string name="can_eat_food">食べられるもの</string>
-    <string name="cannot_eat_food">食べられるもの</string>
+    <string name="cannot_eat_food">食べられないもの</string>
 
     <!--料理の詳細画面-->
     <string name="mat">材料</string>
