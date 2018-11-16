@@ -184,7 +184,6 @@ public class File {
     }
 
     String getIngredientName(int elementNum) {
-        Log.d("weiwei", "elementNum = " + elementNum);
         int categoryLength = categories.length;
         int i;
         for (i = 0; i < categoryLength; i++) {
@@ -193,6 +192,7 @@ public class File {
                 int diff = elementNum - firstElementNumbers[i - 1];
                 int strID = context.getResources().getIdentifier(categoryNames[i - 1] + "_" + diff, "string", context.getPackageName());
                 if (strID != 0) {
+                    Log.d("weiwei", "elementNum = " + elementNum + ", categoryName = " + (categoryNames[i - 1] + "_" + diff));
                     return context.getString(strID);
                 } else {
                     break;
@@ -200,8 +200,9 @@ public class File {
             }
         }
         if (elementNum <= ingredientList.size()) {
-            int diff = ingredientList.size() - elementNum - 1;
+            int diff = ingredientList.size() - elementNum - 2;
             int strID = context.getResources().getIdentifier(categoryNames[i - 1] + "_" + diff, "string", context.getPackageName());
+            Log.d("weiwei", "elementNum = " + elementNum + ", categoryName = " + (categoryNames[i - 1] + "_" + diff));
             return context.getString(strID);
         }
         return "Not a formal value.";
