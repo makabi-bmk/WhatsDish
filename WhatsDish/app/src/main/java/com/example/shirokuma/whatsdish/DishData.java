@@ -48,6 +48,7 @@ public class DishData {
         while (true) {
             //内部処理に使っているxml,多言語対応の必要なし
             String resName = "fooddata_mat_var_" + ID + "_" + i;
+            Log.d("weiwei", "変数用の材料:name = " + resName + ", ID = " + strID);
             strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
             if (strID == 0) {
                 break;
@@ -57,6 +58,7 @@ public class DishData {
             //表示用の材料名を設定
             resName = "fooddata_mat_" + ID + "_" + i;
             strID = mContext.getResources().getIdentifier(resName, "string", mContext.getPackageName());
+            Log.d("weiwei", "表示用の材料:name = " + resName + ", ID = " + strID);
             if (strID == 0) {
                 break;
             }
@@ -78,6 +80,8 @@ public class DishData {
         int matLength = foodMatDetailKeys.size();
         Log.d("weiwei", "foodMatDetailKeys = " + foodMatDetailKeys + ", length = " + matLength);
         initFoodMatDetail();
+        Log.d("weiwei", "表示する材料 = " + mat);
+        Log.d("weiwei", "比較用の材料 = " + foodMatDetailKeys);
 
         for (int i = 0; i < matLength; i++) {
             String foodMatDetailKey = foodMatDetailKeys.get(i);
@@ -86,20 +90,14 @@ public class DishData {
             if (foodMatDetail.containsKey(foodMatDetailKey)) {
                 ArrayList<Integer> foodMatDetailList = foodMatDetail.get(foodMatDetailKey);
                 for (int ingredientID : foodMatDetailList) {
-
                     String cannotIngredientName = ingredientFile.getIngredientName(ingredientID);
-                    Log.d("weiwei", "使われている食材 = " + cannotIngredientName + ", ");
 
                     if (ingredientFile.getIngredientData(ingredientID).isSelect) {
-                        Log.d("weiwei", matName + "は食べられません！");
                         canEat = false;
                         if (!cannotEatIngredientList.containsKey(matName)) {
                             cannotEatIngredientList.put(matName, new ArrayList<String>());
                         }
                         cannotEatIngredientList.get(matName).add(cannotIngredientName);
-
-                    } else {
-                        Log.d("weiwei", matName + "は食べれる！");
                     }
                 }
             }

@@ -249,9 +249,7 @@ public class MainActivity extends AppCompatActivity
                 //Loadingのダイアログを閉じる
                 loadingDialog.dismiss();
 
-//                String[] receivedData = result.split("\n", 0);
-                //TODO:ここ後で直す
-                String[] receivedData = {"沖縄そば", "テビチの煮つけ", "アーサ汁"};
+                String[] receivedData = result.split("\n", 0);
                 //食事データの呼び出し
                 ArrayList<String> foodName = new ArrayList<>();
                 int i = 0;

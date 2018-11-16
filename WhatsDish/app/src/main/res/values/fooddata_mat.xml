@@ -88,13 +88,13 @@
     <string name="fooddata_mat_9_3">Pork stock</string>
     <string name="fooddata_mat_9_4">Miso</string>
 
-    <string name="fooddaa_mat_10_0">Papaya</string>
-    <string name="fooddaa_mat_10_1">Carrot</string>
-    <string name="fooddaa_mat_10_2">Chive</string>
-    <string name="fooddaa_mat_10_3">Pork</string>
-    <string name="fooddaa_mat_10_4">Salt</string>
-    <string name="fooddaa_mat_10_5">Bonito stock</string>
-    <string name="fooddaa_mat_10_6">Soy sauce</string>
+    <string name="fooddata_mat_10_0">Papaya</string>
+    <string name="fooddata_mat_10_1">Carrot</string>
+    <string name="fooddata_mat_10_2">Chive</string>
+    <string name="fooddata_mat_10_3">Pork</string>
+    <string name="fooddata_mat_10_4">Salt</string>
+    <string name="fooddata_mat_10_5">Bonito stock</string>
+    <string name="fooddata_mat_10_6">Soy sauce</string>
 
     <string name="fooddata_mat_11_0">Flour</string>
     <string name="fooddata_mat_11_1">Water</string>
