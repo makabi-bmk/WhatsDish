@@ -10,6 +10,7 @@
     <string name="action_settings">Settings</string>
     <string name="setAllergies">アレルギー製品を選択してください。</string>
     <string name="alertDialog">以下の食材を含んでいます。</string>
+    <string name="takePicture">カメラで料理のメニューを撮影してください。</string>
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
@@ -43,13 +44,13 @@
         カメラで料理のメニューを撮影してください。
     </string>
     <string name="explain2">
-        撮影したメニューから、料理の名前を読み取り、\n
-        あなたのアレルギー、好みの設定に基づき、\n
-        食べられるもの、食べられないものを判別して\n
+        撮影したメニューから、料理の名前を読み取り、
+        あなたのアレルギー、好みの設定に基づき、
+        食べられるもの、食べられないものを判別して
         表示します。
     </string>
     <string name="explain3">
-        表示された料理の名前をタップすると、\n
+        表示された料理の名前をタップすると、
         詳しい料理の説明を表示します。
     </string>
 

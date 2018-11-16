@@ -9,6 +9,7 @@
     <string name="action_settings">Settings</string>
     <string name="setAllergies">请选择您的变应素。</string>
     <string name="alertDialog">它包含以下成分</string>
+    <string name="takePicture">请用手机拍照菜单。</string>
 
     <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
 
