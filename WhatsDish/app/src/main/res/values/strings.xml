@@ -12,7 +12,8 @@
     <string name="alertDialog">It contains the following ingredients.</string>
     <string name="takePicture">Please shoot the menu with the camera.</string>
 
-    <string name="vision_api_key">AIzaSyDw2fiDn5S5njXvVDqjSemD2La-8OSI_3w</string>
+    <!--ここにAPIキーを書く-->
+    <string name="vision_api_key"></string>
 
     <string name="button_next">next</string>
     <string name="button_before">before</string>
